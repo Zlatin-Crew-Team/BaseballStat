@@ -24,7 +24,21 @@
         {
         }
 
-        public DbSet<Setting> Settings { get; set; }
+        public DbSet<Setting> Settings { get; set; } // default from template
+
+        public DbSet<Player> Players { get; set; }
+
+        public DbSet<Team> Teams { get; set; }
+
+        public DbSet<League> Leagues { get; set; }
+
+        public DbSet<Category> Categories { get; set; }
+
+        public DbSet<PlayerStatistic> PlayerStatistics { get; set; }
+
+        public DbSet<LeagueStatistic> LeagueStatistics { get; set; }
+
+        public DbSet<TeamStatistic> TeamStatistics { get; set; }
 
         public override int SaveChanges() => this.SaveChanges(true);
 
