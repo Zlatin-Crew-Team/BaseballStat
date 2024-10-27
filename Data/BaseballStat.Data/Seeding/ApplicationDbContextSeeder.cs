@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Threading.Tasks;
 
+    using BaseballStat.Data.Seeding.CustomSeeder;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Logging;
 
@@ -27,6 +28,9 @@
                           {
                               new RolesSeeder(),
                               new SettingsSeeder(),
+                              new AccountsSeeder(),
+                              new LeagueSeeder(),
+                              new TeamSeeder(),
                           };
 
             foreach (var seeder in seeders)
