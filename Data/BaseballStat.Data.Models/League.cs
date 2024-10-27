@@ -13,6 +13,9 @@
         [MaxLength(GlobalConstants.DataValidations.NameMaxLength)]
         public string Name { get; set; }
 
+        [Required]
+        public string ImageUrl { get; set; }
+
         public virtual ICollection<Team> Teams { get; set; }
     }
 }

@@ -24,7 +24,6 @@
                     Name = "American League",
 
                     ImageUrl = "https://upload.wikimedia.org/wikipedia/en/thumb/5/54/American_League_logo.svg/800px-  American_League_logo.svg.png",
-
                 },
                 new League
                 {
