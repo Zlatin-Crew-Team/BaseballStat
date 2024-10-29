@@ -1,9 +1,8 @@
 ﻿namespace BaseballStat.Web.ViewModels.Settings
 {
+    using AutoMapper;
     using BaseballStat.Data.Models;
     using BaseballStat.Services.Mapping;
-
-    using AutoMapper;
 
     public class SettingViewModel : IMapFrom<Setting>, IHaveCustomMappings
     {

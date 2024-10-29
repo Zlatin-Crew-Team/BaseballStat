@@ -31,6 +31,7 @@
                               new AccountsSeeder(),
                               new LeagueSeeder(),
                               new TeamSeeder(),
+                              new PlayerSeeder(),
                           };
 
             foreach (var seeder in seeders)
