@@ -29,7 +29,7 @@
 
             public const int DescriptionMinLength = 5;
 
-            public const int DescriptionMaxLength = 50;
+            public const int DescriptionMaxLength = 100;
 
             public const int FirstNameMinLength = 2;
 

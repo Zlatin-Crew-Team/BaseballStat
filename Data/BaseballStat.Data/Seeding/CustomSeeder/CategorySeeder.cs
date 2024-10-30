@@ -31,7 +31,8 @@
                         Description = "Players who have made a lasting impact on the game.",
                         ImageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Emblem-award-star-gold.svg/1200px-Emblem-award-star-gold.svg.png",
                     },
-                    new Category {
+                    new Category
+                    {
                         Name = "Records",
                         Description = "Records set by players and teams.",
                         ImageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Emblem-award-star-gold.svg/1200px-Emblem-award-star-gold.svg.png",

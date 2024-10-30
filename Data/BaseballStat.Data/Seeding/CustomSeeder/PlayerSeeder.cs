@@ -23,7 +23,7 @@
                 {
                     FirstName = "Rafael",
                     LastName = "Devers",
-                    ImageUrl = "https://www.mlb.com/assets/images/9/1/8/303688918/cuts/180x180/cut.jpg",
+                    ImageUrl = "https://res.cloudinary.com/dsbprqxc5/image/upload/v1730223380/images/800px-Rafael_Devers_lhxkxm.jpg",
                     Position = "3B",
                     Bats = "L",
                     Throws = "R",

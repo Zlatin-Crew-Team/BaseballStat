@@ -15,7 +15,7 @@ namespace BaseballStat.Data.Migrations
                 table: "Leagues",
                 type: "nvarchar(max)",
                 nullable: false,
-                defaultValue: "");
+                defaultValue: " ");
         }
 
         /// <inheritdoc />
