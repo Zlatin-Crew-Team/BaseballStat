@@ -8,11 +8,12 @@
     using BaseballStat.Data.Models;
     using BaseballStat.Data.Repositories;
     using BaseballStat.Data.Seeding;
+    using BaseballStat.Services.Cloudinary;
     using BaseballStat.Services.Data;
     using BaseballStat.Services.Mapping;
     using BaseballStat.Services.Messaging;
     using BaseballStat.Web.ViewModels;
-
+    using CloudinaryDotNet;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
@@ -57,14 +58,26 @@
 
             services.AddSingleton(configuration);
 
+
             // Data repositories
             services.AddScoped(typeof(IDeletableEntityRepository<>), typeof(EfDeletableEntityRepository<>));
             services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
             services.AddScoped<IDbQueryRunner, DbQueryRunner>();
 
+            // Cloudinary Setup
+
+            Cloudinary cloudinary = new Cloudinary(new Account
+            {
+                Cloud = configuration["Cloudinary:CloudName"],
+                ApiKey = configuration["Cloudinary:ApiKey"],
+                ApiSecret = configuration["Cloudinary:ApiSecret"],
+            });
+            services.AddSingleton(cloudinary);
+
             // Application services
             services.AddTransient<IEmailSender, NullMessageSender>();
             services.AddTransient<ISettingsService, SettingsService>();
+            services.AddTransient<ICloudinaryService, CloudinaryService>();
         }
 
         private static void Configure(WebApplication app)
