@@ -51,5 +51,23 @@
 
             public const int FoundedYearMaxValue = 2020;
         }
+
+        public static class ErrorMesages
+        {
+            public const string Name = "Name must be between 2 and 40 characters.";
+
+            public const string Description = "Description must be between 5 and 100 characters.";
+
+            public const string Image = "Please select a JPG, JPEG or PNG image smaller than 1MB.";
+        }
+
+        public static class SeededDataCounts
+        {
+            public const int LeaguesCount = 2;
+
+            public const int TeamsCount = 30;
+
+            public const int PlayersCount = 61;
+        }
     }
 }

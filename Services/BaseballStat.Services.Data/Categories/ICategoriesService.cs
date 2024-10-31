@@ -6,7 +6,7 @@
     using System.Text;
     using System.Threading.Tasks;
 
-    public interface ICategoriesService 
+    public interface ICategoriesService
     {
         Task<IEnumerable<T>> GetAllAsync<T>(int? count = null);
 
