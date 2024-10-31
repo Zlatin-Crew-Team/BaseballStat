@@ -58,14 +58,12 @@
 
             services.AddSingleton(configuration);
 
-
             // Data repositories
             services.AddScoped(typeof(IDeletableEntityRepository<>), typeof(EfDeletableEntityRepository<>));
             services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
             services.AddScoped<IDbQueryRunner, DbQueryRunner>();
 
             // Cloudinary Setup
-
             Cloudinary cloudinary = new Cloudinary(new Account
             {
                 Cloud = configuration["Cloudinary:CloudName"],

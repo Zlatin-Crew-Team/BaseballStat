@@ -1,6 +1,7 @@
 ﻿namespace BaseballStat.Web.Controllers
 {
     using System.Diagnostics;
+    using System.Threading.Tasks;
 
     using BaseballStat.Web.ViewModels;
 
