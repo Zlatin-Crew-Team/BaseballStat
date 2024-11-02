@@ -4,8 +4,12 @@
     using System.Threading.Tasks;
 
     using BaseballStat.Web.ViewModels;
-
+    using CloudinaryDotNet;
+    using CloudinaryDotNet.Actions;
+    using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Build.Framework;
+    using Microsoft.Extensions.Logging;
 
     public class HomeController : BaseController
     {
