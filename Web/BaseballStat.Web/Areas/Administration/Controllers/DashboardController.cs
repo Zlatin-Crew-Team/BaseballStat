@@ -1,6 +1,6 @@
 ﻿namespace BaseballStat.Web.Areas.Administration.Controllers
 {
-    using BaseballStat.Services.Data;
+    using BaseballStat.Services.Data.Setting;
     using BaseballStat.Web.ViewModels.Administration.Dashboard;
 
     using Microsoft.AspNetCore.Mvc;

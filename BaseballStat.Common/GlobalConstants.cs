@@ -61,6 +61,13 @@
             public const string Image = "Please select a JPG, JPEG or PNG image smaller than 1MB.";
         }
 
+        public static class Images
+        {
+            public const string Index = "https://res.cloudinary.com/dsbprqxc5/image/upload/t_mlb/v1730372127/baseballstat/mbevkq8octhz8xngctot_erekd9.jpg";
+
+            public const string CoverBackground = "https://res.cloudinary.com/dsbprqxc5/image/upload/c_crop,w_1900,h_1200/v1730636786/kqpmsiks5sfn6fojbdrh_ofvjiy.png";
+        }
+
         public static class SeededDataCounts
         {
             public const int LeaguesCount = 2;

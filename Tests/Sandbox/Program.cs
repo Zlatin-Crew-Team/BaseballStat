@@ -11,7 +11,7 @@
     using BaseballStat.Data.Models;
     using BaseballStat.Data.Repositories;
     using BaseballStat.Data.Seeding;
-    using BaseballStat.Services.Data;
+    using BaseballStat.Services.Data.Setting;
     using BaseballStat.Services.Messaging;
 
     using CommandLine;

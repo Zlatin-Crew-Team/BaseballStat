@@ -8,7 +8,7 @@
     using BaseballStat.Data.Common.Repositories;
     using BaseballStat.Data.Models;
     using BaseballStat.Data.Repositories;
-
+    using BaseballStat.Services.Data.Setting;
     using Microsoft.EntityFrameworkCore;
 
     using Moq;
