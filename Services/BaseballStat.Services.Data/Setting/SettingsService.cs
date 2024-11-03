@@ -1,4 +1,4 @@
-﻿namespace BaseballStat.Services.Data
+﻿namespace BaseballStat.Services.Data.Setting
 {
     using System.Collections.Generic;
     using System.Linq;

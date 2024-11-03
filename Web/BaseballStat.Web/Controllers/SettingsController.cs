@@ -5,7 +5,7 @@
 
     using BaseballStat.Data.Common.Repositories;
     using BaseballStat.Data.Models;
-    using BaseballStat.Services.Data;
+    using BaseballStat.Services.Data.Setting;
     using BaseballStat.Web.ViewModels.Settings;
 
     using Microsoft.AspNetCore.Mvc;

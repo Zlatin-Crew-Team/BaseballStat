@@ -11,8 +11,8 @@
     using BaseballStat.Data.Repositories;
     using BaseballStat.Data.Seeding;
     using BaseballStat.Services.Cloudinary;
-    using BaseballStat.Services.Data;
     using BaseballStat.Services.Data.Categories;
+    using BaseballStat.Services.Data.Setting;
     using BaseballStat.Services.Mapping;
     using BaseballStat.Services.Messaging;
     using BaseballStat.Web.ViewModels;
