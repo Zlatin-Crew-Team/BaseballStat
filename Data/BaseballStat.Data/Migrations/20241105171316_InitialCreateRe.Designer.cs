@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BaseballStat.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241029171801_IncreaseDataValidations")]
-    partial class IncreaseDataValidations
+    [Migration("20241105171316_InitialCreateRe")]
+    partial class InitialCreateRe
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
