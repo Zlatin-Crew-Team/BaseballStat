@@ -23,19 +23,19 @@
                     {
                         Name = "Awards",
                         Description = "Awards given to players and teams for outstanding performance.",
-                        ImageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Emblem-award-star-gold.svg/1200px-Emblem-award-star-gold.svg.png",
+                        ImageUrl = "https://res.cloudinary.com/dsbprqxc5/image/upload/v1730372127/baseballstat/mlb-awards-graphic-2021-5fd2945649422_socbq3.jpg",
                     },
                     new Category
                     {
                         Name = "All Time Greats",
                         Description = "Players who have made a lasting impact on the game.",
-                        ImageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Emblem-award-star-gold.svg/1200px-Emblem-award-star-gold.svg.png",
+                        ImageUrl = "https://res.cloudinary.com/dsbprqxc5/image/upload/v1721116710/restricted_i2di77.jpg",
                     },
                     new Category
                     {
                         Name = "Records",
                         Description = "Records set by players and teams.",
-                        ImageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Emblem-award-star-gold.svg/1200px-Emblem-award-star-gold.svg.png",
+                        ImageUrl = "https://res.cloudinary.com/dsbprqxc5/image/upload/v1730372126/baseballstat/6ebc-10-23-ImagesGoldenGlove_vy7rqr.png",
                     },
                 };
             foreach (var category in categories)

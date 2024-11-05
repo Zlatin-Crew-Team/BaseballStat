@@ -23,13 +23,13 @@
                 {
                     Name = "American League",
 
-                    ImageUrl = "https://upload.wikimedia.org/wikipedia/en/thumb/5/54/American_League_logo.svg/800px-  American_League_logo.svg.png",
+                    ImageUrl = "https://res.cloudinary.com/dsbprqxc5/image/upload/v1730651874/Mlb%20Logos/_american_league_logo_primary_20193833_f1swqu.png",
                 },
                 new League
                 {
                     Name = "National League",
 
-                    ImageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdN8IBk91qrItuyZFGy7nGGCk9BP1HJNR-zg&s",
+                    ImageUrl = "https://res.cloudinary.com/dsbprqxc5/image/upload/v1730651980/Mlb%20Logos/9184__national_league-primary-2019_nkmoil.png",
                 },
             };
             foreach (var league in leagues)
