@@ -12,6 +12,7 @@
     using BaseballStat.Data.Seeding;
     using BaseballStat.Services.Cloudinary;
     using BaseballStat.Services.Data.Categories;
+    using BaseballStat.Services.Data.Player;
     using BaseballStat.Services.Data.Setting;
     using BaseballStat.Services.Mapping;
     using BaseballStat.Services.Messaging;
@@ -78,6 +79,7 @@
             services.AddTransient<ISettingsService, SettingsService>();
             services.AddTransient<ICloudinaryService, CloudinaryService>();
             services.AddTransient<ICategoriesService, CategoriesService>();
+            services.AddTransient<IPlayerService, PlayerService>();
         }
 
         private static void Configure(WebApplication app)

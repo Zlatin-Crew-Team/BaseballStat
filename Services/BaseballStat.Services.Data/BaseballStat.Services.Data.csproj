@@ -21,6 +21,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Data\BaseballStat.Data.Common\BaseballStat.Data.Common.csproj" />
     <ProjectReference Include="..\..\Data\BaseballStat.Data.Models\BaseballStat.Data.Models.csproj" />
+    <ProjectReference Include="..\..\Web\BaseballStat.Web.ViewModels\BaseballStat.Web.ViewModels.csproj" />
     <ProjectReference Include="..\BaseballStat.Services.Mapping\BaseballStat.Services.Mapping.csproj" />
   </ItemGroup>
 
