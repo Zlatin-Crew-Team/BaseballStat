@@ -23,7 +23,7 @@
                 {
                     FirstName = "Rafael",
                     LastName = "Devers",
-                    ImageUrl = "https://res.cloudinary.com/dsbprqxc5/image/upload/v1730223380/images/800px-Rafael_Devers_lhxkxm.jpg",
+                    ImageUrl = "https://res.cloudinary.com/dsbprqxc5/image/upload/v1730975716/Players/910d1ca4_mlbam_k6mwts.jpg",
                     Position = "3B",
                     Bats = "L",
                     Throws = "R",
