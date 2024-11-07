@@ -1,0 +1,38 @@
+﻿@model BaseballStat.Web.ViewModels.Player.PlayerListViewModel
+    
+@{
+    this.ViewData["Title"] = "Players of BaseballStat";
+}
+
+<div class="row">
+    <!-- Player Posts -->
+    @foreach (var player in Model.Players)
+    {
+        <div class="col-lg-4">
+            <hr class="bg-dark mx-4" style="height: 6px;" />
+            <!-- Player Post -->
+            <div class="card">
+                <img src="@player.ImageUrl" class="card-img-top" alt="@player.FirstName @player.LastName">
+                <div class="card-body">
+                    <h2 class="card-title text-center">@player.FirstName @player.LastName</h2>
+                    <p class="card-text">Position: @player.Position</p>
+                    <p class="card-text">Bats: @player.Bats</p>
+                    <p class="card-text">Throws: @player.Throws</p>
+                    <p class="card-text">Year of Birth: @player.YearOfBirth</p>
+                    <div class="text-center">
+                        <div class="row">
+                            <div class="col">
+                                <div class="button button-large button_1 elements_button mt-4">
+                                    <a asp-area="" asp-controller="Player" asp-action="PlayerStatistic" asp-route-id="@player.TeamId">
+                                        <label for="submit" class="btn btn-primary">PlayerStatistic</label>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+

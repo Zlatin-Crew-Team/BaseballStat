@@ -14,28 +14,14 @@
             <div class="card">
                 <img src="@category.ImageUrl" class="card-img-top" alt="@category.Name">
                 <div class="card-body">
-                    <h5 class="card-title text-center">@category.Name</h5>
+                    <h2 class="card-title text-center">@category.Name</h2>
                     <p class="card-text">@category.Description</p>
                     <div class="text-center">
                         <div class="row">
                             <div class="col">
-                                <div class="about_text_highlight">
-                                    Explore baseball stats in 3 easy steps:
-                                </div>
-                                <div class="about_text_2">
-                                    <ul>
-                                        <li>1. Find a category.</li>
-                                        <li>2. Choose a stat type.</li>
-                                        <li>3. View detailed stats.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
                                 <div class="button button-large button_1 elements_button mt-4">
                                     <a asp-area="" asp-controller="Categories" asp-action="Details" asp-route-id="@category.Id">
-                                        <label for="submit" class="btn btn-primary">View Stats</label>
+                                        <label for="submit" class="btn btn-primary">Details</label>
                                     </a>
                                         
                                 </div>
@@ -48,14 +34,4 @@
     }
 </div>
 
-<div class="row mt-4">
-    <div class="col">
-        <form asp-action="UploadImage" asp-controller="Categories" method="post" enctype="multipart/form-data">
-            <div class="form-group">
-                <label for="imageUpload">Upload Image</label>
-                <input type="file" class="form-control-file" id="imageUpload" name="file">
-            </div>
-            <button type="submit" class="btn btn-primary">Upload</button>
-        </form>
-    </div>
-</div>
+
