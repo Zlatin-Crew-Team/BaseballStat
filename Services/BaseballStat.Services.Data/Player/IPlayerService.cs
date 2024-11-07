@@ -6,13 +6,15 @@
     using System.Text;
     using System.Threading.Tasks;
 
+    using BaseballStat.Web.ViewModels.Player;
+
     public interface IPlayerService
     {
-        Task<IEnumerable<T>> GetAllPlayersAsync<T>();
+        Task<IEnumerable<T>> GetAllPlayersAsync<T>(int? count = null);
 
         Task<T> GetByIdAsync<T>(int id);
 
-        Task AddPlayerAsync(string firstname, string lastname, string position);
+        Task AddPlayerAsync(string firstName, string lastName, string position, string bats, string throws, string imageUrl);
 
         Task DeletePlayerAsync(int id);
     }
