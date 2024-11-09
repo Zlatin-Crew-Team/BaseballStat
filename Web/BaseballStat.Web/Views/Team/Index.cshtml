@@ -1,0 +1,35 @@
+﻿@model BaseballStat.Web.ViewModels.Team.TeamListViewModel
+
+@{
+    this.ViewData["Title"] = "Teams of BaseballStat";
+}
+
+<div class="row">
+    <!-- Team Posts -->
+    @foreach (var team in Model.Teams)
+    {
+        <div class="col-lg-3">
+            <hr class="bg-dark mx-4" style="height: 6px;" />
+            <!-- Team Post -->
+            <div class="card">
+                <img src="@team.LogoUrl" class="card-img-top" alt="@team.Name">
+                <div class="card-body">
+                    <h2 class="card-title text-center">@team.Name</h2>
+                    <p class="card-text">City: @team.City</p>
+                    <p class="card-text">Stadium: @team.Stadium</p>
+                    <div class="text-center">
+                        <div class="row">
+                            <div class="col">
+                                <div class="button button-large button_1 elements_button mt-4">
+                                    <a asp-area="" asp-controller="Team" asp-action="TeamDetails" >
+                                        <label for="submit" class="btn btn-primary">Team Details</label>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
