@@ -25,7 +25,7 @@
                     City = "Boston",
                     FoundedYear = "1901",
                     LeagueId = 1,
-                    LogoUrl = "https://res.cloudinary.com/dsbprqxc5/image/upload/v1730383347/baseballstat/boston_red_sox_logo_primary_dark_20091090_b5tf6z.png",
+                    LogoUrl = "https://res.cloudinary.com/dsbprqxc5/image/upload/v1730383347/Mlb%20Logos/boston_red_sox_logo_primary_dark_20091090_b5tf6z.png",
                     Owner = "Fenway Sports Group",
                     Stadium = "Fenway Park",
                 },
