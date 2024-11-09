@@ -14,6 +14,7 @@
     using BaseballStat.Services.Data.Categories;
     using BaseballStat.Services.Data.Player;
     using BaseballStat.Services.Data.Setting;
+    using BaseballStat.Services.Data.Teams;
     using BaseballStat.Services.Mapping;
     using BaseballStat.Services.Messaging;
     using BaseballStat.Web.ViewModels;
@@ -80,6 +81,7 @@
             services.AddTransient<ICloudinaryService, CloudinaryService>();
             services.AddTransient<ICategoriesService, CategoriesService>();
             services.AddTransient<IPlayerService, PlayerService>();
+            services.AddTransient<ITeamService, TeamService>();
         }
 
         private static void Configure(WebApplication app)
