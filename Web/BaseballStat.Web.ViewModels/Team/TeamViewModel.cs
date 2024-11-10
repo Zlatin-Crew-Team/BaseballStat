@@ -8,7 +8,6 @@
     public class TeamViewModel : IMapFrom<Team>
     {
         [Required]
-
         public string Name { get; set; }
 
         [Required]
@@ -16,6 +15,12 @@
 
         [Required]
         public string Stadium { get; set; }
+
+        [Required]
+        public string FoundedYear { get; set; }
+
+        [Required]
+        public string Owner { get; set; }
 
         [Required]
         public string LogoUrl { get; set; }

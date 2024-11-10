@@ -60,7 +60,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\League\" />
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
 </Project>

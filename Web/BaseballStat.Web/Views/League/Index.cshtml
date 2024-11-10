@@ -1,0 +1,33 @@
+﻿@model BaseballStat.Web.ViewModels.League.LeagueListViewModel
+
+@{
+    this.ViewData["Title"] = "Leagues of BaseballStat";
+}
+
+<div class="row">
+    <!-- League Posts -->
+    @foreach (var league in Model.Leagues)
+    {
+        <div class="col-lg-6">
+            <hr class="bg-dark mx-4" style="height: 6px;" />
+            <!-- League Post -->
+            <div class="card">
+                <img src="@league.ImageUrl" class="card-img-top" alt="@league.Name">
+                <div class="card-body">
+                    <h2 class="card-title text-center">@league.Name</h2>
+                    <div class="text-center">
+                        <div class="row">
+                            <div class="col">
+                                <div class="button button-large button_1 elements_button mt-4">
+                                    <a asp-area="" asp-controller="League" asp-action="LeagueDetails">
+                                        <label for="submit" class="btn btn-primary">League Details</label>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
