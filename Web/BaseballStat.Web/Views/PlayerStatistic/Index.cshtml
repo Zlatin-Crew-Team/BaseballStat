@@ -1,0 +1,22 @@
+﻿@model BaseballStat.Web.ViewModels.PlayerStatistic.PlayerStatisticViewModel
+
+@{
+    ViewData["Title"] = "Player Statistics";
+}
+
+
+
+<div>
+    <img src="@Model.ImageUrl" alt="Player Image" style="width:200px;height:200px;" />
+</div>
+
+<div>
+    <h3>Statistics</h3>
+    <p><strong>Games:</strong> @Model.Games</p>
+    <p><strong>At Bats:</strong> @Model.AtBats</p>
+    <p><strong>Runs:</strong> @Model.Runs</p>
+    <p><strong>Hits:</strong> @Model.Hits</p>
+    <p><strong>Doubles:</strong> @Model.Doubles</p>
+    <p><strong>Triples:</strong> @Model.Triples</p>
+    <p><strong>Home Runs:</strong> @Model.HomeRuns</p>
+</div>

@@ -15,15 +15,15 @@
                 <img src="@player.ImageUrl" class="card-img-top" alt="@player.FirstName @player.LastName">
                 <div class="card-body">
                     <h2 class="card-title text-center">@player.FirstName @player.LastName</h2>
-                    <p class="card-text">Position: @player.Position</p>
-                    <p class="card-text">Bats: @player.Bats</p>
-                    <p class="card-text">Throws: @player.Throws</p>
-                    <p class="card-text">Year of Birth: @player.YearOfBirth</p>
+                    <p class="card-text"><b>Position:</b> @player.Position</p>
+                    <p class="card-text"><b>Bats:</b> @player.Bats</p>
+                    <p class="card-text"><b>Throws:</b> @player.Throws</p>
+                    <p class="card-text"><b>Year of Birth:</b> @player.YearOfBirth</p>
                     <div class="text-center">
                         <div class="row">
                             <div class="col">
                                 <div class="button button-large button_1 elements_button mt-4">
-                                    <a asp-area="" asp-controller="Player" asp-action="PlayerStatistic" asp-route-id="@player.TeamId">
+                                    <a asp-area="" asp-controller="PlayerStatistic" asp-action="Index" asp-route-id="@player.Id">
                                         <label for="submit" class="btn btn-primary">PlayerStatistic</label>
                                     </a>
                                 </div>

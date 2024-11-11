@@ -13,6 +13,8 @@
 
     public class PlayerViewModel : IMapFrom<Player>
     {
+        public int Id { get; set; }
+
         [Required]
         [MaxLength(GlobalConstants.DataValidations.FirstNameMaxLength)]
         public string FirstName { get; set; }

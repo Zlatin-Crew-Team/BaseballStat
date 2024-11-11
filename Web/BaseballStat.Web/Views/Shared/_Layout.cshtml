@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
 </head>
 <body style="background-image: url('@GlobalConstants.Images.CoverBackground'); background-size: cover;">
+        <partial name="_CookieConsentPartial" />
 
     <header >
         <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -49,7 +50,6 @@
     </header>
 
     <div class="container" style="background-image: url('@GlobalConstants.Images.Index'); background-size: cover;">
-        <partial name="_CookieConsentPartial" />
         <main role="main" class="pb-3">
             @this.RenderBody()
         </main>

@@ -14,6 +14,7 @@
     using BaseballStat.Services.Data.Categories;
     using BaseballStat.Services.Data.League;
     using BaseballStat.Services.Data.Player;
+    using BaseballStat.Services.Data.PlayerStattistic;
     using BaseballStat.Services.Data.Setting;
     using BaseballStat.Services.Data.Teams;
     using BaseballStat.Services.Mapping;
@@ -84,6 +85,7 @@
             services.AddTransient<IPlayerService, PlayerService>();
             services.AddTransient<ITeamService, TeamService>();
             services.AddTransient<ILeagueService, LeagueService>();
+            services.AddTransient<IPlayerStatisticService, PlayerStatisticService>();
         }
 
         private static void Configure(WebApplication app)
