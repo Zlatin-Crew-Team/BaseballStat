@@ -4,16 +4,20 @@
     using System.Threading.Tasks;
 
     using BaseballStat.Services.Data.Player;
+    using BaseballStat.Services.Data.PlayerStattistic;
     using BaseballStat.Web.ViewModels.Player;
+    using BaseballStat.Web.ViewModels.PlayerStatistic;
     using Microsoft.AspNetCore.Mvc;
 
     public class PlayerController : BaseController
     {
         private readonly IPlayerService playerService;
+        private readonly IPlayerStatisticService playerStatisticService;
 
-        public PlayerController(IPlayerService playerService)
+        public PlayerController(IPlayerService playerService, IPlayerStatisticService playerStatisticService)
         {
             this.playerService = playerService;
+            this.playerStatisticService = playerStatisticService;
         }
 
         public async Task<IActionResult> Index()
@@ -24,6 +28,12 @@
             };
 
             return this.View(viewModel);
+        }
+
+        public IActionResult PlayerStatistic(int playerId)
+        {
+            var playerStatistic = this.playerService.GetByIdAsync<PlayerStatisticViewModel>(playerId).GetAwaiter().GetResult();
+            return this.View(playerStatistic);
         }
     }
 }
