@@ -7,6 +7,8 @@
 
     using AutoMapper;
     using AutoMapper.Configuration;
+    using BaseballStat.Data.Models;
+   
 
     public static class AutoMapperConfig
     {
@@ -47,6 +49,11 @@
                     {
                         map.CreateMappings(configuration);
                     }
+
+                    // Add my specific mappings
+                    configuration.CreateMap<Player, PlayerStatisticViewModel>();
+                    configuration.CreateMap<Team, TeamStatisticViewModel>();
+                    configuration.CreateMap<League, LeagueStatisticViewModel>();
                 });
             MapperInstance = new Mapper(new MapperConfiguration(config));
         }
