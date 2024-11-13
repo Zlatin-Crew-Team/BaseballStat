@@ -16,10 +16,10 @@
             this.playerStatisticService = playerStatisticService;
         }
 
-        public async Task<IActionResult> Index(int playerId)
+        public async Task<IActionResult> Index(int id)
         {
-            var viewModel = await this.playerStatisticService.GetByIdAsync<PlayerStatisticViewModel>(playerId);
-            return this.View(viewModel);
+            var player = await this.playerStatisticService.GetByIdAsync<PlayerStatisticViewModel>(id);
+            return this.View(player);
         }
     }
 }

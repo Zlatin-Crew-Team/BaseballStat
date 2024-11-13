@@ -14,10 +14,9 @@
         private readonly IPlayerService playerService;
         private readonly IPlayerStatisticService playerStatisticService;
 
-        public PlayerController(IPlayerService playerService, IPlayerStatisticService playerStatisticService)
+        public PlayerController(IPlayerService playerService)
         {
             this.playerService = playerService;
-            this.playerStatisticService = playerStatisticService;
         }
 
         public async Task<IActionResult> Index()
@@ -28,12 +27,6 @@
             };
 
             return this.View(viewModel);
-        }
-
-        public IActionResult PlayerStatistic(int playerId)
-        {
-            var playerStatistic = this.playerService.GetByIdAsync<PlayerStatisticViewModel>(playerId).GetAwaiter().GetResult();
-            return this.View(playerStatistic);
         }
     }
 }
