@@ -66,5 +66,14 @@
                 .FirstOrDefault();
             return Task.FromResult(player);
         }
+
+        public Task GetPlayerStatisticByIdAsync(int id)
+        {
+            var player = this.playersRepository
+                .AllAsNoTracking()
+                .Where(x => x.Id == id)
+                .FirstOrDefault();
+            return Task.CompletedTask;
+        }
     }
 }

@@ -14,8 +14,8 @@
 
         Task<IEnumerable<T>> GetAllPlayerStatisticsAsync<T>(int? count = null);
 
-        Task AddPlayerStatisticAsync(PlayerStatisticViewModel playerStatisticViewModel);
-
         Task DeletePlayerStatisticAsync(int id);
+
+        Task<T> GetPlayerStatisticByIdAsync<T>(int id);
     }
 }

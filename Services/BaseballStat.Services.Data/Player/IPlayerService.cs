@@ -17,5 +17,7 @@
         Task AddPlayerAsync(string firstName, string lastName, string position, string bats, string throws, string imageUrl);
 
         Task DeletePlayerAsync(int id);
+
+        Task GetPlayerStatisticByIdAsync(int id);
     }
 }

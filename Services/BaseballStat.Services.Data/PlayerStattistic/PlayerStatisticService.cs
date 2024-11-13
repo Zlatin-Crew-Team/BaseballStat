@@ -15,29 +15,11 @@
 
     public class PlayerStatisticService : IPlayerStatisticService
     {
-        private readonly IDeletableEntityRepository<BaseballStat.Data.Models.PlayerStatisticViewModel> playersStatistics;
+        private readonly IDeletableEntityRepository<PlayerStatistic> playersStatistics;
 
-        public PlayerStatisticService(IDeletableEntityRepository<BaseballStat.Data.Models.PlayerStatisticViewModel> playersStatistics)
+        public PlayerStatisticService(IDeletableEntityRepository<PlayerStatistic> playersStatistics)
         {
             this.playersStatistics = playersStatistics;
-        }
-
-        public async Task AddPlayerStatisticAsync(Web.ViewModels.PlayerStatistic.PlayerStatisticViewModel playerStatisticViewModel)
-        {
-            var playerStatistic = new BaseballStat.Data.Models.PlayerStatisticViewModel
-            {
-                PlayerId = playerStatisticViewModel.PlayerId,
-                Games = playerStatisticViewModel.Games,
-                AtBats = playerStatisticViewModel.AtBats,
-                Runs = playerStatisticViewModel.Runs,
-                Hits = playerStatisticViewModel.Hits,
-                Doubles = playerStatisticViewModel.Doubles,
-                Triples = playerStatisticViewModel.Triples,
-                HomeRuns = playerStatisticViewModel.HomeRuns,
-                ImageUrl = playerStatisticViewModel.ImageUrl,
-            };
-            await this.playersStatistics.AddAsync(playerStatistic);
-            await this.playersStatistics.SaveChangesAsync();
         }
 
         public async Task DeletePlayerStatisticAsync(int id)
@@ -52,7 +34,7 @@
 
         public async Task<IEnumerable<T>> GetAllPlayerStatisticsAsync<T>(int? count = null)
         {
-            IQueryable<BaseballStat.Data.Models.PlayerStatisticViewModel> query = this.playersStatistics
+            IQueryable<PlayerStatisticViewModel> query = (IQueryable<PlayerStatisticViewModel>)this.playersStatistics
                .All()
                .OrderBy(x => x.Id);
             if (count.HasValue)
@@ -64,6 +46,16 @@
         }
 
         public async Task<T> GetByIdAsync<T>(int id)
+        {
+            var playerStatistic = await this.playersStatistics
+                .All()
+                .Where(x => x.Id == id)
+                .To<T>()
+                .FirstOrDefaultAsync();
+            return playerStatistic;
+        }
+
+        public async Task<T> GetPlayerStatisticByIdAsync<T>(int id)
         {
             var playerStatistic = await this.playersStatistics
                 .All()
