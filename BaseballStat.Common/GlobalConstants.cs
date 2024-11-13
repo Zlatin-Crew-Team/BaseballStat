@@ -107,7 +107,7 @@
 
         public static class Images
         {
-            public const string Index = "https://res.cloudinary.com/dsbprqxc5/image/upload/t_mlb/v1730372127/baseballstat/mbevkq8octhz8xngctot_erekd9.jpg";
+            public const string Index = "https://res.cloudinary.com/dsbprqxc5/image/upload/v1731519246/Players/background-with-baseball-aqua-color_1040322-10408_f4c8gv.jpg";
 
             public const string CoverBackground = "https://res.cloudinary.com/dsbprqxc5/image/upload/c_crop,w_1900,h_1200/v1730636786/kqpmsiks5sfn6fojbdrh_ofvjiy.png";
         }
@@ -118,7 +118,9 @@
 
             public const int TeamsCount = 30;
 
-            public const int PlayersCount = 61;
+            public const int PlayersCount = 59;
+
+            public const int PlayerStatisticsCount = 59;
         }
     }
 }
