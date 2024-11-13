@@ -40,6 +40,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\BaseballStat.Common\BaseballStat.Common.csproj" />
+    <ProjectReference Include="..\..\Web\BaseballStat.Web.ViewModels\BaseballStat.Web.ViewModels.csproj" />
     <ProjectReference Include="..\BaseballStat.Data.Common\BaseballStat.Data.Common.csproj" />
     <ProjectReference Include="..\BaseballStat.Data.Models\BaseballStat.Data.Models.csproj" />
   </ItemGroup>

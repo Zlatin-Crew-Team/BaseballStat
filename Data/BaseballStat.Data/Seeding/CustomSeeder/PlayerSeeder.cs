@@ -468,7 +468,7 @@
                     Bats = "L",
                     Throws = "L",
                     YearOfBirth = 1995,
-                    TeamId = 22,
+                    TeamId = 21,
                 },
                 new Player
                 {
@@ -479,7 +479,7 @@
                     Bats = "S",
                     Throws = "R",
                     YearOfBirth = 1994,
-                    TeamId = 22,
+                    TeamId = 21,
                 },
                 new Player
                 {
@@ -490,7 +490,7 @@
                     Bats = "R",
                     Throws = "R",
                     YearOfBirth = 1996,
-                    TeamId = 23,
+                    TeamId = 22,
                 },
                 new Player
                 {
@@ -501,7 +501,7 @@
                     Bats = "R",
                     Throws = "R",
                     YearOfBirth = 1996,
-                    TeamId = 23,
+                    TeamId = 22,
                 },
                 new Player
                 {
@@ -512,7 +512,7 @@
                     Bats = "L",
                     Throws = "R",
                     YearOfBirth = 1991,
-                    TeamId = 24,
+                    TeamId = 23,
                 },
                 new Player
                 {
@@ -523,7 +523,7 @@
                     Bats = "L",
                     Throws = "R",
                     YearOfBirth = 1993,
-                    TeamId = 24,
+                    TeamId = 23,
                 },
                 new Player
                 {
@@ -534,7 +534,7 @@
                     Bats = "R",
                     Throws = "R",
                     YearOfBirth = 2002,
-                    TeamId = 25,
+                    TeamId = 24,
                 },
                 new Player
                 {
@@ -545,7 +545,7 @@
                     Bats = "R",
                     Throws = "R",
                     YearOfBirth = 1997,
-                    TeamId = 25,
+                    TeamId = 24,
                 },
                 new Player
                 {
@@ -556,7 +556,7 @@
                     Bats = "R",
                     Throws = "R",
                     YearOfBirth = 1991,
-                    TeamId = 26,
+                    TeamId = 25,
                 },
                 new Player
                 {
@@ -567,7 +567,7 @@
                     Bats = "R",
                     Throws = "R",
                     YearOfBirth = 1987,
-                    TeamId = 26,
+                    TeamId = 25,
                 },
                 new Player
                 {
@@ -578,7 +578,7 @@
                     Bats = "R",
                     Throws = "R",
                     YearOfBirth = 1995,
-                    TeamId = 27,
+                    TeamId = 26,
                 },
                 new Player
                 {
@@ -589,7 +589,7 @@
                     Bats = "S",
                     Throws = "R",
                     YearOfBirth = 1993,
-                    TeamId = 27,
+                    TeamId = 26,
                 },
                 new Player
                 {
@@ -600,7 +600,7 @@
                     Bats = "L",
                     Throws = "R",
                     YearOfBirth = 1994,
-                    TeamId = 28,
+                    TeamId = 27,
                 },
                 new Player
                 {
@@ -611,7 +611,7 @@
                     Bats = "L",
                     Throws = "L",
                     YearOfBirth = 1986,
-                    TeamId = 28,
+                    TeamId = 27,
                 },
                 new Player
                 {
@@ -622,7 +622,7 @@
                     Bats = "R",
                     Throws = "R",
                     YearOfBirth = 1992,
-                    TeamId = 29,
+                    TeamId = 28,
                 },
                 new Player
                 {
@@ -633,7 +633,7 @@
                     Bats = "L",
                     Throws = "L",
                     YearOfBirth = 1988,
-                    TeamId = 29,
+                    TeamId = 28,
                 },
                 new Player
                 {
@@ -644,7 +644,7 @@
                     Bats = "L",
                     Throws = "R",
                     YearOfBirth = 1994,
-                    TeamId = 29,
+                    TeamId = 28,
                 },
                 new Player
                 {
@@ -655,7 +655,7 @@
                     Bats = "R",
                     Throws = "R",
                     YearOfBirth = 1999,
-                    TeamId = 30,
+                    TeamId = 29,
                 },
                 new Player
                 {
@@ -666,7 +666,29 @@
                     Bats = "R",
                     Throws = "R",
                     YearOfBirth = 1992,
+                    TeamId = 29,
+                },
+                new Player
+                {
+                    FirstName = "Matt",
+                    LastName = "Chapman",
+                    ImageUrl = "https://res.cloudinary.com/dsbprqxc5/image/upload/v1731514986/Players/f4e771ca_mlbam_x8xllq.jpg",
+                    Position = "3B",
+                    Bats = "R",
+                    Throws = "R",
+                    YearOfBirth = 1993,
                     TeamId = 30,
+                },
+                new Player
+                {
+                     FirstName = "Michael",
+                     LastName = "Conforto",
+                     ImageUrl = "https://res.cloudinary.com/dsbprqxc5/image/upload/v1731514952/Players/8b2cf761_mlbam_qpusjk.jpg",
+                     Position = "RF",
+                     Bats = "L",
+                     Throws = "R",
+                     YearOfBirth = 1993,
+                     TeamId = 30,
                 },
             };
             foreach (var player in players)
