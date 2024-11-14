@@ -83,6 +83,25 @@
             public const int HomeRunsMaxValue = 800;
         }
 
+        public static class TeamStatistic
+        {
+            public const int GamesMinValue = 0;
+
+            public const int GamesMaxValue = 25000;
+
+            public const int WinsMinValue = 1000;
+
+            public const int WinsMaxValue = 1300;
+
+            public const int LossesMinValue = 1000;
+
+            public const int LossesMaxValue = 1300;
+
+            public const int TitlesMinValue = 0;
+
+            public const int TitlesMaxValue = 40;
+        }
+
         public static class ErrorMesages
         {
             public const string Name = "Name must be between 2 and 40 characters.";
@@ -98,11 +117,32 @@
             public const string Runs = "Runs must be between 0 and 4000.";
 
             public const string Hits = "Hits must be between 0 and 4280.";
+
             public const string Doubles = "Doubles must be between 0 and 1800.";
 
             public const string Triples = "Triples must be between 0 and 700.";
 
             public const string HomeRuns = "Home Runs must be between 0 and 800.";
+
+            public const string FoundedYear = "Founded year must be between 1880 and 2020.";
+
+            public const string YearOfBirth = "Year of birth must be between 1880 and 2005.";
+
+            public const string City = "City must be between 2 and 20 characters.";
+
+            public const string FirstName = "First name must be between 2 and 20 characters.";
+
+            public const string LastName = "Last name must be between 2 and 20 characters.";
+
+            public const string TeamName = "Team name must be between 2 and 40 characters.";
+
+            public const string TeamGames = "Games must be between 0 and 25000.";
+
+            public const string TeamWins = "Wins must be between 1000 and 1300.";
+
+            public const string TeamLosses = "Losses must be between 1000 and 1300.";
+
+            public const string TeamTitles = "Titles must be between 0 and 40.";
         }
 
         public static class Images
