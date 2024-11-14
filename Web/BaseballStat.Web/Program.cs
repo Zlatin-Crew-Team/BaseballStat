@@ -17,6 +17,7 @@
     using BaseballStat.Services.Data.PlayerStattistic;
     using BaseballStat.Services.Data.Setting;
     using BaseballStat.Services.Data.Teams;
+    using BaseballStat.Services.Data.TeamStatistic;
     using BaseballStat.Services.Mapping;
     using BaseballStat.Services.Messaging;
     using BaseballStat.Web.ViewModels;
@@ -86,6 +87,7 @@
             services.AddTransient<ITeamService, TeamService>();
             services.AddTransient<ILeagueService, LeagueService>();
             services.AddTransient<IPlayerStatisticService, PlayerStatisticService>();
+            services.AddTransient<ITeamStatisticService, TeamStatisticService>();
         }
 
         private static void Configure(WebApplication app)
