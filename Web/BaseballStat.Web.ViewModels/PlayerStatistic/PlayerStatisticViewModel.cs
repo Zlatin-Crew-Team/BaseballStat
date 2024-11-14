@@ -43,6 +43,5 @@
 
         [Required]
         public string ImageUrl { get; set; }
-        public int Id { get; set; }
     }
 }
