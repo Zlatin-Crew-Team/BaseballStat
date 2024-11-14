@@ -756,7 +756,6 @@
             };
             foreach (var playerStatistic in playerStatistics)
             {
-
                 await dbContext.PlayerStatistics.AddAsync(playerStatistic);
                 await dbContext.SaveChangesAsync();
             }
