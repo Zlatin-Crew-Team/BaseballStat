@@ -12,7 +12,6 @@
     public class PlayerController : BaseController
     {
         private readonly IPlayerService playerService;
-        private readonly IPlayerStatisticService playerStatisticService;
 
         public PlayerController(IPlayerService playerService)
         {

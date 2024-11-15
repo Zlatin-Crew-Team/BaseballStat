@@ -1,5 +1,7 @@
 ﻿namespace BaseballStat.Web.Controllers.TeamStatistic
 {
+    using System.Threading.Tasks;
+
     using BaseballStat.Services.Data.TeamStatistic;
     using BaseballStat.Web.ViewModels.TeamStatistic;
     using Microsoft.AspNetCore.Mvc;
@@ -13,9 +15,9 @@
             this.teamStatisticService = teamStatisticService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index(int id)
         {
-            var team = this.teamStatisticService.GetAllTeamStatisticsAsync<TeamStatisticViewModel>();
+            var team = await this.teamStatisticService.GetTeamStatisticByIdAsync<TeamStatisticViewModel>(id);
             return this.View(team);
         }
     }
