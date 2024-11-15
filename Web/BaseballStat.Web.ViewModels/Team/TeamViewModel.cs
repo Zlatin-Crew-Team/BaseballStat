@@ -7,6 +7,8 @@
 
     public class TeamViewModel : IMapFrom<Team>
     {
+        public int Id { get; set; }
+
         [Required]
         public string Name { get; set; }
 

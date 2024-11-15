@@ -9,6 +9,8 @@
 
     public class PlayerStatisticViewModel : IMapFrom<PlayerStatistic>
     {
+        public int Id { get; set; }
+
         public int PlayerId { get; set; }
 
         public PlayerViewModel Player { get; set; }

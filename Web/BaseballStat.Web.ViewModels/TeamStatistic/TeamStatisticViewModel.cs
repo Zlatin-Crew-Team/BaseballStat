@@ -13,6 +13,8 @@
 
     public class TeamStatisticViewModel : IMapFrom<TeamStatistic>
     {
+        public int Id { get; set; }
+
         public int TeamId { get; set; }
 
         public string TeamName { get; set; }
