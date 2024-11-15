@@ -8,12 +8,10 @@
 
     public interface ITeamStatisticService
     {
-        Task<IEnumerable<T>> GetAllTeamStatisticsAsync<T>(int? count = null);
-
-        Task<T> GetTeamStatisticByIdAsync<T>(int id);
-
         Task DeleteTeamStatisticAsync(int id);
 
         Task<T> GetByIdAsync<T>(int id);
+
+        Task<T> GetTeamStatisticByIdAsync<T>(int id);
     }
 }

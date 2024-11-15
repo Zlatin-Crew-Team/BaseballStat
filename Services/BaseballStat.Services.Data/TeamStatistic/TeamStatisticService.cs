@@ -15,29 +15,21 @@
 
     public class TeamStatisticService : ITeamStatisticService
     {
-        private readonly IRepository<TeamStatistic> teamsStatistics;
+        private readonly IDeletableEntityRepository<TeamStatistic> teamsStatistics;
 
-        public TeamStatisticService(IRepository<TeamStatistic> teamStatistics)
+        public TeamStatisticService(IDeletableEntityRepository<TeamStatistic> teamStatistics)
         {
             this.teamsStatistics = teamStatistics;
         }
 
-        public Task DeleteTeamStatisticAsync(int id)
+        public async Task DeleteTeamStatisticAsync(int id)
         {
-            throw new NotImplementedException();
-        }
-
-        public async Task<IEnumerable<T>> GetAllTeamStatisticsAsync<T>(int? count = null)
-        {
-            IQueryable<TeamStatisticViewModel> query = (IQueryable<TeamStatisticViewModel>)this.teamsStatistics
-              .All()
-              .OrderBy(x => x.Id);
-            if (count.HasValue)
-            {
-                query = query.Take(count.Value);
-            }
-
-            return await query.To<T>().ToListAsync();
+            var teamStatistic = await this.teamsStatistics
+                .All()
+                .Where(x => x.Id == id)
+                .FirstOrDefaultAsync();
+            this.teamsStatistics.Delete(teamStatistic);
+            await this.teamsStatistics.SaveChangesAsync();
         }
 
         public async Task<T> GetByIdAsync<T>(int id)
@@ -50,9 +42,14 @@
             return teamStatistic;
         }
 
-        public Task<T> GetTeamStatisticByIdAsync<T>(int id)
+        public async Task<T> GetTeamStatisticByIdAsync<T>(int id)
         {
-            throw new NotImplementedException();
+            var teamStatistic = await this.teamsStatistics
+                .All()
+                .Where(x => x.Id == id)
+                .To<T>()
+                .FirstOrDefaultAsync();
+            return teamStatistic;
         }
     }
 }
