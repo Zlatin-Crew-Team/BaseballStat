@@ -1,0 +1,82 @@
+﻿@model BaseballStat.Web.ViewModels.Player.PlayerInputModel
+
+@{
+    this.ViewData["Title"] = "Add Player";
+}
+
+<div class="col-lg-6">
+    <h2>New Player</h2>
+    <form method="post" enctype="multipart/form-data" class="pt-4">
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">First Name</label>
+            <div class="col-sm-10">
+                <input type="text" asp-for="FirstName" class="form-control" required>
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Last Name</label>
+            <div class="col-sm-10">
+                <input type="text" asp-for="LastName" class="form-control" required>
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Position</label>
+            <div class="col-sm-10">
+                <input type="text" asp-for="Position" class="form-control" required>
+                <span asp-validation-for="Position" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Bats</label>
+            <div class="col-sm-10">
+                <input type="text" asp-for="Bats" class="form-control" required>
+                <span asp-validation-for="Bats" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Throws</label>
+            <div class="col-sm-10">
+                <input type="text" asp-for="Throws" class="form-control" required>
+                <span asp-validation-for="Throws" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Year of Birth</label>
+            <div class="col-sm-10">
+                <input type="number" asp-for="YearOfBirth" class="form-control" required>
+                <span asp-validation-for="YearOfBirth" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Team</label>
+            <div class="col-sm-10">
+                <input type="number" asp-for="TeamId" class="form-control" required>
+                <span asp-validation-for="TeamId" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Image</label>
+            <div class="col-sm-10">
+                <input type="file" asp-for="Image" class="form-control-file image-upload" required>
+                <span asp-validation-for="Image" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-6 text-right">
+                <button type="submit" class="btn btn-success"
+                        asp-area="Administration" asp-controller="Player" asp-action="AddPlayer">
+                    Add Player
+                </button>
+            </div>
+            <div class="col-sm-6">
+                <a class="btn btn-danger" asp-area="Administration" asp-controller="Player" asp-action="Index">Cancel</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <script src="~/js/upload-image.js" asp-append-version="true"></script>
+}
