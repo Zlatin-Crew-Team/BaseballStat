@@ -1,7 +1,5 @@
 ﻿namespace BaseballStat.Common
 {
-    using System.ComponentModel;
-
     public static class GlobalConstants
     {
         public const string SystemName = "BaseballStat";
@@ -83,6 +81,40 @@
             public const int HomeRunsMaxValue = 800;
         }
 
+        public static class Positions
+        {
+            public const string FirstBase = "1B";
+            public const string SecondBase = "2B";
+            public const string ThirdBase = "3B";
+            public const string ShortStop = "SS";
+            public const string RightField = "RF";
+            public const string CenterField = "CF";
+            public const string LeftField = "LF";
+            public const string Catcher = "C";
+            public const string StartingPitcher = "SP";
+            public const string ReliefPitcher = "RP";
+        }
+
+        public static class Bats
+        {
+            public const string Left = "Left";
+            public const string Right = "Right";
+            public const string TwoHanded = "Two Handed";
+        }
+
+        public static class Throws
+        {
+            public const string Left = "Left";
+            public const string Right = "Right";
+            public const string TwoHanded = "Two Handed";
+        }
+
+        public static class TeamIds
+        {
+            public const int MinValue = 1;
+            public const int MaxValue = 30;
+        }
+
         public static class TeamStatistic
         {
             public const int GamesMinValue = 0;
@@ -143,6 +175,24 @@
             public const string TeamLosses = "Losses must be between 1000 and 1300.";
 
             public const string TeamTitles = "Titles must be between 0 and 40.";
+
+            public const string Position = "Invalid position.";
+
+            public const string Bats = "Invalid bats value.";
+
+            public const string Throws = "Invalid throws value.";
+
+            public const string TeamId = "Invalid team id.";
+
+            public const string PlayerId = "Invalid player id.";
+
+            public const string PlayerStatisticId = "Invalid player statistic id.";
+
+            public const string TeamStatisticId = "Invalid team statistic id.";
+
+            public const string PlayerStatistic = "Invalid player statistic.";
+
+            public const string TeamStatistic = "Invalid team statistic.";
         }
 
         public static class Images
@@ -150,6 +200,8 @@
             public const string Index = "https://res.cloudinary.com/dsbprqxc5/image/upload/v1731519246/Players/background-with-baseball-aqua-color_1040322-10408_f4c8gv.jpg";
 
             public const string CoverBackground = "https://res.cloudinary.com/dsbprqxc5/image/upload/c_crop,w_1900,h_1200/v1730636786/kqpmsiks5sfn6fojbdrh_ofvjiy.png";
+            public const string CloudinaryMissing = "https://res.cloudinary.com/dsbprqxc5/image/upload/v1731657890/baseballstat/cloudinary_veibtu_r4ks73.png";
+            public const string Error404 = "https://res.cloudinary.com/dsbprqxc5/image/upload/v1731674761/baseballstat/robot-is-smashing-404-error-message-with-a-baseball-bat-2AXN739_esj4pz.jpg";
         }
 
         public static class SeededDataCounts
@@ -158,9 +210,11 @@
 
             public const int TeamsCount = 30;
 
-            public const int PlayersCount = 59;
+            public const int PlayersCount = 61;
 
-            public const int PlayerStatisticsCount = 59;
+            public const int PlayerStatisticsCount = 61;
+
+            public const int TeamStatisticsCount = 30;
         }
     }
 }
