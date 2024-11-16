@@ -1,5 +1,22 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model BaseballStat.Web.ViewModels.TeamStatistic.TeamStatisticViewModel
+
 @{
+    ViewData["Title"] = "Team Statistics";
 }
+
+<div class="card mb-3" style="max-width: 800px; height: 600px; background-color: #f8f9fa;">
+    <div class="row g-0 h-100">
+        <div class="col-md-4 d-flex align-items-center justify-content-center" style="background-color: #343a40; color: white;">
+            <h3>@Model.TeamName</h3>
+        </div>
+        <div class="col-md-8 d-flex align-items-center">
+            <div class="card-body text-center">
+                <h3 class="card-title">Statistics</h3>
+                <p class="card-text"><strong>Games:</strong> @Model.Games</p>
+                <p class="card-text"><strong>Wins:</strong> @Model.Wins</p>
+                <p class="card-text"><strong>Losses:</strong> @Model.Losses</p>
+                <p class="card-text"><strong>Titles:</strong> @Model.Titles</p>
+            </div>
+        </div>
+    </div>
+</div>

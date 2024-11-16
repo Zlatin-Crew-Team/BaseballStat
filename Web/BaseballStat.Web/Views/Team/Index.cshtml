@@ -1,5 +1,6 @@
 ﻿@model BaseballStat.Web.ViewModels.Team.TeamListViewModel
 
+
 @{
     this.ViewData["Title"] = "Teams of BaseballStat";
 }
@@ -23,7 +24,7 @@
                         <div class="row">
                             <div class="col">
                                 <div class="button button-large button_1 elements_button mt-4">
-                                    <a asp-area="" asp-controller="TeamStatistic" asp-action="Index" >
+                                    <a asp-area="" asp-controller="TeamStatistic" asp-action="Index" asp-route-id="@team.Id" >
                                         <label for="submit" class="btn btn-primary">Team Statistic</label>
                                     </a>
                                 </div>
