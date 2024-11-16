@@ -20,7 +20,7 @@
             this.cloudinary = cloudinary;
         }
 
-        public async Task<string> UploadImageAsync(IFormFile pictureFile, string fileName)
+        public async Task<string> UploadPictureAsync(IFormFile pictureFile, string fileName)
         {
             byte[] destinationData;
 
@@ -40,10 +40,20 @@
                     File = new FileDescription(fileName, ms),
                 };
 
-                uploadResult = this.cloudinary.Upload(uploadParams);
+                uploadResult = await this.cloudinary.UploadAsync(uploadParams);
             }
 
-            return uploadResult?.SecureUrl.AbsoluteUri;
+            if (uploadResult == null)
+            {
+                throw new Exception("Upload to Cloudinary failed.");
+            }
+
+            if (uploadResult.SecureUrl == null)
+            {
+                throw new Exception("SecureUrl is null.");
+            }
+
+            return uploadResult.SecureUrl.AbsoluteUri;
         }
     }
 }
