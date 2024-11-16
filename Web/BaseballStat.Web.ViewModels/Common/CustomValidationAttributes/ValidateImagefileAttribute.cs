@@ -4,7 +4,7 @@
 
     using Microsoft.AspNetCore.Http;
 
-    public class ValidateImagefileAttribute : RequiredAttribute
+    public class ValidateImageFileAttribute : RequiredAttribute
     {
         private const int MaxFileLenghtInBytes = 1048576; // = ( 1*1024*1024 ) = 1MB;
 

@@ -18,8 +18,9 @@
             MinimumLength = GlobalConstants.DataValidations.DescriptionMinLength)]
         public string Description { get; set; }
 
+        [Required]
         [DataType(DataType.Upload)]
-        [ValidateImagefile(ErrorMessage = GlobalConstants.ErrorMesages.Image)]
+        [ValidateImageFileAttribute(ErrorMessage = GlobalConstants.ErrorMesages.Image)]
         public IFormFile Image { get; set; }
     }
 }
