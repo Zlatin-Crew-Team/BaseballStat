@@ -12,6 +12,11 @@
 
     public class Team : BaseDeletableModel<int>
     {
+        public Team()
+        {
+            this.Players = new HashSet<Player>();
+        }
+
         [Required]
         [MaxLength(GlobalConstants.DataValidations.NameMaxLength)]
         public string Name { get; set; }
