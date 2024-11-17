@@ -1,9 +1,12 @@
 ﻿namespace BaseballStat.Web.ViewModels.Player
 {
+    using System.Collections;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
     using BaseballStat.Common;
     using BaseballStat.Web.ViewModels.Common.CustomValidationAttributes;
+    using BaseballStat.Web.ViewModels.Team;
     using Microsoft.AspNetCore.Http;
 
     public class PlayerInputModel
