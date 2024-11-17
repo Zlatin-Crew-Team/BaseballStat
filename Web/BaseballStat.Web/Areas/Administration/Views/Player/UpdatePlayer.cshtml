@@ -1,0 +1,61 @@
+﻿@model BaseballStat.Web.ViewModels.Player.PlayerInputModel
+
+@{
+    this.ViewData["Title"] = "Update Player";
+}
+
+<h2>Update Player</h2>
+
+<form asp-action="UpdatePlayer" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="FirstName" class="control-label"></label>
+        <input asp-for="FirstName" class="form-control" />
+        <span asp-validation-for="FirstName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="LastName" class="control-label"></label>
+        <input asp-for="LastName" class="form-control" />
+        <span asp-validation-for="LastName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Position" class="control-label"></label>
+        <input asp-for="Position" class="form-control" />
+        <span asp-validation-for="Position" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Bats" class="control-label"></label>
+        <input asp-for="Bats" class="form-control" />
+        <span asp-validation-for="Bats" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Throws" class="control-label"></label>
+        <input asp-for="Throws" class="form-control" />
+        <span asp-validation-for="Throws" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="YearOfBirth" class="control-label"></label>
+        <input asp-for="YearOfBirth" class="form-control" />
+        <span asp-validation-for="YearOfBirth" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="TeamId" class="control-label"></label>
+        <input asp-for="TeamId" class="form-control" />
+        <span asp-validation-for="TeamId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Image" class="control-label"></label>
+        <input asp-for="Image" type="file" class="form-control" />
+        <span asp-validation-for="Image" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Update</button>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

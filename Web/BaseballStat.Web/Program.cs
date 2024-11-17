@@ -73,7 +73,7 @@
 
             // Cloudinary Setup
             Cloudinary cloudinary = new Cloudinary(new Account(
-                 GlobalConstants.CloudName, // configuration["Cloudinary:CloudName"],
+                 configuration["Cloudinary:CloudName"],
                  configuration["Cloudinary:ApiKey"],
                  configuration["Cloudinary:ApiSecret"]));
             services.AddSingleton(cloudinary);

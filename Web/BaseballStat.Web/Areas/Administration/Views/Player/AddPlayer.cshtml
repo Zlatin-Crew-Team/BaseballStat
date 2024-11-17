@@ -1,5 +1,4 @@
 ﻿@model BaseballStat.Web.ViewModels.Player.PlayerInputModel
-
 @{
     this.ViewData["Title"] = "Add Player";
 }
@@ -10,56 +9,56 @@
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">First Name</label>
             <div class="col-sm-10">
-                <input type="text" asp-for="FirstName" class="form-control" required>
+                <input type="text" asp-for="@Model.FirstName" class="form-control" required="required">
                 <span asp-validation-for="FirstName" class="text-danger"></span>
             </div>
         </div>
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Last Name</label>
             <div class="col-sm-10">
-                <input type="text" asp-for="LastName" class="form-control" required>
+                <input type="text" asp-for="@Model.LastName" class="form-control" required="required">
                 <span asp-validation-for="LastName" class="text-danger"></span>
             </div>
         </div>
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Position</label>
             <div class="col-sm-10">
-                <input type="text" asp-for="Position" class="form-control" required>
+                <input type="text" asp-for="@Model.Position" class="form-control" required="required">
                 <span asp-validation-for="Position" class="text-danger"></span>
             </div>
         </div>
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Bats</label>
             <div class="col-sm-10">
-                <input type="text" asp-for="Bats" class="form-control" required>
+                <input type="text" asp-for="@Model.Bats" class="form-control" required="required">
                 <span asp-validation-for="Bats" class="text-danger"></span>
             </div>
         </div>
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Throws</label>
             <div class="col-sm-10">
-                <input type="text" asp-for="Throws" class="form-control" required>
+                <input type="text" asp-for="@Model.Throws" class="form-control" required="required">
                 <span asp-validation-for="Throws" class="text-danger"></span>
             </div>
         </div>
         <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Year of Birth</label>
+            <label class="col-sm-2 col-form-label">YearOfBirth</label>
             <div class="col-sm-10">
-                <input type="number" asp-for="YearOfBirth" class="form-control" required>
+                <input type="text" asp-for="@Model.YearOfBirth" class="form-control" required="required">
                 <span asp-validation-for="YearOfBirth" class="text-danger"></span>
             </div>
         </div>
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Team</label>
             <div class="col-sm-10">
-                <input type="number" asp-for="TeamId" class="form-control" required>
+               <input type="text" asp-for="@Model.TeamId" class="form-control" required="required">
                 <span asp-validation-for="TeamId" class="text-danger"></span>
             </div>
         </div>
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Image</label>
             <div class="col-sm-10">
-                <input type="file" asp-for="Image" class="form-control-file image-upload" required>
+                <input type="file" asp-for="@Model.Image" class="form-control-file image-upload" required="required" />
                 <span asp-validation-for="Image" class="text-danger"></span>
             </div>
         </div>
