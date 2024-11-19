@@ -1,0 +1,25 @@
+﻿@model IEnumerable<BaseballStat.Web.ViewModels.LeagueStatistic.LeagueStatisticViewModel>
+
+@{
+    this.ViewData["Title"] = "League Statistics";
+}
+
+<div class="row">
+    <!-- League Statistics -->
+    @foreach (var leagueStatistic in Model)
+    {
+        <div class="col-lg-3">
+            <hr class="bg-dark mx-4" style="height: 6px;" />
+            <!-- League Statistic -->
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title text-center">@leagueStatistic.LeagueName</h2>
+                    <p class="card-text"><b>Games:</b> @leagueStatistic.Games</p>
+                    <p class="card-text"><b>Wins:</b> @leagueStatistic.Wins</p>
+                    <p class="card-text"><b>Losses:</b> @leagueStatistic.Losses</p>
+                    <p class="card-text"><b>Titles:</b> @leagueStatistic.Titles</p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
