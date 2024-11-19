@@ -28,16 +28,20 @@
                         <td>@player.Bats</td>
                         <td>@player.Throws</td>
                         <td>@player.YearOfBirth</td>
-                        <td><img src="@player.ImageUrl" alt="Player Image" width="50" height="50" /></td>
+                        <td><img src="@player.ImageUrl" alt="Player Image" width="100" height="100" /></td>
                         <td>
+                            <form method="post" asp-action="AddPlayer" asp-controller="Player" asp-area="Administration">
+                                <input type="hidden" name="id" value="@player.Id" />
+                                <button type="submit" class="btn btn-success">Add</button>
+                            </form>
+                            <form method="post" asp-action="UpdatePlayer" asp-controller="Player" asp-area="Administration">
+                                <input type="hidden" name="id" value="@player.Id" />
+                                 <button type="submit" class="btn btn-primary">Update</button>
+                           </form>
                             <form method="post" asp-action="DeletePlayer" asp-controller="Player" asp-area="Administration">
                                 <input type="hidden" name="id" value="@player.Id" />
                                 <button type="submit" class="btn btn-danger">Delete</button>
                             </form>
-                            <form method="get" asp-action="UpdatePlayer" asp-controller="Player" asp-area="Administration">
-                                <input type="hidden" name="id" value="@player.Id" />
-                                 <button type="submit" class="btn btn-primary">Update</button>
-                           </form>
                         </td>
                     </tr>
             }
