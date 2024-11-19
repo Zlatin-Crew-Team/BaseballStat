@@ -81,6 +81,29 @@
             public const int HomeRunsMaxValue = 800;
         }
 
+        public static class LeagueStatistic
+        {
+            public const int GamesMinValue = 0;
+
+            public const int GamesMaxValue = 400000;
+
+            public const int WinsMinValue = 0;
+
+            public const int WinsMaxValue = 300000;
+
+            public const int LossesMinValue = 0;
+
+            public const int LossesMaxValue = 400000;
+
+            public const int TitlesMinValue = 0;
+
+            public const int TitlesMaxValue = 150;
+
+            public const int LeagueIdMinValue = 1;
+
+            public const int LeagueIdMaxValue = 2;
+        }
+
         public static class Positions
         {
             public const string FirstBase = "1B";
@@ -193,6 +216,16 @@
             public const string PlayerStatistic = "Invalid player statistic.";
 
             public const string TeamStatistic = "Invalid team statistic.";
+
+            public const string LeagueStatistic = "Invalid league statistic.";
+
+            public const string LeagueId = "Invalid league id.";
+
+            public const string GamesRangeErrorMessage = "Games must be between 0 and 400000.";
+            public const string WinsRangeErrorMessage = "Wins must be between 0 and 300000.";
+            public const string LossesRangeErrorMessage = "Losses must be between 0 and 400000.";
+
+            public const string TitlesRangeErrorMessage = "Titles must be between 0 and 150.";
         }
 
         public static class Images
