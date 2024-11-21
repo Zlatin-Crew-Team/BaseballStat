@@ -81,7 +81,7 @@
             return this.RedirectToAction("Index");
         }
 
-        [HttpPost]
+        [HttpPut]
         public async Task<IActionResult> UpdatePlayer(int id, PlayerInputModel input)
         {
             if (!this.ModelState.IsValid)
