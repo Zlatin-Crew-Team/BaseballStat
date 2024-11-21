@@ -4,28 +4,30 @@
     ViewData["Title"] = "Player Statistics";
 }
 
-<div class="card mb-3" style="max-width: 800px; height: 600px;">
-    <div class="row g-0 h-100">
-        <div class="col-md-4">
-            @if (Model.ImageUrl != null)
-            {
-                <img src="@Model.ImageUrl" class="img-fluid rounded-start h-100" alt="Player Image">
-            }
-            else
-            {
-                <p>Image not available</p>
-            }
-        </div>
-        <div class="col-md-8 d-flex align-items-center">
-            <div class="card-body text-center">
-                <h3 class="card-title">Statistics</h3>
-                <p class="card-text"><strong>Games:</strong> @Model.Games</p>
-                <p class="card-text"><strong>At Bats:</strong> @Model.AtBats</p>
-                <p class="card-text"><strong>Runs:</strong> @Model.Runs</p>
-                <p class="card-text"><strong>Hits:</strong> @Model.Hits</p>
-                <p class="card-text"><strong>Doubles:</strong> @Model.Doubles</p>
-                <p class="card-text"><strong>Triples:</strong> @Model.Triples</p>
-                <p class="card-text"><strong>Home Runs:</strong> @Model.HomeRuns</p>
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="card mb-3 w-100" style="max-width: 800px;">
+        <div class="row g-0">
+            <div class="col-md-6 d-flex align-items-center">
+                @if (Model.ImageUrl != null)
+                {
+                    <img src="@Model.ImageUrl" class="img-fluid rounded-start" alt="Player Image" style="width: 100%; height: auto;">
+                }
+                else
+                {
+                    <p>Image not available</p>
+                }
+            </div>
+            <div class="col-md-6 d-flex align-items-center">
+                <div class="card-body text-center">
+                    <h3 class="card-title">Statistics</h3>
+                    <p class="card-text"><strong>Games:</strong> @Model.Games</p>
+                    <p class="card-text"><strong>At Bats:</strong> @Model.AtBats</p>
+                    <p class="card-text"><strong>Runs:</strong> @Model.Runs</p>
+                    <p class="card-text"><strong>Hits:</strong> @Model.Hits</p>
+                    <p class="card-text"><strong>Doubles:</strong> @Model.Doubles</p>
+                    <p class="card-text"><strong>Triples:</strong> @Model.Triples</p>
+                    <p class="card-text"><strong>Home Runs:</strong> @Model.HomeRuns</p>
+                </div>
             </div>
         </div>
     </div>

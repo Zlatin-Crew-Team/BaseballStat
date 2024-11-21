@@ -12,7 +12,7 @@
             <hr class="bg-dark mx-4" style="height: 6px;" />
             <!-- News Post -->
             <div class="card">
-                <img src="@category.ImageUrl" class="card-img-top" alt="@category.Name">
+                <img src="@category.ImageUrl" class="card-img-top img-fluid" alt="@category.Name" style="height: 400px; object-fit: cover;">
                 <div class="card-body">
                     <h2 class="card-title text-center">@category.Name</h2>
                     <p class="card-text">@category.Description</p>
@@ -23,7 +23,6 @@
                                     <a asp-area="" asp-controller="Categories" asp-action="Details" asp-route-id="@category.Id">
                                         <label for="submit" class="btn btn-primary">Details</label>
                                     </a>
-                                        
                                 </div>
                             </div>
                         </div>

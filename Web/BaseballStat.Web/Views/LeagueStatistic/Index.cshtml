@@ -4,15 +4,17 @@
     ViewData["Title"] = "League Statistics";
 }
 
-<div class="card mb-3" style="max-width: 800px; height: 600px; background-color: #f8f9fa;">
-    <div class="row g-0 h-100">
-        <div class="col-md-8 d-flex align-items-center">
-            <div class="card-body text-center">
-                <h3 class="card-title">Statistics</h3>
-                <p class="card-text"><strong>Games:</strong> @Model.Games</p>
-                <p class="card-text"><strong>Wins:</strong> @Model.Wins</p>
-                <p class="card-text"><strong>Losses:</strong> @Model.Losses</p>
-                <p class="card-text"><strong>Titles:</strong> @Model.Titles</p>
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="card mb-3 w-100" style="max-width: 800px; background-color: #f8f9fa;">
+        <div class="row g-0">
+            <div class="col-md-12">
+                <div class="card-body text-center">
+                    <h2 class="card-title">Statistics</h2>
+                    <p class="card-text"><strong>Games:</strong> @Model.Games</p>
+                    <p class="card-text"><strong>Wins:</strong> @Model.Wins</p>
+                    <p class="card-text"><strong>Losses:</strong> @Model.Losses</p>
+                    <p class="card-text"><strong>Titles:</strong> @Model.Titles</p>
+                </div>
             </div>
         </div>
     </div>

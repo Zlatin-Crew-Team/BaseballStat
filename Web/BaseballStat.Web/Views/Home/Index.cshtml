@@ -1,6 +1,66 @@
 ﻿@model BaseballStat.Web.ViewModels.Home.IndexViewModel
+
 @{
-    this.ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
 }
 
+<div class="container">
+    <div class="jumbotron" style="background-image: url('/images/background.jpg'); background-size: cover;">
+        <h1 class="display-4">Welcome to BaseballStat</h1>
+    </div>
 
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Featured Player</h2>
+            @if (Model.FeaturedPlayer != null)
+            {
+                <div class="card">
+                    <img class="card-img-top img-fluid" src="@Model.FeaturedPlayer.ImageUrl" alt="Player image" style="max-height: 600px; object-fit: cover;">
+                    <div class="card-body">
+                        <h2 class="card-title">@Model.FeaturedPlayer.FirstName @Model.FeaturedPlayer.LastName</h2>
+                        <p class="card-text">Position: @Model.FeaturedPlayer.Position</p>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <p>No featured player available.</p>
+            }
+        </div>
+
+        <div class="col-md-4">
+            <h2>Featured Team</h2>
+            @if (Model.FeaturedTeam != null)
+            {
+                <div class="card">
+                    <img class="card-img-top img-fluid" src="@Model.FeaturedTeam.LogoUrl" alt="Team logo" style="max-height: 600px; object-fit: cover;">
+                    <div class="card-body">
+                        <h2 class="card-title">@Model.FeaturedTeam.Name</h2>
+                        <p class="card-text">City: @Model.FeaturedTeam.City</p>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <p>No featured team available.</p>
+            }
+        </div>
+
+        <div class="col-md-4">
+            <h2>Featured League</h2>
+            @if (Model.FeaturedLeague != null)
+            {
+                <div class="card">
+                    <img class="card-img-top img-fluid" src="@Model.FeaturedLeague.ImageUrl" alt="League image" style="max-height: 600px; object-fit: cover;">
+                    <div class="card-body">
+                        <h2 class="card-title">@Model.FeaturedLeague.Name</h2>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <p>No featured league available.</p>
+            }
+        </div>
+    </div>
+</div>
