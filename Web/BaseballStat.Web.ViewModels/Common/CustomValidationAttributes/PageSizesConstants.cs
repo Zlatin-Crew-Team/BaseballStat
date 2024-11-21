@@ -8,8 +8,8 @@
 
     public static class PageSizesConstants
     {
-        public const int PlayersPageSize = 10;
+        public const int PlayersPageSize = 3;
 
-        public const int TeamsPageSize = 10;
+        public const int TeamsPageSize = 3;
     }
 }

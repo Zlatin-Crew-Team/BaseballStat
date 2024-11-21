@@ -8,11 +8,11 @@
 
     public class LeagueStatisticViewModel : IMapFrom<LeagueStatistic>
     {
+        public int Id { get; set; }
+
         [Required]
         [Display(Name = "League")]
         public int LeagueId { get; set; }
-
-        public string LeagueName { get; set; }
 
         [Required]
         [Display(Name = "Games")]
