@@ -1,7 +1,7 @@
 ﻿namespace BaseballStat.Web.Controllers.TeamController
 {
-    using System.Linq;
     using System;
+    using System.Linq;
     using System.Threading.Tasks;
 
     using BaseballStat.Services.Data.Teams;
