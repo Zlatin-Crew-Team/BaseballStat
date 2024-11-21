@@ -1,5 +1,7 @@
 ﻿namespace BaseballStat.Common
 {
+    using System;
+
     public static class GlobalConstants
     {
         public const string SystemName = "BaseballStat";
@@ -155,6 +157,27 @@
             public const int TitlesMinValue = 0;
 
             public const int TitlesMaxValue = 40;
+        }
+
+        public static class Team
+        {
+            public const int TeamNameMaxLength = 50;
+            public const int TeamNameMinLength = 2;
+
+            public const int CityMaxLength = 50;
+            public const int CityMinLength = 2;
+
+            public const int StadiumMaxLength = 100;
+            public const int StadiumMinLength = 2;
+
+            public const int FoundedYearMinValue = 1900;
+            public const int FoundedYearMaxValue = 2000;
+
+            public const int OwnerMaxLength = 50;
+            public const int OwnerMinLength = 2;
+
+            public const int LeagueIdMinValue = 1;
+            public const int LeagueIdMaxValue = 2;
         }
 
         public static class ErrorMesages
