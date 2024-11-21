@@ -1,5 +1,6 @@
 ﻿namespace BaseballStat.Web.Controllers
 {
+    using System;
     using System.Linq;
     using System.Threading.Tasks;
 
@@ -18,11 +19,17 @@
             this.playerService = playerService;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int pageIndex = 1, int pageSize = 3)
         {
+            var players = await this.playerService.GetAllPlayersAsync<PlayerViewModel>();
+            var count = players.Count();
+            var items = players.Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
+
             var viewModel = new PlayerListViewModel
             {
-                Players = await this.playerService.GetAllPlayersAsync<PlayerViewModel>(),
+                Players = items,
+                PageIndex = pageIndex,
+                TotalPages = (int)Math.Ceiling(count / (double)pageSize),
             };
 
             return this.View(viewModel);

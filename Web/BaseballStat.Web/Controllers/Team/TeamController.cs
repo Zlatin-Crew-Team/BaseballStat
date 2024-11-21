@@ -1,5 +1,7 @@
 ﻿namespace BaseballStat.Web.Controllers.TeamController
 {
+    using System.Linq;
+    using System;
     using System.Threading.Tasks;
 
     using BaseballStat.Services.Data.Teams;
@@ -16,11 +18,17 @@
             this.teamService = teamService;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int pageIndex = 1, int pageSize = 3)
         {
+            var teams = await this.teamService.GetAllTeamsAsync<TeamViewModel>();
+            var count = teams.Count();
+            var items = teams.Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
+
             var viewModel = new TeamListViewModel
             {
-                Teams = await this.teamService.GetAllTeamsAsync<TeamViewModel>(),
+                Teams = items,
+                PageIndex = pageIndex,
+                TotalPages = (int)Math.Ceiling(count / (double)pageSize),
             };
 
             return this.View(viewModel);
