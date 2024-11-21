@@ -19,7 +19,7 @@
         public async Task<IActionResult> Index(int id)
         {
             var league = await this.leagueStatisticService.GetByIdAsync<LeagueStatisticViewModel>(id);
-            return this.View();
+            return this.View(league);
         }
     }
 }
