@@ -35,6 +35,7 @@
                               new CategorySeeder(),
                               new PlayerStatisticSeeder(),
                               new TeamStatisticSeeder(),
+                              new LeagueStatisticSeeder(),
                           };
 
             foreach (var seeder in seeders)

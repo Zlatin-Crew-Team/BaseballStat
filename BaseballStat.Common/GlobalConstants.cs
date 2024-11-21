@@ -248,6 +248,10 @@
             public const int PlayerStatisticsCount = 61;
 
             public const int TeamStatisticsCount = 30;
+
+            public const int LeagueStatisticsCount = 2;
+
+            public const int Categories = 3;
         }
     }
 }
