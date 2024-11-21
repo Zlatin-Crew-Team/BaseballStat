@@ -15,10 +15,16 @@
     {
         public IEnumerable<IndexCategoryViewModel> Categories { get; set; }
 
-        public IEnumerable<TeamViewModel> Teams { get; set; }
-
         public IEnumerable<PlayerViewModel> Players { get; set; }
 
+        public IEnumerable<TeamViewModel> Teams { get; set; }
+
         public IEnumerable<LeagueViewModel> League { get; set; }
+
+        public PlayerViewModel FeaturedPlayer { get; set; }
+
+        public TeamViewModel FeaturedTeam { get; set; }
+
+        public LeagueViewModel FeaturedLeague { get; set; }
     }
 }
