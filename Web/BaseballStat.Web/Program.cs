@@ -13,6 +13,7 @@
     using BaseballStat.Services.Cloudinary;
     using BaseballStat.Services.Data.Categories;
     using BaseballStat.Services.Data.League;
+    using BaseballStat.Services.Data.LeagueStatistic;
     using BaseballStat.Services.Data.Player;
     using BaseballStat.Services.Data.PlayerStattistic;
     using BaseballStat.Services.Data.Setting;
@@ -88,6 +89,7 @@
             services.AddTransient<ILeagueService, LeagueService>();
             services.AddTransient<IPlayerStatisticService, PlayerStatisticService>();
             services.AddTransient<ITeamStatisticService, TeamStatisticService>();
+            services.AddTransient<ILeagueStatisticService, LeagueStatisticService>();
         }
 
         private static void Configure(WebApplication app)
