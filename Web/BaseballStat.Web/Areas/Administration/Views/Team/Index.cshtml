@@ -32,10 +32,6 @@
                             <input type="hidden" name="id" value="@team.Id" />
                             <button type="submit" class="btn btn-success">Add</button>
                         </form>
-                        <form method="post" asp-action="UpdateTeam" asp-controller="Team" asp-area="Administration">
-                            <input type="hidden" name="id" value="@team.Id" />
-                            <button type="submit" class="btn btn-primary">Update</button>
-                        </form>
                         <form method="post" asp-action="DeleteTeam" asp-controller="Team" asp-area="Administration">
                             <input type="hidden" name="id" value="@team.Id" />
                             <button type="submit" class="btn btn-danger">Delete</button>
@@ -46,3 +42,49 @@
         </tbody>
     </table>
 </div>
+<hr />
+<nav>
+    <ul class="pagination">
+        @if (Model.HasPreviousPage)
+        {
+            <li class="page-item">
+                <a class="page-link" asp-action="Index" asp-route-pageIndex="@(Model.PageIndex - 1)">Previous</a>
+            </li>
+        }
+        else
+        {
+            <li class="page-item disabled">
+                <span class="page-link">Previous</span>
+            </li>
+        }
+
+        @for (int i = 1; i <= Model.TotalPages; i++)
+        {
+            if (i == Model.PageIndex)
+            {
+                <li class="page-item active">
+                    <span class="page-link">@i</span>
+                </li>
+            }
+            else
+            {
+                <li class="page-item">
+                    <a class="page-link" asp-action="Index" asp-route-pageIndex="@i">@i</a>
+                </li>
+            }
+        }
+
+        @if (Model.HasNextPage)
+        {
+            <li class="page-item">
+                <a class="page-link" asp-action="Index" asp-route-pageIndex="@(Model.PageIndex + 1)">Next</a>
+            </li>
+        }
+        else
+        {
+            <li class="page-item disabled">
+                <span class="page-link">Next</span>
+            </li>
+        }
+    </ul>
+</nav>

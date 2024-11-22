@@ -68,27 +68,5 @@
                 .FirstOrDefault();
             return await Task.FromResult(team);
         }
-
-        public async Task UpdateTeamAsync(int id, string name, string city, int foundedYear, string logoUrl, string owner, string stadium)
-        {
-            var team = await this.teamsRepository.All().FirstOrDefaultAsync(x => x.Id == id);
-            if (team != null)
-            {
-                team.Name = name;
-                team.City = city;
-                team.FoundedYear = foundedYear.ToString(); // Convert int to string
-                team.LogoUrl = logoUrl;
-                team.Owner = owner;
-                team.Stadium = stadium;
-
-                this.teamsRepository.Update(team);
-                await this.teamsRepository.SaveChangesAsync();
-            }
-        }
-
-        public Task UpdateTeamAsync(int id, string name, string city, string foundedYear, string logoUrl, string owner, string stadium)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

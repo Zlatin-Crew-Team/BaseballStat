@@ -20,6 +20,5 @@
 
         Task GetPlayerStatisticByIdAsync(int id);
 
-        Task UpdatePlayerAsync(int id, string firstName, string lastName, string position, string bats, string throws, int yearOfBirth, int teamId, string imageUrl);
     }
 }

@@ -77,24 +77,5 @@
                 .FirstOrDefault();
             return Task.CompletedTask;
         }
-
-        public async Task UpdatePlayerAsync(int id, string firstName, string lastName, string position, string bats, string throws, int yearOfBirth, int teamId, string imageUrl)
-        {
-            var player = await this.playersRepository.All().FirstOrDefaultAsync(x => x.Id == id);
-            if (player != null)
-            {
-                player.FirstName = firstName;
-                player.LastName = lastName;
-                player.Position = position;
-                player.Bats = bats;
-                player.Throws = throws;
-                player.YearOfBirth = yearOfBirth;
-                player.TeamId = teamId;
-                player.ImageUrl = imageUrl;
-
-                this.playersRepository.Update(player);
-                await this.playersRepository.SaveChangesAsync();
-            }
-        }
     }
 }
