@@ -106,12 +106,13 @@
 
             if (app.Environment.IsDevelopment())
             {
+                app.UseStatusCodePagesWithReExecute("/Home/Error/{0}");
                 app.UseDeveloperExceptionPage();
-                app.UseMigrationsEndPoint();
             }
             else
             {
                 app.UseExceptionHandler("/Home/Error");
+                app.UseStatusCodePagesWithReExecute("/Error/{0}");
                 app.UseHsts();
             }
 

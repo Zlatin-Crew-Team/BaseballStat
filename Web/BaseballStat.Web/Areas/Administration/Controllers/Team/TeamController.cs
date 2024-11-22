@@ -1,5 +1,7 @@
 ﻿namespace BaseballStat.Web.Areas.Administration.Controllers.Team
 {
+    using System.Linq;
+    using System;
     using System.Threading.Tasks;
 
     using BaseballStat.Common;
@@ -22,11 +24,17 @@
             this.cloudinaryService = cloudinaryService;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int pageIndex = 1, int pageSize = 3)
         {
+            var teams = await this.teamService.GetAllTeamsAsync<TeamViewModel>();
+            var count = teams.Count();
+            var items = teams.Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
+
             var viewModel = new TeamListViewModel
             {
-                Teams = await this.teamService.GetAllTeamsAsync<TeamViewModel>(),
+                Teams = items,
+                PageIndex = pageIndex,
+                TotalPages = (int)Math.Ceiling(count / (double)pageSize),
             };
 
             return this.View(viewModel);
@@ -81,44 +89,6 @@
             return this.RedirectToAction("Index");
         }
 
-        [HttpPut]
-        public async Task<IActionResult> UpdateTeam(int id, TeamInputModel input)
-        {
-            if (!this.ModelState.IsValid)
-            {
-                return this.View(input);
-            }
-
-            string logoUrl;
-            try
-            {
-                // Upload logo to Cloudinary if a new logo is provided
-                if (input.Logo != null)
-                {
-                    var uploadParams = new ImageUploadParams
-                    {
-                        File = new FileDescription(input.Logo.FileName, input.Logo.OpenReadStream()),
-                        PublicId = $"{input.Name}_logo",
-                    };
-
-                    var uploadResult = await this.cloudinaryService.UploadPictureAsync(input.Logo, $"{input.Name}_logo");
-                    logoUrl = uploadResult;
-                }
-                else
-                {
-                    // If no new logo is provided, retain the existing logo URL
-                    var existingTeam = await this.teamService.GetByIdAsync<TeamViewModel>(id);
-                    logoUrl = existingTeam.LogoUrl;
-                }
-            }
-            catch (System.Exception)
-            {
-                // In case of missing Cloudinary configuration from appsettings.json
-                logoUrl = GlobalConstants.Images.CloudinaryMissing;
-            }
-
-            await this.teamService.UpdateTeamAsync(id, input.Name, input.City, input.FoundedYear, logoUrl, input.Owner, input.Stadium);
-            return this.RedirectToAction(nameof(this.Index));
-        }
+        
     }
 }

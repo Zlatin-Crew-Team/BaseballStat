@@ -1,5 +1,7 @@
 ﻿namespace BaseballStat.Web.Areas.Administration.Controllers.Player
 {
+    using System.Linq;
+    using System;
     using System.Threading.Tasks;
 
     using BaseballStat.Common;
@@ -22,11 +24,17 @@
             this.cloudinaryService = cloudinaryService;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int pageIndex = 1, int pageSize = 3)
         {
+            var players = await this.playerService.GetAllPlayersAsync<PlayerViewModel>();
+            var count = players.Count();
+            var items = players.Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
+
             var viewModel = new PlayerListViewModel
             {
-                Players = await this.playerService.GetAllPlayersAsync<PlayerViewModel>(),
+                Players = items,
+                PageIndex = pageIndex,
+                TotalPages = (int)Math.Ceiling(count / (double)pageSize),
             };
 
             return this.View(viewModel);
@@ -79,46 +87,6 @@
             await this.playerService.DeletePlayerAsync(id);
 
             return this.RedirectToAction("Index");
-        }
-
-        [HttpPut]
-        public async Task<IActionResult> UpdatePlayer(int id, PlayerInputModel input)
-        {
-            if (!this.ModelState.IsValid)
-            {
-                return this.View(input);
-            }
-
-            string imageUrl;
-            try
-            {
-                // Upload image to Cloudinary if a new image is provided
-                if (input.Image != null)
-                {
-                    var uploadParams = new ImageUploadParams
-                    {
-                        File = new FileDescription(input.Image.FileName, input.Image.OpenReadStream()),
-                        PublicId = $"{input.FirstName}_{input.LastName}",
-                    };
-
-                    var uploadResult = await this.cloudinaryService.UploadPictureAsync(input.Image, $"{input.FirstName}_{input.LastName}");
-                    imageUrl = uploadResult;
-                }
-                else
-                {
-                    // If no new image is provided, retain the existing image URL
-                    var existingPlayer = await this.playerService.GetByIdAsync<PlayerViewModel>(id);
-                    imageUrl = existingPlayer.ImageUrl;
-                }
-            }
-            catch (System.Exception)
-            {
-                // In case of missing Cloudinary configuration from appsettings.json
-                imageUrl = GlobalConstants.Images.CloudinaryMissing;
-            }
-
-            await this.playerService.UpdatePlayerAsync(id, input.FirstName, input.LastName, input.Position, input.Bats, input.Throws, input.YearOfBirth, input.TeamId, imageUrl);
-            return this.RedirectToAction(nameof(this.Index));
-        }
+        }    
     }
 }
