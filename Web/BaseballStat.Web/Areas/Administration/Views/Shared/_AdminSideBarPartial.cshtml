@@ -1,23 +1,22 @@
 ﻿﻿<!-- Sidebar -->
 
-<div class="bg-light border border-secondary" id="sidebar-wrapper">
-    <div class="sidebar-heading"><strong><u>Admin</u></strong></div>
+<div class="bg-light border border-secondary" id="sidebar-wrapper" style="font-size: larger;">
+    <div class="sidebar-heading text-center"><strong><u>Admin</u></strong></div>
     <div class="list-group list-group-flush">
-        <a asp-area="Administration" asp-controller="Dashboard" asp-action="Index" class="list-group-item list-group-item-action bg-light">
+        <a asp-area="Administration" asp-controller="Dashboard" asp-action="Index" class="list-group-item list-group-item-action bg-light @((ViewContext.RouteData.Values["controller"]?.ToString() == "Dashboard" ? "bg-primary text-white" : ""))">
             Dashboard
         </a>
-        <a asp-area="Administration" asp-controller="Player" asp-action="Index" class="list-group-item list-group-item-action bg-light">
+        <a asp-area="Administration" asp-controller="Player" asp-action="Index" class="list-group-item list-group-item-action bg-light @((ViewContext.RouteData.Values["controller"]?.ToString() == "Player" ? "bg-primary text-white" : ""))">
             Player
         </a>
-        <a asp-area="Administration" asp-controller="Team" asp-action="Index" class="list-group-item list-group-item-action bg-light">
+        <a asp-area="Administration" asp-controller="Team" asp-action="Index" class="list-group-item list-group-item-action bg-light @((ViewContext.RouteData.Values["controller"]?.ToString() == "Team" ? "bg-primary text-white" : ""))">
             Team
         </a>
-        <a asp-area="Administration" asp-controller="League" asp-action="Index" class="list-group-item list-group-item-action bg-light">
+        <a asp-area="Administration" asp-controller="League" asp-action="Index" class="list-group-item list-group-item-action bg-light @((ViewContext.RouteData.Values["controller"]?.ToString() == "League" ? "bg-primary text-white" : ""))">
             League
         </a>
-        <a asp-area="" asp-controller="Home" asp-action="Index" class="list-group-item list-group-item-action bg-light">
+        <a asp-area="" asp-controller="Home" asp-action="Index" class="list-group-item list-group-item-action bg-light @((ViewContext.RouteData.Values["controller"]?.ToString() == "Home" ? "bg-primary text-white" : ""))">
             Home
         </a>
     </div>
-</div>
-<!-- /#sidebar-wrapper -->
+</div><!-- /#sidebar-wrapper -->

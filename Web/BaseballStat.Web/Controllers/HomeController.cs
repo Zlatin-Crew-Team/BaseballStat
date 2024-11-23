@@ -55,21 +55,16 @@
             return this.View();
         }
 
-        [Route("Error/404")]
+        [Route("/Home/Error/404")]
         public IActionResult Error404()
         {
             return this.View();
         }
 
-        [Route("Error/{code:int}")]
+        [Route("/Home/Error/{code:int}")]
         public IActionResult Error(int code)
         {
-            if (code == 404)
-            {
-                return this.RedirectToAction("Error404");
-            }
-
-            return this.View(code);
+            return this.View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

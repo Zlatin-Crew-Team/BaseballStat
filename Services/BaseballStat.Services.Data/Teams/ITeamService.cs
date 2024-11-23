@@ -14,6 +14,6 @@
 
         Task AddAsync(string name, string city, string foundedYear, string logoUrl, string owner, string stadium, int leagueId);
 
-        Task DeleteTeamAsync(int id)
+        Task DeleteTeamAsync(int id);
     }
 }
