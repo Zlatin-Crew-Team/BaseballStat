@@ -4,6 +4,7 @@ using BaseballStat.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BaseballStat.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241124144529_newModelsinCategory")]
+    partial class NewModelsinCategory
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -843,7 +846,7 @@ namespace BaseballStat.Data.Migrations
             modelBuilder.Entity("BaseballStat.Data.Models.AllTimeGreat", b =>
                 {
                     b.HasOne("BaseballStat.Data.Models.Category", "Category")
-                        .WithMany("AllTimeGreats")
+                        .WithMany()
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
@@ -854,19 +857,19 @@ namespace BaseballStat.Data.Migrations
             modelBuilder.Entity("BaseballStat.Data.Models.Award", b =>
                 {
                     b.HasOne("BaseballStat.Data.Models.AwardType", "AwardType")
-                        .WithMany("Awards")
+                        .WithMany()
                         .HasForeignKey("AwardTypeId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("BaseballStat.Data.Models.Category", "Category")
-                        .WithMany("Awards")
+                        .WithMany()
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("BaseballStat.Data.Models.League", "League")
-                        .WithMany("Awards")
+                        .WithMany()
                         .HasForeignKey("LeagueId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
@@ -947,7 +950,7 @@ namespace BaseballStat.Data.Migrations
                         .IsRequired();
 
                     b.HasOne("BaseballStat.Data.Models.RecordType", "RecordType")
-                        .WithMany("Records")
+                        .WithMany()
                         .HasForeignKey("RecordTypeId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
@@ -1053,17 +1056,8 @@ namespace BaseballStat.Data.Migrations
                     b.Navigation("Teams");
                 });
 
-            modelBuilder.Entity("BaseballStat.Data.Models.AwardType", b =>
-                {
-                    b.Navigation("Awards");
-                });
-
             modelBuilder.Entity("BaseballStat.Data.Models.Category", b =>
                 {
-                    b.Navigation("AllTimeGreats");
-
-                    b.Navigation("Awards");
-
                     b.Navigation("Leagues");
 
                     b.Navigation("Players");
@@ -1073,14 +1067,7 @@ namespace BaseballStat.Data.Migrations
 
             modelBuilder.Entity("BaseballStat.Data.Models.League", b =>
                 {
-                    b.Navigation("Awards");
-
                     b.Navigation("Teams");
-                });
-
-            modelBuilder.Entity("BaseballStat.Data.Models.RecordType", b =>
-                {
-                    b.Navigation("Records");
                 });
 
             modelBuilder.Entity("BaseballStat.Data.Models.Team", b =>
