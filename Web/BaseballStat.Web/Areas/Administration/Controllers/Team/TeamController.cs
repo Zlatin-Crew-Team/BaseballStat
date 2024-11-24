@@ -1,7 +1,7 @@
 ﻿namespace BaseballStat.Web.Areas.Administration.Controllers.Team
 {
-    using System.Linq;
     using System;
+    using System.Linq;
     using System.Threading.Tasks;
 
     using BaseballStat.Common;
@@ -72,7 +72,7 @@
                 logoUrl = GlobalConstants.Images.CloudinaryMissing;
             }
 
-            await this.teamService.AddAsync(input.Name, input.City, input.FoundedYear, logoUrl, input.Owner, input.Stadium,input.LeagueId);
+            await this.teamService.AddAsync(input.Name, input.City, input.FoundedYear, logoUrl, input.Owner, input.Stadium, input.LeagueId);
             return this.RedirectToAction(nameof(this.Index));
         }
 
@@ -88,7 +88,5 @@
 
             return this.RedirectToAction("Index");
         }
-
-        
     }
 }

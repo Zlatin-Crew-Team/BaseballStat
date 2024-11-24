@@ -3,20 +3,30 @@
 <div class="bg-light border border-secondary" id="sidebar-wrapper" style="font-size: larger;">
     <div class="sidebar-heading text-center"><strong><u>Admin</u></strong></div>
     <div class="list-group list-group-flush">
-        <a asp-area="Administration" asp-controller="Dashboard" asp-action="Index" class="list-group-item list-group-item-action bg-light @((ViewContext.RouteData.Values["controller"]?.ToString() == "Dashboard" ? "bg-primary text-white" : ""))">
+        <a asp-area="Administration" asp-controller="Dashboard" asp-action="Index" class="list-group-item list-group-item-action bg-light @((ViewContext.RouteData.Values["controller"]?.ToString() == "Dashboard" ? "bg-primary text-blue" : ""))">
             Dashboard
         </a>
-        <a asp-area="Administration" asp-controller="Player" asp-action="Index" class="list-group-item list-group-item-action bg-light @((ViewContext.RouteData.Values["controller"]?.ToString() == "Player" ? "bg-primary text-white" : ""))">
+        <a asp-area="Administration" asp-controller="Player" asp-action="Index" class="list-group-item list-group-item-action bg-light @((ViewContext.RouteData.Values["controller"]?.ToString() == "Player" ? "bg-primary text-blue" : ""))">
             Player
         </a>
-        <a asp-area="Administration" asp-controller="Team" asp-action="Index" class="list-group-item list-group-item-action bg-light @((ViewContext.RouteData.Values["controller"]?.ToString() == "Team" ? "bg-primary text-white" : ""))">
+        <a asp-area="Administration" asp-controller="PlayerStatistic" asp-action="Index" class="list-group-item list-group-item-action bg-light @((ViewContext.RouteData.Values["controller"]?.ToString() == "PlayerStatistic" ? "bg-primary text-blue" : ""))">
+            Player Statistic
+        </a>
+        <a asp-area="Administration" asp-controller="Team" asp-action="Index" class="list-group-item list-group-item-action bg-light @((ViewContext.RouteData.Values["controller"]?.ToString() == "Team" ? "bg-primary text-blue" : ""))">
             Team
         </a>
-        <a asp-area="Administration" asp-controller="League" asp-action="Index" class="list-group-item list-group-item-action bg-light @((ViewContext.RouteData.Values["controller"]?.ToString() == "League" ? "bg-primary text-white" : ""))">
+        <a asp-area="Administration" asp-controller="TeamStatistic" asp-action="Index" class="list-group-item list-group-item-action bg-light @((ViewContext.RouteData.Values["controller"]?.ToString() == "TeamStatistic" ? "bg-primary text-blue" : ""))">
+            Team Statistic
+        </a>
+        <a asp-area="Administration" asp-controller="League" asp-action="Index" class="list-group-item list-group-item-action bg-light @((ViewContext.RouteData.Values["controller"]?.ToString() == "League" ? "bg-primary text-blue" : ""))">
             League
         </a>
-        <a asp-area="" asp-controller="Home" asp-action="Index" class="list-group-item list-group-item-action bg-light @((ViewContext.RouteData.Values["controller"]?.ToString() == "Home" ? "bg-primary text-white" : ""))">
+        <a asp-area="Administration" asp-controller="LeagueStatistic" asp-action="Index" class="list-group-item list-group-item-action bg-light @((ViewContext.RouteData.Values["controller"]?.ToString() == "LeagueStatistic" ? "bg-primary text-blue" : ""))">
+            League Statistic
+        </a>
+        <a asp-area="" asp-controller="Home" asp-action="Index" class="list-group-item list-group-item-action bg-light @((ViewContext.RouteData.Values["controller"]?.ToString() == "Home" ? "bg-primary text-blue" : ""))">
             Home
         </a>
     </div>
-</div><!-- /#sidebar-wrapper -->
+</div>
+<!-- /#sidebar-wrapper -->

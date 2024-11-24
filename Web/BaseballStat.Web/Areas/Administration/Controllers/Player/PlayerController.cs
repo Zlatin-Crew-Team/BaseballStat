@@ -1,7 +1,7 @@
 ﻿namespace BaseballStat.Web.Areas.Administration.Controllers.Player
 {
-    using System.Linq;
     using System;
+    using System.Linq;
     using System.Threading.Tasks;
 
     using BaseballStat.Common;
@@ -87,6 +87,6 @@
             await this.playerService.DeletePlayerAsync(id);
 
             return this.RedirectToAction("Index");
-        }    
+        }
     }
 }
