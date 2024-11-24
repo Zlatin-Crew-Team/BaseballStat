@@ -30,7 +30,7 @@
 
             var viewModel = new PlayerStatisticListViewModel
             {
-                PlayerStatistics = items, 
+                PlayerStatistics = items,
                 PageIndex = pageIndex,
                 TotalPages = (int)Math.Ceiling(count / (double)pageSize),
             };
