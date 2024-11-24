@@ -40,6 +40,16 @@
 
         public DbSet<TeamStatistic> TeamStatistics { get; set; }
 
+        public DbSet<RecordType> RecordTypes { get; set; }
+
+        public DbSet<Record> Records { get; set; }
+
+        public DbSet<AwardType> AwardTypes { get; set; }
+
+        public DbSet<Award> Awards { get; set; }
+
+        public DbSet<AllTimeGreat> AllTimeGreats { get; set; }
+
         public override int SaveChanges() => this.SaveChanges(true);
 
         public override int SaveChanges(bool acceptAllChangesOnSuccess)

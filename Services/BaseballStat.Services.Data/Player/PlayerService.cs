@@ -68,6 +68,5 @@
                 .FirstOrDefault();
             return Task.FromResult(player);
         }
-
     }
 }

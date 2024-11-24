@@ -36,6 +36,11 @@
                               new PlayerStatisticSeeder(),
                               new TeamStatisticSeeder(),
                               new LeagueStatisticSeeder(),
+                              new AwardTypeSeeder(),
+                              new AwardSeeder(),
+                              new AllTimeGreatsSeeder(),
+                              new RecordTypeSeeder(),
+                              new RecordSeeder(),
                           };
 
             foreach (var seeder in seeders)
