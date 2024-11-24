@@ -23,5 +23,18 @@
             };
             return this.View(viewModel);
         }
+
+        public IActionResult Details(int id)
+        {
+            var award = new CategoryAwardViewModel
+            {
+                PlayerName = "Shohei Othani",
+                TeamName = "Los Angeles Dodgers",
+                AwardName = "MVP",
+                Year = 2024,
+            };
+
+            return this.View(award);
+        }
     }
 }
