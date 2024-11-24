@@ -9,6 +9,12 @@
 
     public class League : BaseDeletableModel<int>
     {
+        public League()
+        {
+            this.Teams = new HashSet<Team>();
+            this.Awards = new HashSet<Award>();
+        }
+
         [Required]
         [MaxLength(GlobalConstants.DataValidations.NameMaxLength)]
         public string Name { get; set; }
@@ -17,5 +23,7 @@
         public string ImageUrl { get; set; }
 
         public virtual ICollection<Team> Teams { get; set; }
+
+        public virtual ICollection<Award> Awards { get; set; }
     }
 }

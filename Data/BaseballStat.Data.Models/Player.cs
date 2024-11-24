@@ -36,7 +36,7 @@
         [Range(GlobalConstants.DataValidations.YearOfBirthMinValue, GlobalConstants.DataValidations.YearOfBirthMaxValue)]
         public int YearOfBirth { get; set; }
 
-        public Team Team { get; set; }
+        public virtual Team Team { get; set; }
 
         public int TeamId { get; set; }
     }

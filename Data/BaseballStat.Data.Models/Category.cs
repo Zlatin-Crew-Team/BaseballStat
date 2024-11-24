@@ -14,6 +14,8 @@
             this.Players = new HashSet<Player>();
             this.Teams = new HashSet<Team>();
             this.Leagues = new HashSet<League>();
+            this.Awards = new HashSet<Award>();
+            this.AllTimeGreats = new HashSet<AllTimeGreat>();
         }
 
         [Required]
@@ -32,5 +34,9 @@
         public virtual ICollection<Team> Teams { get; set; }
 
         public virtual ICollection<League> Leagues { get; set; }
+
+        public virtual ICollection<Award> Awards { get; set; }
+
+        public virtual ICollection<AllTimeGreat> AllTimeGreats { get; set; }
     }
 }
