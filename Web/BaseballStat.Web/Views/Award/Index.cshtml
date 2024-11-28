@@ -14,16 +14,12 @@
             <div class="card">
                 <img src="@award.ImageUrl" class="card-img-top" alt="@award.Description">
                 <div class="card-body">
+                    <h1 class="card-text text-center">@award.Winner (@award.Year)</h1>
                     <h2 class="card-title text-center">@award.Description</h2>
-                    <p class="card-text text-center">@award.Winner (@award.Year)</p>
                     <div class="text-center">
                         <div class="row">
                             <div class="col">
-                                <div class="button button-large button_1 elements_button mt-4">
-                                    <a asp-area="" asp-controller="AwardType" asp-action="Index" asp-route-id="@award.AwardTypeId">
-                                        <label for="submit" class="btn btn-primary">Award Type</label>
-                                    </a>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -32,3 +28,49 @@
         </div>
     }
 </div>
+hr />
+<nav>
+    <ul class="pagination">
+        @if (Model.HasPreviousPage)
+        {
+            <li class="page-item">
+                <a class="page-link" asp-action="Index" asp-route-pageIndex="@(Model.PageIndex - 1)">Previous</a>
+            </li>
+        }
+        else
+        {
+            <li class="page-item disabled">
+                <span class="page-link">Previous</span>
+            </li>
+        }
+
+        @for (int i = 1; i <= Model.TotalPages; i++)
+        {
+            if (i == Model.PageIndex)
+            {
+                <li class="page-item active">
+                    <span class="page-link">@i</span>
+                </li>
+            }
+            else
+            {
+                <li class="page-item">
+                    <a class="page-link" asp-action="Index" asp-route-pageIndex="@i">@i</a>
+                </li>
+            }
+        }
+
+        @if (Model.HasNextPage)
+        {
+            <li class="page-item">
+                <a class="page-link" asp-action="Index" asp-route-pageIndex="@(Model.PageIndex + 1)">Next</a>
+            </li>
+        }
+        else
+        {
+            <li class="page-item disabled">
+                <span class="page-link">Next</span>
+            </li>
+        }
+    </ul>
+</nav>
