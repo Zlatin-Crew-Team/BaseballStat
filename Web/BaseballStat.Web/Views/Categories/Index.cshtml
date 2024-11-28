@@ -1,36 +1,44 @@
-﻿  @model BaseballStat.Web.ViewModels.Category.CategoriesListViewModel
+﻿@model BaseballStat.Web.ViewModels.Category.CategoriesListViewModel
 
 @{
     this.ViewData["Title"] = "Categories of BaseballStat";
 }
 
 <div class="row">
-    <!-- News Posts -->
+    <!-- Iterate through categories -->
     @foreach (var category in Model.Categories)
     {
         <div class="col-lg-4">
             <hr class="bg-dark mx-4" style="height: 6px;" />
-            <!-- News Post -->
+            <!-- Card for category -->
             <div class="card">
                 <img src="@category.ImageUrl" class="card-img-top img-fluid" alt="@category.Name" style="height: 400px; object-fit: cover;">
                 <div class="card-body">
                     <h2 class="card-title text-center">@category.Name</h2>
                     <p class="card-text">@category.Description</p>
-                    <div class="text-center">
-                        <div class="row">
-                            <div class="col">
-                                <div class="button button-large button_1 elements_button mt-4">
-                                    <a asp-area="" asp-controller="Categories" asp-action="Details" asp-route-id="@category.Id">
-                                        <label for="submit" class="btn btn-primary">Details</label>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+
+                    <!-- Awards Button -->
+                    <div class="text-center mt-3">
+                        <a asp-controller="Award" asp-action="Index" asp-route-id="@category.Id" class="btn btn-primary btn-block">
+                            Awards
+                        </a>
+                    </div>
+
+                    <!-- Records Button -->
+                    <div class="text-center mt-3">
+                        <a asp-controller="Records" asp-action="Index" asp-route-id="@category.Id" class="btn btn-primary btn-block">
+                            Records
+                        </a>
+                    </div>
+
+                    <!-- All Time Greats Button -->
+                    <div class="text-center mt-3">
+                        <a asp-controller="AllTimeGreats" asp-action="Index" asp-route-id="@category.Id" class="btn btn-primary btn-block">
+                            All Time Greats
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     }
 </div>
-
-
