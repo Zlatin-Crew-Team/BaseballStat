@@ -1,4 +1,4 @@
-﻿namespace BaseballStat.Web.ViewModels.Common.CustomValidationAttributes
+﻿namespace BaseballStat.Web.ViewModels.Common.Pagination
 {
     using System;
     using System.Collections.Generic;
