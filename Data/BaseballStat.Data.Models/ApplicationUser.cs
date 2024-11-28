@@ -19,6 +19,8 @@ namespace BaseballStat.Data.Models
             this.Players = new HashSet<Player>();
             this.Teams = new HashSet<Team>();
             this.Leagues = new HashSet<League>();
+            this.Categories = new HashSet<Category>();
+            this.Awards = new HashSet<Award>();
         }
 
         // Audit info
@@ -42,5 +44,9 @@ namespace BaseballStat.Data.Models
         public virtual ICollection<Team> Teams { get; set; }
 
         public virtual ICollection<League> Leagues { get; set; }
+
+        public virtual ICollection<Category> Categories { get; set; }
+
+        public virtual ICollection<Award> Awards { get; set; }
     }
 }

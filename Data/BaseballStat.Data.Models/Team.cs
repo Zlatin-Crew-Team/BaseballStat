@@ -15,6 +15,7 @@
         public Team()
         {
             this.Players = new HashSet<Player>();
+            this.Awards = new HashSet<Award>();
         }
 
         [Required]
@@ -42,5 +43,7 @@
         public string Owner { get; set; }
 
         public virtual ICollection<Player> Players { get; set; }
+
+        public virtual ICollection<Award> Awards { get; set; }
     }
 }
