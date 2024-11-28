@@ -122,16 +122,16 @@
 
         public static class Bats
         {
-            public const string Left = "Left";
-            public const string Right = "Right";
-            public const string TwoHanded = "Two Handed";
+            public const string Left = "L";
+            public const string Right = "R";
+            public const string TwoHanded = "S";
         }
 
         public static class Throws
         {
-            public const string Left = "Left";
-            public const string Right = "Right";
-            public const string TwoHanded = "Two Handed";
+            public const string Left = "L";
+            public const string Right = "R";
+            public const string TwoHanded = "T";
         }
 
         public static class TeamIds
@@ -178,6 +178,27 @@
 
             public const int LeagueIdMinValue = 1;
             public const int LeagueIdMaxValue = 2;
+        }
+
+        public static class Award
+        {
+            public const int DescriptionMaxLength = 200;
+            public const int DescriptionMinLength = 5;
+
+            public const int YearMinValue = 1900;
+            public const int YearMaxValue = 2024;
+
+            public const int WinnerMaxLength = 50;
+            public const int WinnerMinLength = 2;
+
+            public const int AwardTypeIdMinValue = 1;
+            public const int AwardTypeIdMaxValue = 3;
+
+            public const int LeagueIdMinValue = 1;
+            public const int LeagueIdMaxValue = 2;
+
+            public const int TeamIdMinValue = 1;
+            public const int TeamIdMaxValue = 30;
         }
 
         public static class ErrorMesages
@@ -255,7 +276,7 @@
         {
             public const string Index = "https://res.cloudinary.com/dsbprqxc5/image/upload/v1731519246/Players/background-with-baseball-aqua-color_1040322-10408_f4c8gv.jpg";
 
-            public const string CoverBackground = "https://media.istockphoto.com/id/482805043/photo/baseball-in-the-infield.webp?a=1&b=1&s=612x612&w=0&k=20&c=kVnz61LBzoSq2Kbr1Qz49teMMGQPjwF-BXTXevhCpv0=";
+            public const string CoverBackground = "https://res.cloudinary.com/dsbprqxc5/image/upload/v1732728348/Mlb%20Logos/stadium-5460564_640_w5re32.jpg";
             public const string CloudinaryMissing = "https://res.cloudinary.com/dsbprqxc5/image/upload/v1731657890/baseballstat/cloudinary_veibtu_r4ks73.png";
             public const string Error404 = "https://res.cloudinary.com/dsbprqxc5/image/upload/v1731674761/baseballstat/robot-is-smashing-404-error-message-with-a-baseball-bat-2AXN739_esj4pz.jpg";
             public const string AdminBackground = "https://res.cloudinary.com/dsbprqxc5/image/upload/v1732357924/Mlb%20Logos/baseball-ball-in-a-grass-of-baseball-arena-stadium_dzql46.webp";
