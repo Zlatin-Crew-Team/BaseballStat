@@ -24,17 +24,22 @@
             return this.View(viewModel);
         }
 
-        public IActionResult Details(int id)
+        // Action to redirect to Awards
+        public IActionResult Award(int id)
         {
-            var award = new CategoryAwardViewModel
-            {
-                PlayerName = "Shohei Othani",
-                TeamName = "Los Angeles Dodgers",
-                AwardName = "MVP",
-                Year = 2024,
-            };
+            return this.RedirectToAction("Index", "Award", new { id });
+        }
 
-            return this.View(award);
+        // Action to redirect to Records
+        public IActionResult Records(int id)
+        {
+            return this.RedirectToAction("Index", "Records", new { id });
+        }
+
+        // Action to redirect to All Time Greats
+        public IActionResult AllTimeGreats(int id)
+        {
+            return this.RedirectToAction("Index", "AllTimeGreats", new { id });
         }
     }
 }

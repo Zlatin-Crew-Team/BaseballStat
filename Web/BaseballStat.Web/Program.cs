@@ -11,6 +11,7 @@
     using BaseballStat.Data.Repositories;
     using BaseballStat.Data.Seeding;
     using BaseballStat.Services.Cloudinary;
+    using BaseballStat.Services.Data.Award;
     using BaseballStat.Services.Data.Categories;
     using BaseballStat.Services.Data.League;
     using BaseballStat.Services.Data.LeagueStatistic;
@@ -90,6 +91,7 @@
             services.AddTransient<IPlayerStatisticService, PlayerStatisticService>();
             services.AddTransient<ITeamStatisticService, TeamStatisticService>();
             services.AddTransient<ILeagueStatisticService, LeagueStatisticService>();
+            services.AddTransient<IAwardService, AwardService>();
         }
 
         private static void Configure(WebApplication app)
