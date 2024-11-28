@@ -297,6 +297,10 @@
             public const int LeagueStatisticsCount = 2;
 
             public const int Categories = 3;
+
+            public const int Awards = 3;
+
+            public const int AwardTypes = 3;
         }
     }
 }

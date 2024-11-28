@@ -8,7 +8,7 @@
 
     public interface IAwardService
     {
-        Task<IEnumerable<T>> GetAllAsync<T>(int? count = null);
+        Task<IEnumerable<T>> GetAllAwardAsync<T>(int? count = null);
 
         Task<T> GetByIdAsync<T>(int id);
     }

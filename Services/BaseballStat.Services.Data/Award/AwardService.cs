@@ -21,7 +21,7 @@
             this.awardRepository = awardRepository;
         }
 
-        public async Task<IEnumerable<T>> GetAllAsync<T>(int? count = null)
+        public async Task<IEnumerable<T>> GetAllAwardAsync<T>(int? count = null)
         {
             IQueryable<Award> query = this.awardRepository
                 .All()
