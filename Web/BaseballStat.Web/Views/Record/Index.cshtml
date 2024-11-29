@@ -1,0 +1,26 @@
+﻿@model IEnumerable<BaseballStat.Web.ViewModels.Record.RecordViewModel>
+
+@{
+    ViewData["Title"] = "Baseball Records";
+}
+
+<div class="container py-5">
+    <h1 class="text-center text-primary mb-5 fw-bold">Baseball Records</h1>
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        @foreach (var record in Model)
+        {
+            <div class="col">
+                <div class="card shadow-sm">
+                    <!-- Image with fixed size -->
+                    <img src="@record.ImageUrl" class="card-img-top" alt="Record image" style="height: 250px; object-fit: cover;">
+
+                    <div class="card-body">
+                        <h5 class="card-title text-center text-dark">@record.Holder</h5>
+                        <p class="card-text text-muted text-center">@record.Description</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
