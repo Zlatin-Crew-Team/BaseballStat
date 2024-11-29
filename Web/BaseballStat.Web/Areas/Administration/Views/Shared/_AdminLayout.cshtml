@@ -13,53 +13,54 @@
     <partial name="_CookieConsentPartial" />
 
     <header>
-        <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="Administration" asp-controller="Dashboard" asp-action="Index">@GlobalConstants.SystemName - Admin</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="Administration" asp-controller="Dashboard" asp-action="Index">Dashboard</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="Administration" asp-controller="Player" asp-action="Index">Player</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="Administration" asp-controller="Team" asp-action="Index">Team</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="Administration" asp-controller="League" asp-action="Index">League</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                    </ul>
-                    <partial name="_LoginPartial" />
-                </div>
+    <nav class="navbar navbar-expand-sm navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" asp-area="Administration" asp-controller="Dashboard" asp-action="Index">
+                @GlobalConstants.SystemName - Admin
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="Administration" asp-controller="Dashboard" asp-action="Index">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="Administration" asp-controller="Player" asp-action="Index">Player</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="Administration" asp-controller="Team" asp-action="Index">Team</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="Administration" asp-controller="League" asp-action="Index">League</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                </ul>
+                <partial name="_LoginPartial" />
             </div>
-        </nav>
+        </div>
+    </nav>
     </header>
 
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-md-3">
+            <nav class="col-md-3 sidebar">
                 <partial name="_AdminSideBarPartial" />
-            </div>
-            <div class="col-md-9">
-                <main role="main" class="pb-3">
-                    @this.RenderBody()
-                </main>
-            </div>
+            </nav>
+            <main class="col-md-9">
+                @this.RenderBody()
+            </main>
         </div>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer">
         <div class="container">
-            &copy; @DateTime.Now.Year - @GlobalConstants.SystemName - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; @DateTime.Now.Year - @GlobalConstants.SystemName -
+            <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
 

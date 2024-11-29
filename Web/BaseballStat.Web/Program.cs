@@ -11,6 +11,7 @@
     using BaseballStat.Data.Repositories;
     using BaseballStat.Data.Seeding;
     using BaseballStat.Services.Cloudinary;
+    using BaseballStat.Services.Data.AllTimeGreat;
     using BaseballStat.Services.Data.Award;
     using BaseballStat.Services.Data.Categories;
     using BaseballStat.Services.Data.League;
@@ -92,6 +93,7 @@
             services.AddTransient<ITeamStatisticService, TeamStatisticService>();
             services.AddTransient<ILeagueStatisticService, LeagueStatisticService>();
             services.AddTransient<IAwardService, AwardService>();
+            services.AddTransient<IAllTimeGreatService, AllTimeGreatService>();
         }
 
         private static void Configure(WebApplication app)
