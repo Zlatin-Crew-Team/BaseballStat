@@ -22,11 +22,14 @@
                         <div class="text-center">
                             <div class="row">
                                 <div class="col">
-                                    <div class="button button-large button_1 elements_button mt-4">
-                                        <a asp-area="" asp-controller="PlayerStatistic" asp-action="Index" asp-route-id="@player.Id">
-                                            <label for="submit" class="btn btn-primary">PlayerStatistic</label>
-                                        </a>
-                                    </div>
+                                    @if (User.Identity.IsAuthenticated)
+                                    {
+                                        <div class="button button-large button_1 elements_button mt-4">
+                                            <a asp-area="" asp-controller="PlayerStatistic" asp-action="Index" asp-route-id="@player.Id">
+                                                <label for="submit" class="btn btn-primary">PlayerStatistic</label>
+                                            </a>
+                                        </div>
+                                    }
                                 </div>
                             </div>
                         </div>

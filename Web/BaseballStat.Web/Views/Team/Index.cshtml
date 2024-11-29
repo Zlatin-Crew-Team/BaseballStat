@@ -19,7 +19,10 @@
                         <p class="card-text"><b>Stadium:</b> @team.Stadium</p>
                         <p class="card-text"><b>Founded Year:</b> @team.FoundedYear</p>
                         <p class="card-text"><b>Owner:</b> @team.Owner</p>
+                        @if (User.Identity.IsAuthenticated)
+                        {
                         <a asp-area="" asp-controller="TeamStatistic" asp-action="Index" asp-route-id="@team.Id" class="btn btn-primary mt-3">Team Statistic</a>
+                        }
                     </div>
                 </div>
             </div>
