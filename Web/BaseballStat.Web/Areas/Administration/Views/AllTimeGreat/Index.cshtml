@@ -1,0 +1,95 @@
+﻿@model BaseballStat.Web.ViewModels.AllTimeGreat.AllTimeGreatListViewModel
+
+@{
+    this.ViewData["Title"] = "AllTimeGreat of BaseballStat";
+}
+
+<div class="col-lg-12">
+    <h2 class="text-center text-primary mb-4">All-Time Greats</h2>
+    <div class="table-responsive">
+        <table class="table table-striped table-hover">
+            <thead class="bg-primary text-white">
+                <tr>
+                    <th class="font-weight-bold text-uppercase" style="font-size: larger;">Name</th>
+                    <th class="font-weight-bold text-uppercase" style="font-size: larger;">Biography</th>
+                    <th class="font-weight-bold text-uppercase" style="font-size: larger;">Image</th>
+                    <th class="font-weight-bold text-uppercase" style="font-size: larger;">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var allTimeGreat in Model.AllTimeGreats)
+                {
+                    <tr>
+                        <td class="align-middle font-weight-bold" style="font-size: large;">@allTimeGreat.Name</td>
+                        <td class="align-middle" style="font-size: medium; max-width: 300px;">
+                            <span class="d-block text-truncate" title="@allTimeGreat.Bio">@allTimeGreat.Bio</span>
+                        </td>
+                        <td class="align-middle">
+                            <img src="@allTimeGreat.ImageUrl" alt="@allTimeGreat.Name" width="150" height="150" class="rounded shadow-sm" />
+                        </td>
+                        <td class="align-middle">
+                            <div class="d-flex justify-content-center">
+                                <a asp-action="AddAAllTimeGreat" asp-route-id="@allTimeGreat.Id" asp-area="Administration" class="btn btn-warning btn-md px-4 mr-2">
+                                    <i class="fas fa-edit"></i> Add
+                                </a>
+                                <form method="post" asp-action="DeleteAllTimeGreat" asp-area="Administration">
+                                    <input type="hidden" name="id" value="@allTimeGreat.Id" />
+                                    <button type="submit" class="btn btn-danger btn-md px-4">
+                                        <i class="fas fa-trash-alt"></i> Delete
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<hr />
+<nav>
+    <ul class="pagination">
+        @if (Model.HasPreviousPage)
+        {
+            <li class="page-item">
+                <a class="page-link" asp-action="Index" asp-route-pageIndex="@(Model.PageIndex - 1)">Previous</a>
+            </li>
+        }
+        else
+        {
+            <li class="page-item disabled">
+                <span class="page-link">Previous</span>
+            </li>
+        }
+
+        @for (int i = 1; i <= Model.TotalPages; i++)
+        {
+            if (i == Model.PageIndex)
+            {
+                <li class="page-item active">
+                    <span class="page-link">@i</span>
+                </li>
+            }
+            else
+            {
+                <li class="page-item">
+                    <a class="page-link" asp-action="Index" asp-route-pageIndex="@i">@i</a>
+                </li>
+            }
+        }
+
+        @if (Model.HasNextPage)
+        {
+            <li class="page-item">
+                <a class="page-link" asp-action="Index" asp-route-pageIndex="@(Model.PageIndex + 1)">Next</a>
+            </li>
+        }
+        else
+        {
+            <li class="page-item disabled">
+                <span class="page-link">Next</span>
+            </li>
+        }
+    </ul>
+</nav>
+
