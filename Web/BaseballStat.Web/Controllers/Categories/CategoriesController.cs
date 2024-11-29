@@ -36,10 +36,10 @@
             return this.RedirectToAction("Index", "Records", new { id });
         }
 
-        // Action to redirect to All Time Greats
-        public IActionResult AllTimeGreats(int id)
+        // Action to redirect to All Time Great
+        public IActionResult AllTimeGreat(int id)
         {
-            return this.RedirectToAction("Index", "AllTimeGreats", new { id });
+            return this.RedirectToAction("Index", "AllTimeGreat", new { id });
         }
     }
 }
