@@ -278,7 +278,7 @@
 
             public const string CoverBackground = "https://res.cloudinary.com/dsbprqxc5/image/upload/v1732728348/Mlb%20Logos/stadium-5460564_640_w5re32.jpg";
             public const string CloudinaryMissing = "https://res.cloudinary.com/dsbprqxc5/image/upload/v1731657890/baseballstat/cloudinary_veibtu_r4ks73.png";
-            public const string Error404 = "https://res.cloudinary.com/dsbprqxc5/image/upload/v1731674761/baseballstat/robot-is-smashing-404-error-message-with-a-baseball-bat-2AXN739_esj4pz.jpg";
+            public const string Error404 = "https://res.cloudinary.com/dsbprqxc5/image/upload/v1732816500/baseballstat/warning-8908707_1280_tx8hco.png";
             public const string AdminBackground = "https://res.cloudinary.com/dsbprqxc5/image/upload/v1732357924/Mlb%20Logos/baseball-ball-in-a-grass-of-baseball-arena-stadium_dzql46.webp";
         }
 
