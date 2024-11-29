@@ -155,3 +155,48 @@ main {
     padding: 1.5rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Card hover effect */
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Card title styling */
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+/* Card text styling */
+.card-text {
+    font-size: 1rem;
+    color: #7f8c8d;
+}
+
+/* Responsive grid styles */
+.row-cols-1 {
+    display: flex;
+    justify-content: center;
+}
+
+@media (min-width: 768px) {
+    .row-cols-md-2 {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .row-cols-lg-3 {
+        flex-wrap: wrap;
+        gap: 1.5rem;
+    }
+}

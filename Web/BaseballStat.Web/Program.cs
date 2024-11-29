@@ -18,6 +18,7 @@
     using BaseballStat.Services.Data.LeagueStatistic;
     using BaseballStat.Services.Data.Player;
     using BaseballStat.Services.Data.PlayerStattistic;
+    using BaseballStat.Services.Data.Records;
     using BaseballStat.Services.Data.Setting;
     using BaseballStat.Services.Data.Teams;
     using BaseballStat.Services.Data.TeamStatistic;
@@ -94,6 +95,7 @@
             services.AddTransient<ILeagueStatisticService, LeagueStatisticService>();
             services.AddTransient<IAwardService, AwardService>();
             services.AddTransient<IAllTimeGreatService, AllTimeGreatService>();
+            services.AddTransient<IRecordService, RecordService>();
         }
 
         private static void Configure(WebApplication app)
