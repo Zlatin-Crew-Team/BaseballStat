@@ -5,7 +5,7 @@
 
     using BaseballStat.Data.Common.Models;
 
-    public interface IDeletableEntityRepository<TEntity> : IRepository<TEntity>
+    public interface IDeletableEntityRepository<TEntity> : IDeletableEntity<TEntity>
         where TEntity : class, IDeletableEntity
     {
         IQueryable<TEntity> AllWithDeleted();

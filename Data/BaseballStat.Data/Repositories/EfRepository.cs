@@ -8,7 +8,7 @@
 
     using Microsoft.EntityFrameworkCore;
 
-    public class EfRepository<TEntity> : IRepository<TEntity>
+    public class EfRepository<TEntity> : IDeletableEntity<TEntity>
         where TEntity : class
     {
         public EfRepository(ApplicationDbContext context)
