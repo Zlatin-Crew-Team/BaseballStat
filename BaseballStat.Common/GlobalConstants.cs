@@ -50,6 +50,10 @@
             public const int FoundedYearMinValue = 1880;
 
             public const int FoundedYearMaxValue = 2020;
+
+            public const int BioMaxLength = 1000;
+
+            public const int BioMinLength = 10;
         }
 
         public static class PlayerStatistic
@@ -300,7 +304,9 @@
 
             public const int Awards = 3;
 
-            public const int AwardTypes = 3;
+            public const int AllTimeGreats = 6;
+
+            public const int Records = 3;
         }
     }
 }

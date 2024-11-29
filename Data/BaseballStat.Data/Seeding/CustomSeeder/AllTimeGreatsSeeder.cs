@@ -51,7 +51,7 @@
                 {
                     Name = "Mickey Mantle",
                     Bio = "Mickey Charles Mantle, nicknamed 'The Commerce Comet' and 'The Mick', was an American professional baseball player. Mantle played his entire Major League Baseball career with the New York Yankees as a center fielder, first baseman, and right fielder.",
-                    ImageUrl = "https://res.cloudinary.com/dsbprqxc5/image/upload/v1732455214/Players/american-baseball-player-mickey-mantle-of-the-new-york-yankees-at-yankee-stadium-new-york_iygdzo.jpg6",
+                    ImageUrl = "https://res.cloudinary.com/dsbprqxc5/image/upload/v1732878512/baseballstat/mantle_1280_kwvgiihg_cjd5aj4k_alxpr3.jpg",
                     CategoryId = 2,
                 },
                 new AllTimeGreat

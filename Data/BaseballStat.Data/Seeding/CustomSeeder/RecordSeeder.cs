@@ -26,7 +26,7 @@
                    Holder = "Barry Bonds",
                    Description = "Barry Bonds is the all-time leader in home runs with 762.",
                    RecordTypeId = 1,
-                   ImageUrl = "https://res.cloudinary.com/dsbprqxc5/image/upload/v1732456940/Players/barry-bonds-of-the-san-francisco-giants-stands-on-deck-during-the-major-league-baseball_pnfxbr.jpg",
+                   ImageUrl = "https://res.cloudinary.com/dsbprqxc5/image/upload/v1732878689/ypuzu75o9r5a1_dvnm6e.jpg",
                    CategoryId = 3,
                 },
                 new Record
