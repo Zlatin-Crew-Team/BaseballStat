@@ -17,28 +17,50 @@
                     <h2 class="card-title text-center">@category.Name</h2>
                     <p class="card-text">@category.Description</p>
 
-                    <!-- Awards Button -->
-                    <div class="text-center mt-3">
-                        <a asp-controller="Award" asp-action="Index" asp-route-id="@category.Id" class="btn btn-primary btn-block">
-                            Awards
-                        </a>
+                    <!-- Toggle Buttons for each Category -->
+                    <div id="category-buttons-@category.Id" class="category-buttons" style="display: none;">
+                        <!-- Awards Button -->
+                        <div class="text-center mt-3">
+                            <a asp-controller="Award" asp-action="Index" asp-route-id="@category.Id" class="btn btn-primary btn-block">
+                                Awards
+                            </a>
+                        </div>
+
+                        <!-- Records Button -->
+                        <div class="text-center mt-3">
+                            <a asp-controller="Records" asp-action="Index" asp-route-id="@category.Id" class="btn btn-primary btn-block">
+                                Records
+                            </a>
+                        </div>
+
+                        <!-- All Time Greats Button -->
+                        <div class="text-center mt-3">
+                            <a asp-controller="AllTimeGreat" asp-action="Index" asp-route-id="@category.Id" class="btn btn-primary btn-block">
+                                All Time Great
+                            </a>
+                        </div>
                     </div>
 
-                    <!-- Records Button -->
+                    <!-- Show/Hide Buttons Link -->
                     <div class="text-center mt-3">
-                        <a asp-controller="Records" asp-action="Index" asp-route-id="@category.Id" class="btn btn-primary btn-block">
-                            Records
-                        </a>
-                    </div>
-
-                    <!-- All Time Greats Button -->
-                    <div class="text-center mt-3">
-                        <a asp-controller="AllTimeGreats" asp-action="Index" asp-route-id="@category.Id" class="btn btn-primary btn-block">
-                            All Time Greats
-                        </a>
+                        <button class="btn btn-secondary" onclick="toggleCategoryButtons('@category.Id')">Toggle Buttons</button>
                     </div>
                 </div>
             </div>
         </div>
     }
 </div>
+
+<script>
+    // Function to toggle visibility of category buttons
+    function toggleCategoryButtons(categoryId) {
+        var buttonsDiv = document.getElementById('category-buttons-' + categoryId);
+
+        // Toggle the visibility of the buttons for the selected category
+        if (buttonsDiv.style.display === "none" || buttonsDiv.style.display === "") {
+            buttonsDiv.style.display = "block"; // Show the buttons
+        } else {
+            buttonsDiv.style.display = "none"; // Hide the buttons
+        }
+    }
+</script>

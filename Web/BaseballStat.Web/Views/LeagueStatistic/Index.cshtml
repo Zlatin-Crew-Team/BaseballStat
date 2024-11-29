@@ -5,17 +5,41 @@
 }
 
 <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
-    <div class="card mb-3 w-100" style="max-width: 800px; background-color: #f8f9fa;">
-        <div class="row g-0">
-            <div class="col-md-12">
-                <div class="card-body text-center">
-                    <h2 class="card-title">Statistics</h2>
-                    <p class="card-text"><strong>Games:</strong> @Model.Games</p>
-                    <p class="card-text"><strong>Wins:</strong> @Model.Wins</p>
-                    <p class="card-text"><strong>Losses:</strong> @Model.Losses</p>
-                    <p class="card-text"><strong>Titles:</strong> @Model.Titles</p>
+    <div class="card shadow-lg w-100" style="max-width: 800px; border-radius: 15px; overflow: hidden;">
+        <div class="card-header bg-primary text-white text-center py-4">
+            <h2 class="mb-0">League Statistics</h2>
+        </div>
+        <div class="card-body bg-light py-4">
+            <div class="row text-center">
+                <div class="col-md-6 mb-3">
+                    <div class="stat-box bg-white p-3 rounded shadow-sm">
+                        <h5 class="text-secondary">Games</h5>
+                        <h3 class="fw-bold">@Model.Games</h3>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="stat-box bg-white p-3 rounded shadow-sm">
+                        <h5 class="text-secondary">Wins</h5>
+                        <h3 class="fw-bold">@Model.Wins</h3>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="stat-box bg-white p-3 rounded shadow-sm">
+                        <h5 class="text-secondary">Losses</h5>
+                        <h3 class="fw-bold">@Model.Losses</h3>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="stat-box bg-white p-3 rounded shadow-sm">
+                        <h5 class="text-secondary">Titles</h5>
+                        <h3 class="fw-bold">@Model.Titles</h3>
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="card-footer text-center bg-primary text-white py-3">
+            <p class="mb-0">BaseballStat - Empowering your stats journey!</p>
+        </div>
     </div>
 </div>
+Подобрения и функции:

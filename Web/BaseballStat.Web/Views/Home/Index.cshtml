@@ -4,63 +4,76 @@
     ViewData["Title"] = "Home";
 }
 
-<div class="container">
-    <div class="jumbotron" style="background-image: url('/images/background.jpg'); background-size: cover;">
-        <h1 class="display-4">Welcome to BaseballStat</h1>
+<div class="container-fluid px-0">
+    <!-- Featured Sections (No Hero Section) -->
+    <div class="container py-5">
+        <h2 class="text-center text-primary mb-5 fw-bold">Explore Baseball Stats</h2>
+
+        <div class="row g-4">
+            <!-- Featured Player -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card shadow-sm h-100">
+                    @if (Model.FeaturedPlayer != null)
+                    {
+                        <img src="@Model.FeaturedPlayer.ImageUrl" class="card-img-top" alt="Player image" style="height: 400px; object-fit: cover;">
+                        <div class="card-body text-center">
+                            <h5 class="card-title fw-bold">@Model.FeaturedPlayer.FirstName @Model.FeaturedPlayer.LastName</h5>
+                            <p class="card-text">@Model.FeaturedPlayer.Position ?? "Position not available"</p>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="card-body text-center d-flex align-items-center justify-content-center" style="height: 400px; background-color: #f8f9fa;">
+                            <p class="text-muted">No featured player available.</p>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <!-- Featured Team -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card shadow-sm h-100">
+                    @if (Model.FeaturedTeam != null)
+                    {
+                        <img src="@Model.FeaturedTeam.LogoUrl" class="card-img-top" alt="Team logo" style="height: 400px; object-fit: cover;">
+                        <div class="card-body text-center">
+                            <h5 class="card-title fw-bold">@Model.FeaturedTeam.Name</h5>
+                            <p class="card-text">City: @Model.FeaturedTeam.City</p>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="card-body text-center d-flex align-items-center justify-content-center" style="height: 400px; background-color: #f8f9fa;">
+                            <p class="text-muted">No featured team available.</p>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <!-- Featured League -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card shadow-sm h-100">
+                    @if (Model.FeaturedLeague != null)
+                    {
+                        <img src="@Model.FeaturedLeague.ImageUrl" class="card-img-top" alt="League image" style="height: 400px; object-fit: cover;">
+                        <div class="card-body text-center">
+                            <h5 class="card-title fw-bold">@Model.FeaturedLeague.Name</h5>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="card-body text-center d-flex align-items-center justify-content-center" style="height: 400px; background-color: #f8f9fa;">
+                            <p class="text-muted">No featured league available.</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
     </div>
+</div>
 
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Featured Player</h2>
-            @if (Model.FeaturedPlayer != null)
-            {
-                <div class="card">
-                    <img class="card-img-top img-fluid" src="@Model.FeaturedPlayer.ImageUrl" alt="Player image" style="max-height: 600px; object-fit: cover;">
-                    <div class="card-body">
-                        <h2 class="card-title">@Model.FeaturedPlayer.FirstName @Model.FeaturedPlayer.LastName</h2>
-                        <p class="card-text">Position: @Model.FeaturedPlayer.Position</p>
-                    </div>
-                </div>
-            }
-            else
-            {
-                <p>No featured player available.</p>
-            }
-        </div>
-
-        <div class="col-md-4">
-            <h2>Featured Team</h2>
-            @if (Model.FeaturedTeam != null)
-            {
-                <div class="card">
-                    <img class="card-img-top img-fluid" src="@Model.FeaturedTeam.LogoUrl" alt="Team logo" style="max-height: 600px; object-fit: cover;">
-                    <div class="card-body">
-                        <h2 class="card-title">@Model.FeaturedTeam.Name</h2>
-                        <p class="card-text">City: @Model.FeaturedTeam.City</p>
-                    </div>
-                </div>
-            }
-            else
-            {
-                <p>No featured team available.</p>
-            }
-        </div>
-
-        <div class="col-md-4">
-            <h2>Featured League</h2>
-            @if (Model.FeaturedLeague != null)
-            {
-                <div class="card">
-                    <img class="card-img-top img-fluid" src="@Model.FeaturedLeague.ImageUrl" alt="League image" style="max-height: 600px; object-fit: cover;">
-                    <div class="card-body">
-                        <h2 class="card-title">@Model.FeaturedLeague.Name</h2>
-                    </div>
-                </div>
-            }
-            else
-            {
-                <p>No featured league available.</p>
-            }
-        </div>
-    </div>
+<!-- Optional: Add additional sections or features -->
+<div class="container py-5">
+    <h2 class="text-center text-secondary mb-5">Other Baseball Insights</h2>
+    <!-- You can add additional content here -->
 </div>

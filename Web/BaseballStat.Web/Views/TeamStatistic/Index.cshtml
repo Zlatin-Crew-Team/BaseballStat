@@ -4,18 +4,54 @@
     ViewData["Title"] = "Team Statistics";
 }
 
-<div class="card mb-3" style="max-width: 800px; height: 600px; background-color: #f8f9fa;">
-    <div class="row g-0 h-100">
-        <div class="col-md-4 d-flex align-items-center justify-content-center" style="background-color: #343a40; color: white;">
-            <h3>@Model.TeamName</h3>
-        </div>
-        <div class="col-md-8 d-flex align-items-center">
-            <div class="card-body text-center">
-                <h3 class="card-title">Statistics</h3>
-                <p class="card-text"><strong>Games:</strong> @Model.Games</p>
-                <p class="card-text"><strong>Wins:</strong> @Model.Wins</p>
-                <p class="card-text"><strong>Losses:</strong> @Model.Losses</p>
-                <p class="card-text"><strong>Titles:</strong> @Model.Titles</p>
+<div class="container mt-5">
+    <div class="card shadow-lg border-0">
+        <div class="row g-0">
+            <!-- Team Name Section -->
+            <div class="col-md-4 bg-dark text-white d-flex flex-column align-items-center justify-content-center p-4">
+                <i class="bi bi-trophy-fill display-4 mb-3"></i>
+                <h2 class="text-uppercase">@Model.TeamName</h2>
+                <p class="small text-muted">Team Overview</p>
+            </div>
+            <!-- Statistics Section -->
+            <div class="col-md-8">
+                <div class="card-body p-4">
+                    <h3 class="card-title text-center text-primary mb-4">Team Statistics</h3>
+                    <div class="row text-center">
+                        <div class="col-md-6 mb-3">
+                            <div class="p-3 bg-light rounded shadow-sm">
+                                <h5 class="text-muted">Games Played</h5>
+                                <h2 class="text-success">@Model.Games</h2>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="p-3 bg-light rounded shadow-sm">
+                                <h5 class="text-muted">Wins</h5>
+                                <h2 class="text-primary">@Model.Wins</h2>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="p-3 bg-light rounded shadow-sm">
+                                <h5 class="text-muted">Losses</h5>
+                                <h2 class="text-danger">@Model.Losses</h2>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="p-3 bg-light rounded shadow-sm">
+                                <h5 class="text-muted">Titles</h5>
+                                <h2 class="text-warning">@Model.Titles</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center mt-4">
+                        <a href="/teams" class="btn btn-primary btn-lg">
+                            <i class="bi bi-arrow-left-circle"></i> Back to Teams
+                        </a>
+                        <a href="/teams/edit/@Model.Id" class="btn btn-secondary btn-lg">
+                            <i class="bi bi-pencil-fill"></i> Edit Statistics
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
