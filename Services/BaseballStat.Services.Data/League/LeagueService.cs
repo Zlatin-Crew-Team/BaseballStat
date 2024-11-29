@@ -13,9 +13,9 @@
 
     public class LeagueService : ILeagueService
     {
-        private readonly IRepository<League> leaguesRepository;
+        private readonly IDeletableEntity<League> leaguesRepository;
 
-        public LeagueService(IRepository<League> leaguesRepository)
+        public LeagueService(IDeletableEntity<League> leaguesRepository)
         {
             this.leaguesRepository = leaguesRepository;
         }

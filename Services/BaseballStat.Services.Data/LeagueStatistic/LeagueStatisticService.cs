@@ -13,9 +13,9 @@
 
     public class LeagueStatisticService : ILeagueStatisticService
     {
-        private readonly IRepository<LeagueStatistic> leagueStatistics;
+        private readonly IDeletableEntity<LeagueStatistic> leagueStatistics;
 
-        public LeagueStatisticService(IRepository<LeagueStatistic> leagueStatistics)
+        public LeagueStatisticService(IDeletableEntity<LeagueStatistic> leagueStatistics)
         {
             this.leagueStatistics = leagueStatistics;
         }

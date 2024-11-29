@@ -11,11 +11,34 @@
 
     public class AllTimeGreatService : IAllTimeGreatService
     {
-        private readonly IRepository<AllTimeGreat> allTimeGreatRepository;
+        private readonly IDeletableEntity<AllTimeGreat> allTimeGreatRepository;
 
-        public AllTimeGreatService(IRepository<AllTimeGreat> allTimeGreatRepository)
+        public AllTimeGreatService(IDeletableEntity<AllTimeGreat> allTimeGreatRepository)
         {
             this.allTimeGreatRepository = allTimeGreatRepository;
+        }
+
+        public async Task AddAllTimeGreatAsync(int id, string name, string bio, string imageUrl)
+        {
+            await this.allTimeGreatRepository.AddAsync(new AllTimeGreat
+            {
+                Id = id,
+                Name = name,
+                Bio = bio,
+                ImageUrl = imageUrl,
+            });
+            await this.allTimeGreatRepository.SaveChangesAsync();
+        }
+
+        public async Task DeleteAllTimeGreatAsync(int id)
+        {
+            var allTimeGreat =
+                this.allTimeGreatRepository
+                .AllAsNoTracking()
+                .Where(x => x.Id == id)
+                .FirstOrDefault();
+            this.allTimeGreatRepository.Delete(allTimeGreat);
+            await this.allTimeGreatRepository.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<T>> GetAllTimeGreatAsync<T>(int? count = null)
