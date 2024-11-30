@@ -18,14 +18,14 @@
             this.allTimeGreatRepository = allTimeGreatRepository;
         }
 
-        public async Task AddAllTimeGreatAsync(int id, string name, string bio, string imageUrl)
+        public async Task AddAllTimeGreat(int id, string name, string bio, string imageUrl, int categoryId)
         {
             await this.allTimeGreatRepository.AddAsync(new AllTimeGreat
             {
-                Id = id,
                 Name = name,
                 Bio = bio,
                 ImageUrl = imageUrl,
+                CategoryId = id,
             });
             await this.allTimeGreatRepository.SaveChangesAsync();
         }

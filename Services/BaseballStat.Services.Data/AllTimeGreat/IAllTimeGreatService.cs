@@ -12,7 +12,7 @@
 
         Task<T> GetByIdAsync<T>(int id);
 
-        Task AddAllTimeGreatAsync(int id, string name, string bio, string imageUrl);
+        Task AddAllTimeGreat(int id, string name, string bio, string imageUrl, int categoryId);
 
         Task DeleteAllTimeGreatAsync(int id);
     }
