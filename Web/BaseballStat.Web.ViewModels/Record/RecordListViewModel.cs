@@ -11,5 +11,13 @@
     public class RecordListViewModel
     {
         public IEnumerable<RecordViewModel> Record { get; set; }
+
+        public int PageIndex { get; set; }
+
+        public int TotalPages { get; set; }
+
+        public bool HasPreviousPage => this.PageIndex > 1;
+
+        public bool HasNextPage => this.PageIndex < this.TotalPages;
     }
 }

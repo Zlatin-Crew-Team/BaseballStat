@@ -18,7 +18,7 @@
 
         public async Task<IActionResult> Index(int id)
         {
-            var player = await this.playerStatisticService.GetByIdAsync<PlayerStatisticViewModel>(id);
+            var player = await this.playerStatisticService.GetPlayerStatisticByIdAsync<PlayerStatisticViewModel>(id);
             return this.View(player);
         }
     }

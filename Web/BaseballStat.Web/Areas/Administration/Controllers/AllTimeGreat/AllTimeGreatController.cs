@@ -79,14 +79,14 @@
         }
 
         [HttpPost]
-        public async Task<IActionResult> DeletePlayer(int id)
+        public async Task<IActionResult> DeleteAllTimeGreat(int id)
         {
             if (id <= GlobalConstants.SeededDataCounts.AllTimeGreats)
             {
                 return this.RedirectToAction("Index");
             }
 
-            await this.allTimeGreatService.DeleteAllTimeGreatAsync(id);
+            await this.allTimeGreatService.DeleteAllTimeGreat(id);
 
             return this.RedirectToAction("Index");
         }

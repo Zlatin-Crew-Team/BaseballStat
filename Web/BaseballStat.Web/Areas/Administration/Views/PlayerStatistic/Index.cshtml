@@ -33,7 +33,7 @@
                     <td><img src="@player.ImageUrl" alt="Player Image" width="200" height="200" /></td>
                     
                     <td>
-                        <form method="post" asp-action="AddPlayer" asp-controller="PlayerStatistic" asp-area="Administration" style="display: inline;">
+                        <form method="post" asp-action="AddPlayerStatistic" asp-controller="PlayerStatistic" asp-area="Administration" style="display: inline;">
                             <input type="hidden" name="id" value="@player.Id" />
                             <button type="submit" class="btn btn-success">Add</button>
                         </form>

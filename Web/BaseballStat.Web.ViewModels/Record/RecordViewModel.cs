@@ -8,6 +8,9 @@
     public class RecordViewModel : IMapFrom<Record>
     {
         [Required]
+        public int Id { get; set; }
+
+        [Required]
         public string Holder { get; set; }
 
         [Required]

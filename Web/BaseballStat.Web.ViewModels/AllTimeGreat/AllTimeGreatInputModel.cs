@@ -1,11 +1,6 @@
 ﻿namespace BaseballStat.Web.ViewModels.AllTimeGreat
 {
-    using System;
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     using BaseballStat.Common;
     using BaseballStat.Web.ViewModels.Common.CustomValidationAttributes;
