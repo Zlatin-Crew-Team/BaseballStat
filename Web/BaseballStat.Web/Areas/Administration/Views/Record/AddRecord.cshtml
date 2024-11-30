@@ -1,0 +1,54 @@
+﻿@model BaseballStat.Web.ViewModels.Record.RecordInputModel
+
+@{
+    ViewData["Title"] = "Add Record";
+}
+
+<div class="container mt-4">
+    <h2 class="text-center text-primary">Add New Record</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <form asp-action="AddRecord" asp-controller="Record" asp-area="Administration" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label asp-for="Holder" class="control-label">Record Holder</label>
+                    <input asp-for="Holder" class="form-control" />
+                    <span asp-validation-for="Holder" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label">Description</label>
+                    <textarea asp-for="Description" class="form-control" rows="4"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Image" class="control-label">Upload Image</label>
+                    <input asp-for="Image" type="file" class="form-control-file" />
+                    <span asp-validation-for="Image" class="text-danger"></span>
+                </div>
+
+                <!-- Fixed CategoryId -->
+                <input asp-for="CategoryId" type="hidden" value="3" />
+
+                <!-- AwardTypeId dropdown -->
+                <div class="form-group">
+                    <label asp-for="RecordTypeId" class="control-label">Record Type</label>
+                    <select asp-for="RecordTypeId" class="form-control">
+                        <option value="1">1 - Type A</option>
+                        <option value="2">2 - Type B</option>
+                        <option value="3">3 - Type C</option>
+                    </select>
+                    <span asp-validation-for="RecordTypeId" class="text-danger"></span>
+                </div>
+
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-primary px-5">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
