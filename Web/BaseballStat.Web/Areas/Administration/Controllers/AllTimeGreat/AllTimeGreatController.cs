@@ -46,7 +46,7 @@
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddAllTimeGreatAsync(AllTimeGreatInputModel input)
+        public async Task<IActionResult> AddAllTimeGreat(AllTimeGreatInputModel input)
         {
             if (!this.ModelState.IsValid)
             {
@@ -72,7 +72,9 @@
                 imageUrl = GlobalConstants.Images.CloudinaryMissing;
             }
 
-            await this.allTimeGreatService.AddAllTimeGreatAsync(input.Id,input.Name, input.Bio, imageUrl);
+            const int fixedCategoryId = 2;
+
+            await this.allTimeGreatService.AddAllTimeGreat(input.Id, input.Name, input.Bio, imageUrl, fixedCategoryId);
             return this.RedirectToAction(nameof(this.Index));
         }
 

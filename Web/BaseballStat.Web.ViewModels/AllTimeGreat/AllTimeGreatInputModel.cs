@@ -28,5 +28,8 @@
         [DataType(DataType.Upload)]
         [ValidateImageFileAttribute(ErrorMessage = GlobalConstants.ErrorMesages.Image)]
         public IFormFile Image { get; set; }
+
+        [Required]
+        public int CategoryId { get; set; }
     }
 }
