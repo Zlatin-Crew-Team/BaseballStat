@@ -22,6 +22,36 @@
             this.playersStatistics = playersStatistics;
         }
 
+        public async Task AddPlayerStatistic(PlayerStatisticInputModel playerStatisticInputModel)
+        {
+            // Проверка дали съществува играч с дадения PlayerId
+            var playerExists = await this.playersStatistics
+                .All()
+                .AnyAsync(x => x.PlayerId == playerStatisticInputModel.PlayerId);
+
+            if (!playerExists)
+            {
+                throw new ArgumentException("Player with the given ID does not exist.");
+            }
+
+            // Добавяне на статистика
+            var playerStatistic = new PlayerStatistic
+            {
+                PlayerId = playerStatisticInputModel.PlayerId,
+                Games = playerStatisticInputModel.Games,
+                AtBats = playerStatisticInputModel.AtBats,
+                Runs = playerStatisticInputModel.Runs,
+                Hits = playerStatisticInputModel.Hits,
+                Doubles = playerStatisticInputModel.Doubles,
+                Triples = playerStatisticInputModel.Triples,
+                HomeRuns = playerStatisticInputModel.HomeRuns,
+                ImageUrl = playerStatisticInputModel.Image.FileName,
+            };
+
+            await this.playersStatistics.AddAsync(playerStatistic);
+            await this.playersStatistics.SaveChangesAsync();
+        }
+
         public async Task DeletePlayerStatisticAsync(int id)
         {
             var playerStatistic = await this.playersStatistics
@@ -47,16 +77,6 @@
 
             // Използваме .To<T>() за мапване към желания тип T (напр. PlayerStatisticViewModel)
             return await query.To<T>().ToListAsync();
-        }
-
-        public async Task<T> GetByIdAsync<T>(int id)
-        {
-            var playerStatistic = await this.playersStatistics
-                .All()
-                .Where(x => x.Id == id)
-                .To<T>()
-                .FirstOrDefaultAsync();
-            return playerStatistic;
         }
 
         public async Task<T> GetPlayerStatisticByIdAsync<T>(int id)

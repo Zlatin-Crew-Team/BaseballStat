@@ -54,6 +54,14 @@
             public const int BioMaxLength = 1000;
 
             public const int BioMinLength = 10;
+
+            public const int HolderMaxLength = 50;
+
+            public const int HolderMinLength = 10;
+
+            public const int AwardTypeIdMinValue = 1;
+
+            public const int AwardTypeIdMaxValue = 3;
         }
 
         public static class PlayerStatistic

@@ -30,7 +30,7 @@
             await this.allTimeGreatRepository.SaveChangesAsync();
         }
 
-        public async Task DeleteAllTimeGreatAsync(int id)
+        public async Task DeleteAllTimeGreat(int id)
         {
             var allTimeGreat =
                 this.allTimeGreatRepository

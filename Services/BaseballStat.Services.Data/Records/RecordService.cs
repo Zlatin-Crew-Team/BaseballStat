@@ -18,6 +18,30 @@
             this.recordsRepository = recordsRepository;
         }
 
+        public async Task AddRecord(int id, string holder, string description, string imageUrl, int categoryId, int recordTypeId)
+        {
+            await this.recordsRepository.AddAsync(new Record
+                {
+                    Holder = holder,
+                    Description = description,
+                    ImageUrl = imageUrl,
+                    CategoryId = id,
+                    RecordTypeId = id,
+                });
+            await this.recordsRepository.SaveChangesAsync();
+        }
+
+        public async Task DeleteRecordAsync(int id)
+        {
+            var record =
+                this.recordsRepository
+                .AllAsNoTracking()
+                .Where(x => x.Id == id)
+                .FirstOrDefault();
+            this.recordsRepository.Delete(record);
+            await this.recordsRepository.SaveChangesAsync();
+        }
+
         public async Task<IEnumerable<T>> GetAllRecordsAsync<T>(int? count = null)
         {
             IQueryable<Record> query = this.recordsRepository

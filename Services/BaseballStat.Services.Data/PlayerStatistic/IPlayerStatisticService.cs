@@ -10,11 +10,11 @@
 
     public interface IPlayerStatisticService
     {
-        Task<T> GetByIdAsync<T>(int id);
-
         Task<IEnumerable<T>> GetAllPlayerStatisticsAsync<T>(int? count = null);
 
         Task DeletePlayerStatisticAsync(int id);
+
+        Task AddPlayerStatistic(PlayerStatisticInputModel playerStatisticInputModel);
 
         Task<T> GetPlayerStatisticByIdAsync<T>(int id);
     }
