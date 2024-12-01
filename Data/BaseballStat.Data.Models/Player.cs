@@ -32,6 +32,8 @@
         [Required]
         public string ImageUrl { get; set; }
 
+        public bool IsProtected { get; set; }
+
         [Required]
         [Range(GlobalConstants.DataValidations.YearOfBirthMinValue, GlobalConstants.DataValidations.YearOfBirthMaxValue)]
         public int YearOfBirth { get; set; }
