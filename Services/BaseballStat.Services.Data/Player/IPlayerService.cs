@@ -14,8 +14,10 @@
 
         Task<T> GetByIdAsync<T>(int id);
 
-        Task AddPlayerAsync(string firstName, string lastName, string position, string bats, string throws, int yearOfBirth, int teamId, string imageUrl);
+        Task<int> AddPlayerAsync(string firstName, string lastName, string position, string bats, string throws, int yearOfBirth, int teamId, string imageUrl);
 
         Task DeletePlayerAsync(int id);
+
+        Task<bool> ExistsAsync(int id);
     }
 }

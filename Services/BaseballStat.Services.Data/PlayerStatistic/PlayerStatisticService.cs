@@ -22,18 +22,8 @@
             this.playersStatistics = playersStatistics;
         }
 
-        public async Task AddPlayerStatistic(PlayerStatisticInputModel playerStatisticInputModel)
+        public async Task AddPlayerStatistic(PlayerStatisticInputModel playerStatisticInputModel, string imageUrl)
         {
-            // Проверка дали съществува играч с дадения PlayerId
-            var playerExists = await this.playersStatistics
-                .All()
-                .AnyAsync(x => x.PlayerId == playerStatisticInputModel.PlayerId);
-
-            if (!playerExists)
-            {
-                throw new ArgumentException("Player with the given ID does not exist.");
-            }
-
             // Добавяне на статистика
             var playerStatistic = new PlayerStatistic
             {
@@ -45,14 +35,14 @@
                 Doubles = playerStatisticInputModel.Doubles,
                 Triples = playerStatisticInputModel.Triples,
                 HomeRuns = playerStatisticInputModel.HomeRuns,
-                ImageUrl = playerStatisticInputModel.Image.FileName,
+                ImageUrl = imageUrl,
             };
 
             await this.playersStatistics.AddAsync(playerStatistic);
             await this.playersStatistics.SaveChangesAsync();
         }
 
-        public async Task DeletePlayerStatisticAsync(int id)
+        public async Task DeletePlayerStatistic(int id)
         {
             var playerStatistic = await this.playersStatistics
                 .All()

@@ -5,13 +5,9 @@
     using System.Threading.Tasks;
 
     using BaseballStat.Common;
-
     using BaseballStat.Services.Cloudinary;
     using BaseballStat.Services.Data.PlayerStattistic;
-    using BaseballStat.Web.ViewModels.Player;
     using BaseballStat.Web.ViewModels.PlayerStatistic;
-    using CloudinaryDotNet;
-    using CloudinaryDotNet.Actions;
     using Microsoft.AspNetCore.Mvc;
 
     [Area("Administration")]
@@ -42,9 +38,13 @@
             return this.View(viewModel);
         }
 
-        public IActionResult AddPlayerStatistic()
+        public IActionResult AddPlayerStatistic(int playerId)
         {
-            return this.View();
+            var model = new PlayerStatisticInputModel
+            {
+                PlayerId = playerId,
+            };
+            return this.View(model);
         }
 
         [HttpPost]
@@ -55,44 +55,54 @@
                 return this.View(input);
             }
 
-            string imageUrl;
+            string imageUrl = GlobalConstants.Images.CloudinaryMissing;
             try
             {
-                // Upload image to Cloudinary
-                var uploadParams = new ImageUploadParams
+                if (input.Image != null)
                 {
-                    File = new FileDescription(input.Image.FileName, input.Image.OpenReadStream()),
-                    PublicId = $"{input.PlayerId}",
-                };
-
-                var uploadResult = await this.cloudinaryService.UploadPictureAsync(input.Image, $"{input.PlayerId}");
-                imageUrl = uploadResult;
+                    // Upload image to Cloudinary
+                    imageUrl = await this.cloudinaryService.UploadPictureAsync(input.Image, $"{input.PlayerId}");
+                }
             }
-            catch (System.Exception)
+            catch (Exception)
             {
-                // In case of missing Cloudinary configuration from appsettings.json
-                imageUrl = GlobalConstants.Images.CloudinaryMissing;
+                this.TempData["ErrorMessage"] = "Failed to upload image. Using default placeholder.";
             }
 
-            // Добавяне на статистиката чрез сървиса
-            await this.playerStatisticService.AddPlayerStatistic(input);
+            try
+            {
+                // Добавяне на статистиката чрез сървиса
+                await this.playerStatisticService.AddPlayerStatistic(input, imageUrl);
+            }
+            catch (InvalidOperationException ex)
+            {
+                this.TempData["ErrorMessage"] = ex.Message;
+                return this.View(input);
+            }
 
             // Пренасочване към индекс страницата
             return this.RedirectToAction(nameof(this.Index));
         }
 
+        [HttpPost]
         public async Task<IActionResult> DeletePlayerStatistic(int id)
         {
+            if (id <= GlobalConstants.SeededDataCounts.PlayerStatisticsCount)
+            {
+                this.TempData["ErrorMessage"] = "Cannot delete seeded player statistics.";
+                return this.RedirectToAction("Index");
+            }
+
             try
             {
-                await this.playerStatisticService.DeletePlayerStatisticAsync(id);
-                return this.RedirectToAction(nameof(this.Index));
+                await this.playerStatisticService.DeletePlayerStatistic(id);
             }
-            catch (Exception ex)
+            catch (InvalidOperationException ex)
             {
-                this.ModelState.AddModelError(string.Empty, "Error deleting the player statistic: " + ex.Message);
-                return this.RedirectToAction(nameof(this.Index));
+                this.TempData["ErrorMessage"] = ex.Message;
             }
+
+            return this.RedirectToAction("Index");
         }
     }
 }

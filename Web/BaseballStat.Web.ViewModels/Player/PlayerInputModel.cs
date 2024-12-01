@@ -24,7 +24,7 @@
         public string Position { get; set; }
 
         [Required]
-        [RegularExpression("Left|Right|Two Handed", ErrorMessage = "Invalid bats value.")]
+        [RegularExpression("L|R|S", ErrorMessage = "Invalid bats value.")]
         public string Bats { get; set; }
 
         [Required]

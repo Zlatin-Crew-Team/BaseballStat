@@ -19,9 +19,9 @@
             this.playersRepository = playersRepository;
         }
 
-        public async Task AddPlayerAsync(string firstName, string lastName, string position, string bats, string throws, int yearOfBirth, int teamId, string imageUrl)
+        public async Task<int> AddPlayerAsync(string firstName, string lastName, string position, string bats, string throws, int yearOfBirth, int teamId, string imageUrl)
         {
-            await this.playersRepository.AddAsync(new Player
+            var player = new Player
             {
                 FirstName = firstName,
                 LastName = lastName,
@@ -31,19 +31,34 @@
                 YearOfBirth = yearOfBirth,
                 TeamId = teamId,
                 ImageUrl = imageUrl,
-            });
+            };
+
+            await this.playersRepository.AddAsync(player);
             await this.playersRepository.SaveChangesAsync();
+
+            return player.Id; // Връщаме идентификатора на новия играч
         }
 
         public async Task DeletePlayerAsync(int id)
         {
-            var player =
-                this.playersRepository
-                .AllAsNoTracking()
-                .Where(x => x.Id == id)
-                .FirstOrDefault();
+            var player = this.playersRepository
+                .All()
+                .FirstOrDefault(x => x.Id == id);
+
+            if (player == null || player.IsProtected) // Проверка дали е защитен
+            {
+                throw new InvalidOperationException("Cannot delete this player.");
+            }
+
             this.playersRepository.Delete(player);
             await this.playersRepository.SaveChangesAsync();
+        }
+
+        public async Task<bool> ExistsAsync(int id)
+        {
+            return await this.playersRepository
+         .AllAsNoTracking()
+         .AnyAsync(x => x.Id == id);
         }
 
         public async Task<IEnumerable<T>> GetAllPlayersAsync<T>(int? count = null)
@@ -59,14 +74,20 @@
             return await query.To<T>().ToListAsync();
         }
 
-        public Task<T> GetByIdAsync<T>(int id)
+        public async Task<T> GetByIdAsync<T>(int id)
         {
-            var player = this.playersRepository
+            var player = await this.playersRepository
                 .AllAsNoTracking()
                 .Where(x => x.Id == id)
                 .To<T>()
-                .FirstOrDefault();
-            return Task.FromResult(player);
+                .FirstOrDefaultAsync();
+
+            if (player == null)
+            {
+                throw new InvalidOperationException("Player not found.");
+            }
+
+            return player;
         }
     }
 }

@@ -12,9 +12,9 @@
     {
         Task<IEnumerable<T>> GetAllPlayerStatisticsAsync<T>(int? count = null);
 
-        Task DeletePlayerStatisticAsync(int id);
+        Task DeletePlayerStatistic(int id);
 
-        Task AddPlayerStatistic(PlayerStatisticInputModel playerStatisticInputModel);
+        Task AddPlayerStatistic(PlayerStatisticInputModel playerStatisticInputModel, string imageUrl);
 
         Task<T> GetPlayerStatisticByIdAsync<T>(int id);
     }

@@ -12,46 +12,63 @@
                 </div>
                 <div class="card-body">
                     <form method="post" enctype="multipart/form-data">
+                        <!-- First Name -->
                         <div class="form-group">
-                            <label for="FirstName">First Name</label>
-                            <input type="text" asp-for="@Model.FirstName" class="form-control" required>
+                            <label asp-for="FirstName"></label>
+                            <input asp-for="FirstName" class="form-control" required />
                             <span asp-validation-for="FirstName" class="text-danger"></span>
                         </div>
+
+                        <!-- Last Name -->
                         <div class="form-group">
-                            <label for="LastName">Last Name</label>
-                            <input type="text" asp-for="@Model.LastName" class="form-control" required>
+                            <label asp-for="LastName"></label>
+                            <input asp-for="LastName" class="form-control" required />
                             <span asp-validation-for="LastName" class="text-danger"></span>
                         </div>
+
+                        <!-- Position -->
                         <div class="form-group">
-                            <label for="Position">Position</label>
-                            <input type="text" asp-for="@Model.Position" class="form-control" required>
+                            <label asp-for="Position"></label>
+                            <input asp-for="Position" class="form-control" required />
                             <span asp-validation-for="Position" class="text-danger"></span>
                         </div>
+
+                        <!-- Bats -->
                         <div class="form-group">
-                            <label for="Bats">Bats</label>
-                            <input type="text" asp-for="@Model.Bats" class="form-control" required>
+                            <label asp-for="Bats"></label>
+                            <input asp-for="Bats" class="form-control" required />
                             <span asp-validation-for="Bats" class="text-danger"></span>
                         </div>
+
+                        <!-- Throws -->
                         <div class="form-group">
-                            <label for="Throws">Throws</label>
-                            <input type="text" asp-for="@Model.Throws" class="form-control" required>
+                            <label asp-for="Throws"></label>
+                            <input asp-for="Throws" class="form-control" required />
                             <span asp-validation-for="Throws" class="text-danger"></span>
                         </div>
+
+                        <!-- Year of Birth -->
                         <div class="form-group">
-                            <label for="YearOfBirth">Year Of Birth</label>
-                            <input type="text" asp-for="@Model.YearOfBirth" class="form-control" required>
+                            <label asp-for="YearOfBirth"></label>
+                            <input asp-for="YearOfBirth" class="form-control" type="number" min="1900" max="@DateTime.Now.Year" required />
                             <span asp-validation-for="YearOfBirth" class="text-danger"></span>
                         </div>
+
+                        <!-- Team -->
                         <div class="form-group">
-                            <label for="TeamId">Team</label>
-                            <input type="text" asp-for="@Model.TeamId" class="form-control" required>
+                            <label asp-for="TeamId">Team</label>
+                            <input asp-for="TeamId" class="form-control" type="number" required />
                             <span asp-validation-for="TeamId" class="text-danger"></span>
                         </div>
+
+                        <!-- Player Image -->
                         <div class="form-group">
-                            <label for="Image">Player Image</label>
-                            <input type="file" asp-for="@Model.Image" class="form-control-file" required>
+                            <label asp-for="Image"></label>
+                            <input asp-for="Image" class="form-control-file" type="file" required />
                             <span asp-validation-for="Image" class="text-danger"></span>
                         </div>
+
+                        <!-- Buttons -->
                         <div class="d-flex justify-content-between">
                             <button type="submit" class="btn btn-success">
                                 <i class="fas fa-plus-circle"></i> Add Player
@@ -61,6 +78,16 @@
                             </a>
                         </div>
                     </form>
+
+                    @if (ViewData["PlayerId"] != null)
+                    {
+                        <div class="mt-3">
+                            <a href="@Url.Action("AddPlayerStatistic", "PlayerStatistic", new { playerId = ViewData["PlayerId"] })" class="btn btn-primary">
+                                <i class="fas fa-chart-line"></i> Add Player Statistic
+                            </a>
+                        </div>
+                    }
+                     
                 </div>
             </div>
         </div>

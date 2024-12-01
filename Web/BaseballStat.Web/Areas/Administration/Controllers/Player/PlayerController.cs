@@ -53,40 +53,54 @@
                 return this.View(input);
             }
 
-            string imageUrl;
+            string imageUrl = GlobalConstants.Images.CloudinaryMissing;
             try
             {
-                // Upload image to Cloudinary
-                var uploadParams = new ImageUploadParams
+                if (input.Image != null)
                 {
-                    File = new FileDescription(input.Image.FileName, input.Image.OpenReadStream()),
-                    PublicId = $"{input.FirstName}_{input.LastName}",
-                };
-
-                var uploadResult = await this.cloudinaryService.UploadPictureAsync(input.Image, $"{input.FirstName}_{input.LastName}");
-                imageUrl = uploadResult;
+                    imageUrl = await this.cloudinaryService.UploadPictureAsync(input.Image, $"{input.FirstName}_{input.LastName}");
+                }
             }
-            catch (System.Exception)
+            catch (Exception)
             {
-                // In case of missing Cloudinary configuration from appsettings.json
-                imageUrl = GlobalConstants.Images.CloudinaryMissing;
+                this.TempData["ErrorMessage"] = "Failed to upload image. Default placeholder will be used.";
             }
 
-            await this.playerService.AddPlayerAsync(input.FirstName, input.LastName, input.Position, input.Bats, input.Throws, input.YearOfBirth, input.TeamId, imageUrl);
-            return this.RedirectToAction(nameof(this.Index));
+            try
+            {
+                var playerId = await this.playerService.AddPlayerAsync(
+                    input.FirstName,
+                    input.LastName,
+                    input.Position,
+                    input.Bats,
+                    input.Throws,
+                    input.YearOfBirth,
+                    input.TeamId,
+                    imageUrl);
+
+                this.TempData["SuccessMessage"] = "Player added successfully!";
+                return this.RedirectToAction("AddPlayerStatistic", "PlayerStatistic", new { playerId });
+            }
+            catch (Exception)
+            {
+                this.ModelState.AddModelError(string.Empty, "An error occurred while adding the player.");
+                return this.View(input);
+            }
         }
 
         [HttpPost]
         public async Task<IActionResult> DeletePlayer(int id)
         {
-            if (id <= GlobalConstants.SeededDataCounts.PlayersCount)
+            try
             {
+                await this.playerService.DeletePlayerAsync(id);
                 return this.RedirectToAction("Index");
             }
-
-            await this.playerService.DeletePlayerAsync(id);
-
-            return this.RedirectToAction("Index");
+            catch (InvalidOperationException ex)
+            {
+                this.TempData["ErrorMessage"] = ex.Message;
+                return this.RedirectToAction("Index");
+            }
         }
     }
 }
