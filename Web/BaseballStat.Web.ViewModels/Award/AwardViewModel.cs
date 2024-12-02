@@ -23,5 +23,11 @@
         public string ImageUrl { get; set; }
 
         public string AwardTypeId { get; set; }
+
+        public string CategoryId { get; set; }
+
+        public string TeamId { get; set; }
+
+        public string LeagueId { get; set; }
     }
 }
