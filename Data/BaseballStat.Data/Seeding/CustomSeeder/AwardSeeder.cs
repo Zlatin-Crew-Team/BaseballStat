@@ -260,7 +260,7 @@
                     AwardTypeId = 2,
                     CategoryId = 1,
                     LeagueId = 2,
-                    TeamId = 216,
+                    TeamId = 26,
                 },
                 new Award
                 {
@@ -307,11 +307,9 @@
                     TeamId = 24,
                 },
             };
-            foreach (var award in awards)
-            {
-                await dbContext.Awards.AddAsync(award);
-                await dbContext.SaveChangesAsync();
-            }
+
+            await dbContext.Awards.AddRangeAsync(awards);
+            await dbContext.SaveChangesAsync();
         }
     }
 }

@@ -5,7 +5,7 @@ namespace BaseballStat.Data.Migrations
     using Microsoft.EntityFrameworkCore.Migrations;
 
     /// <inheritdoc />
-    public partial class addIsPtotectedtoPlayer : Migration
+    public partial class AddIsPtotectedtoPlayer : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

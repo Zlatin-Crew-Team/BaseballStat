@@ -13,7 +13,7 @@ namespace BaseballStat.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20241201085632_addIsPtotectedtoPlayer")]
-    partial class addIsPtotectedtoPlayer
+    partial class AddIsPtotectedtoPlayer
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

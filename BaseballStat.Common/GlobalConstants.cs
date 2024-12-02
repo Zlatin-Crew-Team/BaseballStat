@@ -62,6 +62,16 @@
             public const int AwardTypeIdMinValue = 1;
 
             public const int AwardTypeIdMaxValue = 3;
+
+            public const int CategoryIdMinValue = 1;
+
+            public const int CategoryIdMaxValue = 3;
+
+            public const int TeamIdMinValue = 1;
+            public const int TeamIdMaxValue = 30;
+
+            public const int LeagueIdMinValue = 1;
+            public const int LeagueIdMaxValue = 2;
         }
 
         public static class PlayerStatistic
