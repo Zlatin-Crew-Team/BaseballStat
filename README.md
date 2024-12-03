@@ -1,7 +1,7 @@
-﻿BaseballStat
-🎯 A web application for tracking baseball player and team statistics
+﻿BaseballStat 🎯
+A web application for tracking baseball player and team statistics
 
-📚 My project for the ASP.NET Core course at SoftUni. (December 2024)
+📚 Course Project: ASP.NET Core at SoftUni (December 2024)
 
 🚀 How It Works
 👥 Guest Visitors:
@@ -38,30 +38,41 @@
 ✅ jQuery
 ⚙️ Application Configurations
 🔗 Connection String
-Located in appsettings.json. If you're not using SQLEXPRESS, update Server=.\\SQLEXPRESS; to Server=.
+Located in appsettings.json.
+If you're not using SQLEXPRESS, update:
+json
+Copy code
+"ConnectionStrings": {
+    "DefaultConnection": "Server=.;Database=BaseballStatDB;Trusted_Connection=True;MultipleActiveResultSets=true"
+}
 🛠️ Database Migrations
-Automatically applied during application startup when ASPNETCORE_ENVIRONMENT is set to Development. For production, apply them manually.
-📊 Seeding Sample Data
-Test accounts created upon first run:
-User: user@user.com / 16051979
-Admin: adminZlati@admin.com / 16051979
+Automatically applied during application startup when ASPNETCORE_ENVIRONMENT is set to Development.
+For production, apply migrations manually.
 ☁️ Cloudinary Setup (Optional)
-Without Cloudinary credentials:
-Predefined images will be used when creating content.
-To upload images, configure appsettings.json:
+Without Cloudinary credentials, predefined images will be used.
+To enable image uploads, configure appsettings.json:
 json
 Copy code
 "Cloudinary": {
-  "CloudName": "your-cloud-name",
-  "ApiKey": "your-api-key",
-  "ApiSecret": "your-api-secret"
+    "CloudName": "your-cloud-name",
+    "ApiKey": "your-api-key",
+    "ApiSecret": "your-api-secret"
 }
+📊 Seeding Sample Data
+Test accounts are created upon the first run:
+User: user@user.com / 16051979
+Admin: adminZlati@admin.com / 16051979
 📸 Screenshots
+
+🏠 Home Page
+![Not Registret User](https://res.cloudinary.com/dsbprqxc5/image/upload/v1733158152/Players/BaseballStat_xsallf.jpg)
+
 🏟️ Players Overview
 
-
+![Players Overview](https://res.cloudinary.com/dsbprqxc5/image/upload/v1733158323/Players/Players_l6us5m.jpg)
 ⚾ Teams Overview
 
+![Teams Overview](https://res.cloudinary.com/dsbprqxc5/image/upload/v1733158432/Players/Teams_doyyzg.jpg)
 
 📜 License
 This project is licensed under the MIT License.
@@ -72,3 +83,10 @@ Special thanks to:
 Nikolay Kostov
 Vladislav Karamfilov
 Stoyan Shopov
+📸 Adding Screenshots
+Place your screenshots in an images/ folder in the project root.
+Use the following syntax in Markdown to include them:
+
+markdown
+Copy code
+
