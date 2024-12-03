@@ -7,8 +7,6 @@
 		<CodeAnalysisRuleSet>..\..\Rules.ruleset</CodeAnalysisRuleSet>
 	</PropertyGroup>
 
-	
-
 	<ItemGroup>
 		<AdditionalFiles Include="..\..\stylecop.json" />
 	</ItemGroup>
@@ -31,7 +29,7 @@
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="8.0.10" />
-		<PackageReference Include="BuildBundlerMinifier" Version="3.2.449" />
+	
 		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
 		<PackageReference Include="Microsoft.Web.LibraryManager.Build" Version="2.1.175" />
 		<PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.10" />
@@ -59,4 +57,7 @@
 		<ProjectReference Include="..\BaseballStat.Web.Infrastructure\BaseballStat.Web.Infrastructure.csproj" />
 		<ProjectReference Include="..\BaseballStat.Web.ViewModels\BaseballStat.Web.ViewModels.csproj" />
 	</ItemGroup>
+
+	
+
 </Project>
