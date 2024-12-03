@@ -28,6 +28,10 @@
            class="list-group-item list-group-item-action @GetActiveClass("League")">
             <i class="fas fa-trophy me-2"></i> League
         </a>
+        <a asp-area="Administration" asp-controller="LeagueStatistic" asp-action="Index"
+           class="list-group-item list-group-item-action @GetActiveClass("LeagueStatistic")">
+            <i class="fas fa-list-alt me-2"></i> League Statistic
+        </a>
         <a asp-area="Administration" asp-controller="AllTimeGreat" asp-action="Index"
            class="list-group-item list-group-item-action @GetActiveClass("AllTimeGreat")">
             <i class="fas fa-trophy me-2"></i> AllTimeGreat
@@ -36,9 +40,9 @@
            class="list-group-item list-group-item-action @GetActiveClass("Record")">
             <i class="fas fa-trophy me-2"></i> Record
         </a>
-        <a asp-area="Administration" asp-controller="LeagueStatistic" asp-action="Index"
-           class="list-group-item list-group-item-action @GetActiveClass("LeagueStatistic")">
-            <i class="fas fa-list-alt me-2"></i> League Statistic
+        <a asp-area="Administration" asp-controller="Award" asp-action="Index"
+           class="list-group-item list-group-item-action @GetActiveClass("Award")">
+            <i class="fas fa-trophy me-2"></i> Award
         </a>
         <a asp-area="" asp-controller="Home" asp-action="Index"
            class="list-group-item list-group-item-action @GetActiveClass("Home")">

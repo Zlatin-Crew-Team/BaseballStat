@@ -58,6 +58,11 @@
 		<ProjectReference Include="..\BaseballStat.Web.ViewModels\BaseballStat.Web.ViewModels.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="Areas\Administration\Controllers\League\" />
+	  <Folder Include="Areas\Administration\Controllers\LeagueStatistic\" />
+	</ItemGroup>
+
 	
 
 </Project>

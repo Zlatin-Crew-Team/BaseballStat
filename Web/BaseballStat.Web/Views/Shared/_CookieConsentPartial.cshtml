@@ -9,21 +9,36 @@
 @if (showBanner)
 {
     <div id="cookieConsent" class="alert alert-info alert-dismissible fade show" role="alert">
-        We use cookies to understand how you use our site and to improve your experience. <a asp-area="" asp-controller="Home" asp-action="Privacy">Learn More</a>.
-        <button type="button" class="btn btn-primary accept-policy close" data-dismiss="alert" aria-label="Close" data-cookie-string="@cookieString">
-            <span aria-hidden="true">Accept</span>
+        We use cookies to understand how you use our site and to improve your experience.
+        <a asp-area="" asp-controller="Home" asp-action="Privacy">Learn More</a>.
+        <button type="button" class="btn btn-primary accept-policy close" aria-label="Accept" data-cookie-string="@cookieString">
+            Accept
         </button>
     </div>
+
     <script>
         (function () {
-            var button = document.querySelector("#cookieConsent button[data-cookie-string]");
-            button.addEventListener("click", function () {
-                var cookieString = button.getAttribute("data-cookie-string");
-                var date = new Date();
-                date.setFullYear(date.getFullYear() + 1); // Set cookie to expire in 1 year
-                document.cookie = cookieString + "; path=/; expires=" + date.toUTCString() + "; SameSite=Lax";
-                document.getElementById("cookieConsent").style.display = 'none';
-            }, false);
+            document.addEventListener("DOMContentLoaded", function () {
+                var button = document.querySelector("#cookieConsent button[data-cookie-string]");
+                if (button) {
+                    button.addEventListener("click", function () {
+                        var cookieString = button.getAttribute("data-cookie-string");
+                        var date = new Date();
+                        date.setFullYear(date.getFullYear() + 1); // Set cookie to expire in 1 year
+
+                        // Set the consent cookie
+                        if (cookieString) {
+                            document.cookie = cookieString + "; path=/; expires=" + date.toUTCString() + "; SameSite=Lax; Secure";
+                        } else {
+                            // Fallback if cookieString is missing
+                            document.cookie = "UserConsent=Accepted; path=/; expires=" + date.toUTCString() + "; SameSite=Lax; Secure";
+                        }
+
+                        // Hide the banner
+                        document.getElementById("cookieConsent").style.display = 'none';
+                    });
+                }
+            });
         })();
     </script>
 }

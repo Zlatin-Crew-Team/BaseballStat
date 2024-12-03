@@ -1,0 +1,92 @@
+﻿@model BaseballStat.Web.ViewModels.Award.AwardListViewModel
+@{
+    this.ViewData["Title"] = "Awards";
+}
+
+<div class="col-lg-12">
+    <h2 class="text-center text-primary mb-4">Awards</h2>
+    <div class="table-responsive">
+        <table class="table table-striped table-hover">
+            <thead class="bg-primary text-white">
+                <tr>
+                    <th class="font-weight-bold text-uppercase" style="font-size: larger;">Description</th>
+                    <th class="font-weight-bold text-uppercase" style="font-size: larger;">Year</th>
+                    <th class="font-weight-bold text-uppercase" style="font-size: larger;">Winner</th>
+                    <th class="font-weight-bold text-uppercase" style="font-size: larger;">Image</th>
+                    <th class="font-weight-bold text-uppercase" style="font-size: larger;">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var award in Model.Awards)
+                {
+                    <tr>
+                        <td class="align-middle font-weight-bold" style="font-size: large;">@award.Description</td>
+                        <td class="align-middle font-weight-bold" style="font-size: large;">@award.Year</td>
+                        <td class="align-middle font-weight-bold" style="font-size: large;">@award.Winner</td>
+                        <td class="align-middle">
+                            <img src="@award.ImageUrl" alt="Award Image" width="200" height="200" class="rounded shadow-sm" />
+                        </td>
+                        <td class="align-middle">
+                            <div class="d-flex justify-content-center">
+                                <form method="post" asp-action="AddAward" asp-controller="Award" asp-area="Administration" class="mr-3">
+                                    <input type="hidden" name="id" value="@award.AwardTypeId" />
+                                    <button type="submit" class="btn btn-primary btn-md px-4">Add</button>
+                                </form>
+                                <form method="post" asp-action="DeleteAward" asp-controller="Award" asp-area="Administration">
+                                    <input type="hidden" name="id" value="@award.AwardTypeId" />
+                                    <button type="submit" class="btn btn-danger btn-md px-4">Delete</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<hr />
+<nav>
+    <ul class="pagination">
+        @if (Model.HasPreviousPage)
+        {
+            <li class="page-item">
+                <a class="page-link" asp-action="Index" asp-route-pageIndex="@(Model.PageIndex - 1)">Previous</a>
+            </li>
+        }
+        else
+        {
+            <li class="page-item disabled">
+                <span class="page-link">Previous</span>
+            </li>
+        }
+
+        @for (int i = 1; i <= Model.TotalPages; i++)
+        {
+            if (i == Model.PageIndex)
+            {
+                <li class="page-item active">
+                    <span class="page-link">@i</span>
+                </li>
+            }
+            else
+            {
+                <li class="page-item">
+                    <a class="page-link" asp-action="Index" asp-route-pageIndex="@i">@i</a>
+                </li>
+            }
+        }
+
+        @if (Model.HasNextPage)
+        {
+            <li class="page-item">
+                <a class="page-link" asp-action="Index" asp-route-pageIndex="@(Model.PageIndex + 1)">Next</a>
+            </li>
+        }
+        else
+        {
+            <li class="page-item disabled">
+                <span class="page-link">Next</span>
+            </li>
+        }
+    </ul>
+</nav>

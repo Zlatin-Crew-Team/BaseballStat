@@ -20,6 +20,25 @@
             this.leaguesRepository = leaguesRepository;
         }
 
+        public async Task<int> AddAsync(string name, string imageUrl)
+        {
+            await this.leaguesRepository.AddAsync(new League
+            {
+                Name = name,
+                ImageUrl = imageUrl,
+            });
+            return await this.leaguesRepository.SaveChangesAsync();
+        }
+
+        public async Task DeleteAsync(int id)
+        {
+            var league = this.leaguesRepository
+                .All()
+                .FirstOrDefault(x => x.Id == id);
+            this.leaguesRepository.Delete(league);
+            await this.leaguesRepository.SaveChangesAsync();
+        }
+
         public async Task<IEnumerable<T>> GetAllLeaguesAsync<T>(int? count = null)
         {
             IQueryable<League> query = this.leaguesRepository

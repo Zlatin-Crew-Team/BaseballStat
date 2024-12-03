@@ -11,5 +11,9 @@
         Task<T> GetByIdAsync<T>(int id);
 
         Task<IEnumerable<T>> GetAllLeaguesAsync<T>(int? count = null);
+
+        Task<int> AddAsync(string name, string imageUrl);
+
+        Task DeleteAsync(int id);
     }
 }
