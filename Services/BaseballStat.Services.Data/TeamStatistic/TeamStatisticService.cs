@@ -22,6 +22,11 @@
             this.teamsStatistics = teamStatistics;
         }
 
+        public Task<int> AddTeamStatisticAsync(int teamId, int games, int wins, int losses, int titles)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task DeleteTeamStatisticAsync(int id)
         {
             var teamStatistic = await this.teamsStatistics

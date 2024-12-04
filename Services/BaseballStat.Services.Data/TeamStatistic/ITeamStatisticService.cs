@@ -13,5 +13,7 @@
         Task<T> GetByIdAsync<T>(int id);
 
         Task<T> GetTeamStatisticByIdAsync<T>(int id);
+
+        Task<int> AddTeamStatisticAsync(int teamId, int games, int wins, int losses, int titles);
     }
 }
