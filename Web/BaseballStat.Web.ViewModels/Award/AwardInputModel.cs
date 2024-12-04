@@ -14,7 +14,7 @@
     public class AwardInputModel
     {
         [Required]
-        [Range(GlobalConstants.DataValidations.DescriptionMinLength, GlobalConstants.DataValidations.DescriptionMaxLength)]
+        [StringLength(GlobalConstants.DataValidations.DescriptionMaxLength, MinimumLength=GlobalConstants.DataValidations.DescriptionMinLength)]
         public string Description { get; set; }
 
         [Required]

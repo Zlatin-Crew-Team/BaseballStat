@@ -1,0 +1,45 @@
+﻿@model BaseballStat.Web.ViewModels.League.LeagueListViewModel
+
+@{
+    ViewData["Title"] = "List of League";
+}
+
+<h1>League</h1>
+
+<a asp-action="AddLeague" class="btn btn-primary mb-3">Add League</a>
+
+@if (Model.Leagues == null || !Model.Leagues.Any())
+{
+    <p>No Leagues.</p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Image</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var league in Model.Leagues)
+            {
+                <tr>
+                    <td>@league.Id</td>
+                    <td>@league.Name</td>
+                    <td>
+                        <img src="@league.ImageUrl" alt="@league.Name" style="max-height: 100px;" />
+                    </td>
+                    <td>
+                        <a asp-action="GetLeagueById" asp-route-id="@league.Id" class="btn btn-info">Details</a>
+                        <form asp-action="DeleteLeague" asp-route-id="@league.Id" method="post" style="display: inline;">
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this league?');">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

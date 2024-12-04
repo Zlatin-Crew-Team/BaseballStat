@@ -4,6 +4,7 @@
     using System.Linq;
     using System.Threading.Tasks;
 
+    using BaseballStat.Common;
     using BaseballStat.Services.Cloudinary;
     using BaseballStat.Services.Data.Award;
     using BaseballStat.Web.ViewModels.Award;
@@ -34,6 +35,60 @@
                 TotalPages = (int)Math.Ceiling(count / (double)pageSize),
             };
             return this.View(viewModel);
+        }
+
+        public IActionResult AddAward()
+        {
+            return this.View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddAward(AwardInputModel input)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(input);
+            }
+
+            string imageUrl = GlobalConstants.Images.CloudinaryMissing;
+            try
+            {
+                if (input.Image != null)
+                {
+                    imageUrl = await this.cloudinaryService.UploadPictureAsync(input.Image, $"{input.Description}");
+                }
+            }
+            catch (Exception)
+            {
+                this.TempData["ErrorMessage"] = "Failed to upload image. Default placeholder will be used.";
+            }
+
+            try
+            {
+                await this.awardService.AddAwardAsync(input, imageUrl);
+                this.TempData["SuccessMessage"] = "League added successfully!";
+                return this.RedirectToAction("Index");
+            }
+            catch (Exception)
+            {
+                this.ModelState.AddModelError(string.Empty, "An error occurred while adding the league.");
+                return this.View(input);
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteAward(int id)
+        {
+            try
+            {
+                await this.awardService.DeleteAwardAsync(id);
+                return this.RedirectToAction("Index");
+            }
+            catch (InvalidOperationException ex)
+            {
+                this.TempData["ErrorMessage"] = ex.Message;
+                return this.RedirectToAction("Index");
+            }
         }
     }
 }
