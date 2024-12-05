@@ -22,6 +22,9 @@
         [Required]
         public string ImageUrl { get; set; }
 
+        [Required]
+        public bool IsProtectedLeague { get; set; }
+
         public virtual ICollection<Team> Teams { get; set; }
 
         public virtual ICollection<Award> Awards { get; set; }

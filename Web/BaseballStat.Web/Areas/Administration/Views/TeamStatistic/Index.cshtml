@@ -1,0 +1,91 @@
+﻿@model BaseballStat.Web.ViewModels.TeamStatistic.TeamStatisticListViewModel
+
+@{
+    ViewData["Title"] = "Team Statistics";
+}
+
+<div class="col-lg-12 justify-content-center">
+    <h2 class="text-center">Team Statistic</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th style="font-weight: bold; font-size: larger;">ID</th>
+                <th style="font-weight: bold; font-size: larger;">TeamName</th>
+                <th style="font-weight: bold; font-size: larger;">Games</th>
+                <th style="font-weight: bold; font-size: larger;">Wins</th>
+                <th style="font-weight: bold; font-size: larger;">Losses</th>
+                <th style="font-weight: bold; font-size: larger;">Titles</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var team in Model.TeamStatistics)
+            {
+                <tr>
+                    <td style="font-weight: bold; font-size: larger;">@team.Id</td>
+                    <td style="font-weight: bold; font-size: larger;">@team.TeamName</td>
+                    <td style="font-weight: bold; font-size: larger;">@team.Games</td>
+                    <td style="font-weight: bold; font-size: larger;">@team.Wins</td>
+                    <td style="font-weight: bold; font-size: larger;">@team.Losses</td>
+                    <td style="font-weight: bold; font-size: larger;">@team.Titles</td>
+                    <td>
+                        <form method="post" asp-action="AddTeamStatistic" asp-controller="TeamStatistic" asp-area="Administration" style="display: inline;">
+                            <input type="hidden" name="id" value="@team.Id" />
+                            <button type="submit" class="btn btn-success">Add</button>
+                        </form>
+                        <form method="post" asp-action="DeleteTeamStatistic" asp-controller="TeamStatistic" asp-area="Administration" style="display: inline;">
+                            <input type="hidden" name="id" value="@team.Id" />
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<hr />
+<nav>
+    <ul class="pagination">
+        @if (Model.HasPreviousPage)
+        {
+            <li class="page-item">
+                <a class="page-link" asp-action="Index" asp-route-pageIndex="@(Model.PageIndex - 1)">Previous</a>
+            </li>
+        }
+        else
+        {
+            <li class="page-item disabled">
+                <span class="page-link">Previous</span>
+            </li>
+        }
+
+        @for (int i = 1; i <= Model.TotalPages; i++)
+        {
+            if (i == Model.PageIndex)
+            {
+                <li class="page-item active">
+                    <span class="page-link">@i</span>
+                </li>
+            }
+            else
+            {
+                <li class="page-item">
+                    <a class="page-link" asp-action="Index" asp-route-pageIndex="@i">@i</a>
+                </li>
+            }
+        }
+
+        @if (Model.HasNextPage)
+        {
+            <li class="page-item">
+                <a class="page-link" asp-action="Index" asp-route-pageIndex="@(Model.PageIndex + 1)">Next</a>
+            </li>
+        }
+        else
+        {
+            <li class="page-item disabled">
+                <span class="page-link">Next</span>
+            </li>
+        }
+    </ul>
+</nav>

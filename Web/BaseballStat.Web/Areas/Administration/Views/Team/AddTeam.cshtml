@@ -67,5 +67,13 @@
             </div>
         </div>
     </form>
+    @if (ViewData["TeamId"] != null)
+    {
+        <div class="mt-3">
+            <a href="@Url.Action("AddTeamStatistic", "TeamStatistic", new { teamId = ViewData["TeamId"] })" class="btn btn-primary">
+                <i class="fas fa-chart-line"></i> Add Team Statistic
+            </a>
+        </div>
+    }
 </div>
 

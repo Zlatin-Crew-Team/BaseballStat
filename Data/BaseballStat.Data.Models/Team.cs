@@ -37,6 +37,9 @@
         public string FoundedYear { get; set; }
 
         [Required]
+        public bool IsProtectedTeam { get; set; }
+
+        [Required]
         public string LogoUrl { get; set; }
 
         [Required]
