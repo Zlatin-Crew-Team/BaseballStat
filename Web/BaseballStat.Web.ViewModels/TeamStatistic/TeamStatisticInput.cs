@@ -13,8 +13,6 @@
         [Required]
         public int TeamId { get; set; }
 
-        public string TeamName { get; set; }
-
         [Required]
         [Range(GlobalConstants.TeamStatistic.GamesMinValue, GlobalConstants.TeamStatistic.GamesMaxValue, ErrorMessage = GlobalConstants.ErrorMesages.TeamGames)]
         public int Games { get; set; }

@@ -153,7 +153,7 @@
         {
             public const string Left = "L";
             public const string Right = "R";
-            public const string TwoHanded = "T";
+            public const string TwoHanded = "S";
         }
 
         public static class TeamIds
@@ -168,13 +168,13 @@
 
             public const int GamesMaxValue = 25000;
 
-            public const int WinsMinValue = 1000;
+            public const int WinsMinValue = 1;
 
-            public const int WinsMaxValue = 1300;
+            public const int WinsMaxValue = 17000;
 
-            public const int LossesMinValue = 1000;
+            public const int LossesMinValue = 1;
 
-            public const int LossesMaxValue = 1300;
+            public const int LossesMaxValue = 17000;
 
             public const int TitlesMinValue = 0;
 
