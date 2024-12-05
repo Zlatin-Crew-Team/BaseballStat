@@ -39,9 +39,11 @@
             await this.leaguesRepository.SaveChangesAsync();
         }
 
-        public Task<bool> ExistsAsync(int id)
+        public async Task<bool> ExistsAsync(int id)
         {
-            throw new NotImplementedException();
+            return await this.leaguesRepository
+         .AllAsNoTracking()
+         .AnyAsync(x => x.Id == id);
         }
 
         public async Task<IEnumerable<T>> GetAllLeaguesAsync<T>(int? count = null)

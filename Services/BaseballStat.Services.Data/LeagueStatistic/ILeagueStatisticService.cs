@@ -10,6 +10,10 @@
     {
         Task<T> GetByIdAsync<T>(int id);
 
-        Task<T> GetLeagueStatisticByIdAsync<T>(int id);
+        Task<IEnumerable<T>> GetAllLeagueStatisticsAsync<T>(int? count = null);
+
+        Task AddLeagueStatisticAsync(int leagueId, int games, int wins, int losses, int titles);
+
+        Task DeleteLeagueStatisticAsync(int id);
     }
 }

@@ -20,6 +20,25 @@
             this.leagueStatistics = leagueStatistics;
         }
 
+        public async Task AddLeagueStatisticAsync(int leagueId, int games, int wins, int losses, int titles)
+        {
+            var leagueStatistic = new LeagueStatistic
+            {
+                LeagueId = leagueId,
+                Games = games,
+                Wins = wins,
+                Losses = losses,
+                Titles = titles,
+            };
+            await this.leagueStatistics.AddAsync(leagueStatistic);
+            await this.leagueStatistics.SaveChangesAsync();
+        }
+
+        public Task DeleteLeagueStatisticAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<T> GetByIdAsync<T>(int id)
         {
             var leagueStatistic = await this.leagueStatistics
@@ -30,14 +49,17 @@
             return leagueStatistic;
         }
 
-        public async Task<T> GetLeagueStatisticByIdAsync<T>(int id)
+        public async Task<IEnumerable<T>> GetAllLeagueStatisticsAsync<T>(int? count = null)
         {
-            var leagueStatistic = await this.leagueStatistics
+            IQueryable<LeagueStatistic> query = this.leagueStatistics
                 .All()
-                .Where(x => x.Id == id)
-                .To<T>()
-                .FirstOrDefaultAsync();
-            return leagueStatistic;
+                .OrderBy(x => x.Id);
+            if (count.HasValue)
+            {
+                query = (IOrderedQueryable<LeagueStatistic>)query.Take(count.Value);
+            }
+
+            return await query.To<T>().ToListAsync();
         }
     }
 }
