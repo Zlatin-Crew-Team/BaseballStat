@@ -17,7 +17,7 @@
 
         public async Task<IActionResult> Index(int id)
         {
-            var team = await this.teamStatisticService.GetTeamStatisticByIdAsync<TeamStatisticViewModel>(id);
+            var team = await this.teamStatisticService.GetAllTeamStatisticsAsync<TeamStatisticViewModel>(id);
             return this.View(team);
         }
     }

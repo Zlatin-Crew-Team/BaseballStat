@@ -72,8 +72,24 @@
                 logoUrl = GlobalConstants.Images.CloudinaryMissing;
             }
 
-            await this.teamService.AddAsync(input.Name, input.City, input.FoundedYear, logoUrl, input.Owner, input.Stadium, input.LeagueId);
-            return this.RedirectToAction(nameof(this.Index));
+            try
+            {
+                var teamId = await this.teamService.AddAsync(
+                    input.Name,
+                    input.City,
+                    input.FoundedYear,
+                    logoUrl,
+                    input.Owner,
+                    input.Stadium,
+                    input.LeagueId);
+                this.TempData["Message"] = "Team added successfully.";
+                return this.RedirectToAction("AddTeamStatistic", "TeamStatistic", new { teamId });
+            }
+            catch (Exception)
+            {
+                this.ModelState.AddModelError(string.Empty, "An error occurred while adding this team");
+                return this.View(input);
+            }
         }
 
         [HttpPost]
