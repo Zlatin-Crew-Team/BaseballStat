@@ -1,0 +1,56 @@
+﻿@model BaseballStat.Web.ViewModels.LeagueStatistic.LeagueStatisticListViewModel
+
+@{
+    ViewData["Title"] = "List of League Statistics";
+}
+
+<div class="container mt-5">
+    <h1 class="text-center text-primary mb-4">League Statistics</h1>
+
+    <div class="d-flex justify-content-end mb-3">
+        <a asp-action="AddLeagueStatistic" class="btn btn-success">
+            <i class="fas fa-plus-circle"></i> Add League Statistic
+        </a>
+    </div>
+
+    @if (Model.LeagueStatistics == null || !Model.LeagueStatistics.Any())
+    {
+        <div class="alert alert-warning text-center" role="alert">
+            <i class="fas fa-info-circle"></i> No leagues found.
+        </div>
+    }
+    else
+    {
+        <table class="table table-hover table-bordered align-middle">
+            <thead class="table-dark text-center">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Games</th>
+                    <th scope="col">Wins</th>
+                    <th scope="col">Losses</th>
+                    <th scope="col">Titles</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var leagueStatistic in Model.LeagueStatistics)
+                {
+                    <tr>
+                        <td class="text-center">@leagueStatistic.Id</td>
+                        <td class="text-center">@leagueStatistic.Games</td>
+                        <td class="text-center">@leagueStatistic.Wins</td>
+                        <td class="text-center">@leagueStatistic.Losses</td>
+                        <td class="text-center">@leagueStatistic.Titles</td>
+                        <td class="text-center">
+                            <form asp-action="DeleteLeague" asp-route-id="@leagueStatistic.Id" method="post" style="display: inline;">
+                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this league?');">
+                                    <i class="fas fa-trash-alt"></i> Delete
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

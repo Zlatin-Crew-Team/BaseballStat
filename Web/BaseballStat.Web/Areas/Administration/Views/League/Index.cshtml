@@ -33,7 +33,7 @@ else
                         <img src="@league.ImageUrl" alt="@league.Name" style="max-height: 100px;" />
                     </td>
                     <td>
-                        <a asp-action="GetLeagueById" asp-route-id="@league.Id" class="btn btn-info">Details</a>
+                        
                         <form asp-action="DeleteLeague" asp-route-id="@league.Id" method="post" style="display: inline;">
                             <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this league?');">Delete</button>
                         </form>

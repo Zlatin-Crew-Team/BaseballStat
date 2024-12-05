@@ -1,0 +1,54 @@
+﻿@model BaseballStat.Web.ViewModels.LeagueStatistic.LeagueStatisticInputModel
+
+@{
+    ViewData["Title"] = "Add League Statistic";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <h2 class="text-center text-white mb-4" style="background-color: #007bff; padding: 15px; border-radius: 8px;">
+                Add League Statistic
+            </h2>
+
+            <form asp-action="AddLeagueStatistic" method="post" class="shadow p-4 bg-light rounded">
+                <div class="form-group">
+                    <label asp-for="LeagueId" class="font-weight-bold text-primary">League ID</label>
+                    <input asp-for="LeagueId" class="form-control" type="text" placeholder="Enter league ID" />
+                    <span asp-validation-for="LeagueId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Games" class="font-weight-bold text-primary">Games Played</label>
+                    <input asp-for="Games" class="form-control" type="number" placeholder="Enter number of games" />
+                    <span asp-validation-for="Games" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Wins" class="font-weight-bold text-primary">Wins</label>
+                    <input asp-for="Wins" class="form-control" type="number" placeholder="Enter number of wins" />
+                    <span asp-validation-for="Wins" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Losses" class="font-weight-bold text-primary">Losses</label>
+                    <input asp-for="Losses" class="form-control" type="number" placeholder="Enter number of losses" />
+                    <span asp-validation-for="Losses" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Titles" class="font-weight-bold text-primary">Titles Won</label>
+                    <input asp-for="Titles" class="form-control" type="number" placeholder="Enter number of titles won" />
+                    <span asp-validation-for="Titles" class="text-danger"></span>
+                </div>
+
+                <button type="submit" class="btn btn-success btn-lg mt-3" style="width: 100%; background-color: #28a745; border-color: #28a745;">
+                    <i class="fas fa-plus"></i> Add LeagueStatistic
+                </button>>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
