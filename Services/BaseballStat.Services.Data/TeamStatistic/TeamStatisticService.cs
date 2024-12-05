@@ -22,9 +22,18 @@
             this.teamsStatistics = teamStatistics;
         }
 
-        public Task<int> AddTeamStatisticAsync(int teamId, int games, int wins, int losses, int titles)
+        public async Task AddTeamStatisticAsync(int teamId, int games, int wins, int losses, int titles)
         {
-            throw new NotImplementedException();
+            var teamStatistic = new TeamStatistic
+            {
+                TeamId = teamId,
+                Games = games,
+                Wins = wins,
+                Losses = losses,
+                Titles = titles,
+            };
+            await this.teamsStatistics.AddAsync(teamStatistic);
+            await this.teamsStatistics.SaveChangesAsync();
         }
 
         public async Task DeleteTeamStatisticAsync(int id)
@@ -37,17 +46,20 @@
             await this.teamsStatistics.SaveChangesAsync();
         }
 
-        public async Task<T> GetByIdAsync<T>(int id)
+        public async Task<IEnumerable<T>> GetAllTeamStatisticsAsync<T>(int? count = null)
         {
-            var teamStatistic = await this.teamsStatistics
+            IQueryable<TeamStatistic> query = this.teamsStatistics
                 .All()
-                .Where(x => x.Id == id)
-                .To<T>()
-                .FirstOrDefaultAsync();
-            return teamStatistic;
+                .OrderBy(x => x.Id);
+            if (count.HasValue)
+            {
+                query = (IOrderedQueryable<TeamStatistic>)query.Take(count.Value);
+            }
+
+            return await query.To<T>().ToListAsync();
         }
 
-        public async Task<T> GetTeamStatisticByIdAsync<T>(int id)
+        public async Task<T> GetByIdAsync<T>(int id)
         {
             var teamStatistic = await this.teamsStatistics
                 .All()

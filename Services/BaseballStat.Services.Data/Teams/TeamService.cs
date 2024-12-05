@@ -20,9 +20,9 @@
             this.teamsRepository = teamsRepository;
         }
 
-        public async Task AddAsync(string name, string city, string foundedYear, string logoUrl, string owner, string stadium, int leagueId)
+        public async Task<int> AddAsync(string name, string city, string foundedYear, string logoUrl, string owner, string stadium, int leagueId)
         {
-            await this.teamsRepository.AddAsync(new Team
+            var team = new Team
             {
                 Name = name,
                 City = city,
@@ -31,8 +31,11 @@
                 Owner = owner,
                 Stadium = stadium,
                 LeagueId = leagueId, // Corrected property assignment
-            });
+            };
+            await this.teamsRepository.AddAsync(team);
             await this.teamsRepository.SaveChangesAsync();
+
+            return team.Id;
         }
 
         public async Task DeleteTeamAsync(int id)
@@ -42,8 +45,20 @@
                 .AllAsNoTracking()
                 .Where(x => x.Id == id)
                 .FirstOrDefault();
+            if (team == null || team.IsProtectedTeam)
+            {
+                throw new InvalidOperationException("Cannot delete this team.");
+            }
+
             this.teamsRepository.Delete(team);
             await this.teamsRepository.SaveChangesAsync();
+        }
+
+        public async Task<bool> ExistsAsync(int id)
+        {
+            return await this.teamsRepository
+         .AllAsNoTracking()
+         .AnyAsync(x => x.Id == id);
         }
 
         public async Task<IEnumerable<T>> GetAllTeamsAsync<T>(int? count = null)
@@ -65,8 +80,14 @@
                 .AllAsNoTracking()
                 .Where(x => x.Id == id)
                 .To<T>()
-                .FirstOrDefault();
-            return await Task.FromResult(team);
+                .FirstOrDefaultAsync();
+
+            if (team == null)
+            {
+                throw new InvalidOperationException("Team not found.");
+            }
+
+            return await team;
         }
     }
 }

@@ -39,6 +39,11 @@
             await this.leaguesRepository.SaveChangesAsync();
         }
 
+        public Task<bool> ExistsAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<IEnumerable<T>> GetAllLeaguesAsync<T>(int? count = null)
         {
             IQueryable<League> query = this.leaguesRepository

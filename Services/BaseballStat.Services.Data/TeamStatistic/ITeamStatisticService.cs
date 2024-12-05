@@ -12,8 +12,8 @@
 
         Task<T> GetByIdAsync<T>(int id);
 
-        Task<T> GetTeamStatisticByIdAsync<T>(int id);
+        Task<IEnumerable<T>> GetAllTeamStatisticsAsync<T>(int? count = null);
 
-        Task<int> AddTeamStatisticAsync(int teamId, int games, int wins, int losses, int titles);
+        Task AddTeamStatisticAsync(int teamId, int games, int wins, int losses, int titles);
     }
 }

@@ -15,5 +15,7 @@
         Task<int> AddAsync(string name, string imageUrl);
 
         Task DeleteAsync(int id);
+
+        Task<bool> ExistsAsync(int id);
     }
 }

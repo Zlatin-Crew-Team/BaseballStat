@@ -12,8 +12,10 @@
 
         Task<T> GetByIdAsync<T>(int id);
 
-        Task AddAsync(string name, string city, string foundedYear, string logoUrl, string owner, string stadium, int leagueId);
+        Task<int> AddAsync(string name, string city, string foundedYear, string logoUrl, string owner, string stadium, int leagueId);
 
         Task DeleteTeamAsync(int id);
+
+        Task<bool> ExistsAsync(int id);
     }
 }
