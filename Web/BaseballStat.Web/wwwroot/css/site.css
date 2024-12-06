@@ -1,7 +1,4 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
-
-a.navbar-brand {
+﻿a.navbar-brand {
     white-space: normal;
     text-align: center;
     word-break: break-all;
@@ -64,6 +61,7 @@ body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
 }
+
 body {
     background-image: url('/images/background.jpg');
 }
@@ -75,6 +73,7 @@ body {
     white-space: nowrap;
     line-height: 60px; /* Vertically center the text there */
 }
+
 #sidebar-wrapper {
     width: 250px;
 }
@@ -90,10 +89,11 @@ body {
         }
 
         #sidebar-wrapper .list-group-item.active {
-            background-color: #6c757d; 
+            background-color: #6c757d;
             color: #ffffff;
             font-weight: bold;
         }
+
 .navbar {
     background: linear-gradient(90deg, #007bff, #6610f2);
     color: #fff;
@@ -155,6 +155,7 @@ main {
     padding: 1.5rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 card {
     border: 1px solid #ddd;
     border-radius: 8px;
