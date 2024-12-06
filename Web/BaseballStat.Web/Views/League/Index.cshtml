@@ -18,11 +18,14 @@
                     <div class="text-center">
                         <div class="row">
                             <div class="col">
+                                @if(User.Identity.IsAuthenticated)
+                                {
                                 <div class="button button-large button_1 elements_button mt-4">
                                     <a asp-area="" asp-controller="LeagueStatistic" asp-action="Index" asp-route-id="@league.Id">
                                         <label for="submit" class="btn btn-primary">League Statistic</label>
                                     </a>
                                 </div>
+                                }
                             </div>
                         </div>
                     </div>
