@@ -5,6 +5,7 @@
 
     using BaseballStat.Common;
     using BaseballStat.Services.Data.LeagueStatistic;
+    using BaseballStat.Web.ViewModels.League;
     using BaseballStat.Web.ViewModels.LeagueStatistic;
     using BaseballStat.Web.ViewModels.TeamStatistic;
     using Microsoft.AspNetCore.Mvc;
@@ -21,8 +22,12 @@
 
         public async Task<IActionResult> Index()
         {
-            var leagueStatistics = await this.leagueStatisticService.GetAllLeagueStatisticsAsync<LeagueStatisticViewModel>();
-            return this.View();
+            var viewModel = new LeagueStatisticListViewModel
+            {
+                LeagueStatistics = await this.leagueStatisticService.GetAllLeagueStatisticsAsync<LeagueStatisticViewModel>(),
+            };
+
+            return this.View(viewModel);
         }
 
         public IActionResult AddLeagueStatistic(int leagueId)
@@ -35,7 +40,7 @@
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddLeagueStatistic(TeamStatisticInput model)
+        public async Task<IActionResult> AddLeagueStatistic(LeagueStatisticInputModel model)
         {
             if (!this.ModelState.IsValid)
             {
@@ -45,7 +50,7 @@
             try
             {
                 // Добавяне на нова статистика чрез сервиза
-                await this.leagueStatisticService.AddLeagueStatisticAsync(model.TeamId, model.Games, model.Wins, model.Losses, model.Titles);
+                await this.leagueStatisticService.AddLeagueStatisticAsync(model.LeagueId, model.Games, model.Wins, model.Losses, model.Titles);
 
                 this.TempData["SuccessMessage"] = "Team statistic added successfully.";
                 return this.RedirectToAction(nameof(this.Index));
@@ -58,7 +63,7 @@
         }
 
         [HttpPost]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> DeleteLeagueStatistic(int id)
         {
             if (id <= GlobalConstants.SeededDataCounts.LeagueStatisticsCount)
             {

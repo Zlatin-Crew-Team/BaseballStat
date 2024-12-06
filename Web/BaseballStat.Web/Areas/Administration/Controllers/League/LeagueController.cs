@@ -59,9 +59,13 @@
 
             try
             {
-                await this.leagueService.AddAsync(input.Name, imageUrl);
+                // Създаване на лигата и извличане на ID-то ѝ
+                int leagueId = await this.leagueService.AddAsync(input.Name, imageUrl);
+
                 this.TempData["SuccessMessage"] = "League added successfully!";
-                return this.RedirectToAction("Index");
+
+                // Редирект към формата за добавяне на статистика за създадената лига
+                return this.RedirectToAction("AddLeagueStatistic", "LeagueStatistic", new { leagueId });
             }
             catch (Exception)
             {
