@@ -13,16 +13,10 @@
     public class PlayerService : IPlayerService
     {
         private readonly IDeletableEntityRepository<Player> playersRepository;
-        private DbSet<Player> players;
 
         public PlayerService(IDeletableEntityRepository<Player> playersRepository)
         {
             this.playersRepository = playersRepository;
-        }
-
-        public PlayerService(DbSet<Player> players)
-        {
-            this.players = players;
         }
 
         public async Task<int> AddPlayerAsync(string firstName, string lastName, string position, string bats, string throws, int yearOfBirth, int teamId, string imageUrl)
