@@ -7,10 +7,12 @@
 
     public class LeagueStatisticInputModel
     {
+        [Required]
         public int Id { get; set; }
 
         [Required]
         [Display(Name = "League")]
+        [Range(GlobalConstants.LeagueStatistic.LeagueIdMinValue, GlobalConstants.LeagueStatistic.LeagueIdMaxValue, ErrorMessage = GlobalConstants.ErrorMesages.LeagueId)]
         public int LeagueId { get; set; }
 
         [Required]

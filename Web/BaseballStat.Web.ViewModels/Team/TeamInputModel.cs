@@ -15,15 +15,15 @@
     public class TeamInputModel
         {
             [Required]
-            [StringLength(GlobalConstants.Team.TeamNameMaxLength, MinimumLength = GlobalConstants.Team.TeamNameMinLength)]
+            [StringLength(GlobalConstants.Team.TeamNameMaxLength, MinimumLength = GlobalConstants.Team.TeamNameMinLength, ErrorMessage =GlobalConstants.ErrorMesages.TeamName)]
             public string Name { get; set; }
 
             [Required]
-            [StringLength(GlobalConstants.Team.CityMaxLength, MinimumLength = GlobalConstants.DataValidations.CityMinLength)]
+            [StringLength(GlobalConstants.Team.CityMaxLength, MinimumLength = GlobalConstants.DataValidations.CityMinLength, ErrorMessage =GlobalConstants.ErrorMesages.City)]
             public string City { get; set; }
 
             [Required]
-            [StringLength(GlobalConstants.Team.StadiumMaxLength, MinimumLength = GlobalConstants.Team.StadiumMinLength)]
+            [StringLength(GlobalConstants.Team.StadiumMaxLength, MinimumLength = GlobalConstants.Team.StadiumMinLength),]
             public string Stadium { get; set; }
 
             [Required]

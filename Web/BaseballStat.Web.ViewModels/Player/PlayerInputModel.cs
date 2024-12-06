@@ -12,11 +12,11 @@
     public class PlayerInputModel
     {
         [Required]
-        [StringLength(GlobalConstants.DataValidations.FirstNameMaxLength, MinimumLength = GlobalConstants.DataValidations.FirstNameMinLength)]
+        [StringLength(GlobalConstants.DataValidations.FirstNameMaxLength, MinimumLength = GlobalConstants.DataValidations.FirstNameMinLength, ErrorMessage =GlobalConstants.ErrorMesages.FirstName)]
         public string FirstName { get; set; }
 
         [Required]
-        [StringLength(GlobalConstants.DataValidations.LastNameMaxLength, MinimumLength = GlobalConstants.DataValidations.LastNameMinLength)]
+        [StringLength(GlobalConstants.DataValidations.LastNameMaxLength, MinimumLength = GlobalConstants.DataValidations.LastNameMinLength, ErrorMessage =GlobalConstants.ErrorMesages.LastName)]
         public string LastName { get; set; }
 
         [Required]
@@ -32,11 +32,11 @@
         public string Throws { get; set; }
 
         [Required]
-        [Range(GlobalConstants.DataValidations.YearOfBirthMinValue, GlobalConstants.DataValidations.YearOfBirthMaxValue)]
+        [Range(GlobalConstants.DataValidations.YearOfBirthMinValue, GlobalConstants.DataValidations.YearOfBirthMaxValue, ErrorMessage =GlobalConstants.ErrorMesages.YearOfBirth)]
         public int YearOfBirth { get; set; }
 
         [Required]
-        [Range(GlobalConstants.TeamIds.MinValue, GlobalConstants.TeamIds.MaxValue)]
+        [Range(GlobalConstants.TeamIds.MinValue, GlobalConstants.TeamIds.MaxValue, ErrorMessage =GlobalConstants.ErrorMesages.TeamId)]
         public int TeamId { get; set; }
 
         [Required]

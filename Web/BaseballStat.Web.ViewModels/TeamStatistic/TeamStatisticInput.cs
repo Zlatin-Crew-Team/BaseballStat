@@ -11,6 +11,7 @@
         public int Id { get; set; }
 
         [Required]
+        [Range(GlobalConstants.TeamIds.MaxValue, GlobalConstants.TeamIds.MinValue, ErrorMessage = GlobalConstants.ErrorMesages.TeamId)]
         public int TeamId { get; set; }
 
         [Required]

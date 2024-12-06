@@ -9,6 +9,10 @@
     public class CategoryInputModel
     {
         [Required]
+        [StringLength(
+            GlobalConstants.DataValidations.NameMaxLength,
+            ErrorMessage = GlobalConstants.ErrorMesages.Name,
+            MinimumLength = GlobalConstants.DataValidations.NameMinLength)]
         public string Name { get; set; }
 
         [Required]

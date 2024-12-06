@@ -14,6 +14,7 @@
     public class LeagueInputModel
     {
         [Required]
+        [Range(GlobalConstants.DataValidations.LeagueIdMinValue, GlobalConstants.DataValidations.LeagueIdMaxValue, ErrorMessage = GlobalConstants.ErrorMesages.LeagueId)]
         public int Id { get; set; }
 
         [Required]

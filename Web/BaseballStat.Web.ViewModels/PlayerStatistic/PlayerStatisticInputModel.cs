@@ -15,8 +15,10 @@
 
     public class PlayerStatisticInputModel
     {
+        [Required]
         public int Id { get; set; }
 
+        [Required]
         public int PlayerId { get; set; }
 
         public PlayerViewModel Player { get; set; }
