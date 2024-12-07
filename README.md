@@ -47,9 +47,10 @@ Located in `appsettings.json`. If you're not using SQLEXPRESS, update:
 
 If you're not using SQLEXPRESS, update:
 json
-Copy code
-"ConnectionStrings": {
-    "DefaultConnection": "Server=.;Database=BaseballStatDB;Trusted_Connection=True;MultipleActiveResultSets=true"
+  ### Copy code
+     "ConnectionStrings": {
+      "DefaultConnection": 
+      "Server=.;Database=BaseballStatDB;Trusted_Connection=True;MultipleActiveResultSets=true"
 }
 ### 🛠️ Database Migrations
 Automatically applied during application startup when ASPNETCORE_ENVIRONMENT is set to Development.
@@ -59,15 +60,15 @@ Without Cloudinary credentials, predefined images will be used.
 To enable image uploads, configure appsettings.json:
 json
 Copy code
-"Cloudinary": {
-    "CloudName": "your-cloud-name",
-    "ApiKey": "your-api-key",
-    "ApiSecret": "your-api-secret"
+   ### "Cloudinary": {
+         "CloudName": "your-cloud-name",
+         "ApiKey": "your-api-key",
+         "ApiSecret": "your-api-secret"
 }
 ### 📊 Seeding Sample Data
-Test accounts are created upon the first run:
-User: user@user.com / 16051979
-Admin: adminZlati@admin.com / 16051979
+     ### Test accounts are created upon the first run:
+     ### User: user@user.com / 16051979
+     ### Admin: adminZlati@admin.com / 16051979
 ### 📸 Screenshots
 
 ### 🏠 Home Page
@@ -79,6 +80,21 @@ Admin: adminZlati@admin.com / 16051979
 ### ⚾ Teams Overview
 
 ![Teams Overview](https://res.cloudinary.com/dsbprqxc5/image/upload/v1733158432/Players/Teams_doyyzg.jpg)
+
+### 📊 Player Statistics
+![Player Statistics](https://res.cloudinary.com/dsbprqxc5/image/upload/v1733575336/Players/PlayerStatistic_dbagky.jpg)
+
+### 🏆 Awards
+![Awards](https://res.cloudinary.com/dsbprqxc5/image/upload/v1733575309/Players/Awards_gpxiz7.jpg)
+
+### 🏅 Records
+![Records](https://res.cloudinary.com/dsbprqxc5/image/upload/v1733575282/Players/BaseballRecords_ljnlfa.jpg)
+
+### 🌟 All-Time Great Players
+![All-Time Great Players](https://res.cloudinary.com/dsbprqxc5/image/upload/v1733575210/Players/AllTime_pgdplm.jpg)
+
+### Categories
+![Categories](https://res.cloudinary.com/dsbprqxc5/image/upload/v1733575145/Players/Category_qcc0er.jpg)
 
 ### 📜 License
 This project is licensed under the MIT License.
