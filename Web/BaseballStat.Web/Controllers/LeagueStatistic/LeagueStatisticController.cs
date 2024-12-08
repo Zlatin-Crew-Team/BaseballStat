@@ -7,7 +7,7 @@
     using BaseballStat.Web.ViewModels.LeagueStatistic;
     using Microsoft.AspNetCore.Mvc;
 
-    public class LeagueStatisticController : Controller
+    public class LeagueStatisticController : BaseController
     {
         private readonly ILeagueStatisticService leagueStatisticService;
 

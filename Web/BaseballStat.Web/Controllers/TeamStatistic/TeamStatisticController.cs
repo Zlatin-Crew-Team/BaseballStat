@@ -6,7 +6,7 @@
     using BaseballStat.Web.ViewModels.TeamStatistic;
     using Microsoft.AspNetCore.Mvc;
 
-    public class TeamStatisticController : Controller
+    public class TeamStatisticController : BaseController
     {
         private readonly ITeamStatisticService teamStatisticService;
 
@@ -17,7 +17,7 @@
 
         public async Task<IActionResult> Index(int id)
         {
-            var team = await this.teamStatisticService.GetAllTeamStatisticsAsync<TeamStatisticViewModel>(id);
+            var team = await this.teamStatisticService.GetTeamStatisticByIdAsync<TeamStatisticViewModel>(id);
             return this.View(team);
         }
     }
