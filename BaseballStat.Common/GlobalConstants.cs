@@ -70,8 +70,8 @@
             public const int TeamIdMinValue = 1;
             public const int TeamIdMaxValue = 30;
 
-            public const int LeagueIdMinValue = 1;
-            public const int LeagueIdMaxValue = 2;
+            public const int LeagueIdMinValue = 3;
+            public const int LeagueIdMaxValue = 10;
         }
 
         public static class PlayerStatistic

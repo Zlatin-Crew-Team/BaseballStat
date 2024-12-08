@@ -10,7 +10,7 @@
     {
         Task DeleteTeamStatisticAsync(int id);
 
-        Task<T> GetByIdAsync<T>(int id);
+        Task<T> GetTeamStatisticByIdAsync<T>(int id);
 
         Task<IEnumerable<T>> GetAllTeamStatisticsAsync<T>(int? count = null);
 

@@ -13,7 +13,7 @@
     {
         private readonly IDeletableEntityRepository<Record> recordsRepository;
 
-        public RecordService(IDeletableEntityRepository<Record> recordsRepository)
+        public RecordService(IDeletableEntityRepository<Record> recordsRepository, AutoMapper.IMapper mapper)
         {
             this.recordsRepository = recordsRepository;
         }

@@ -59,7 +59,7 @@
             return await query.To<T>().ToListAsync();
         }
 
-        public async Task<T> GetByIdAsync<T>(int id)
+        public async Task<T> GetTeamStatisticByIdAsync<T>(int id)
         {
             var teamStatistic = await this.teamsStatistics
                 .All()
