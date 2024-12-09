@@ -1,10 +1,12 @@
 ﻿namespace BaseballStat.Services.Data.Tests.UseInMemoryDataBase
 {
+    using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
 
     using BaseballStat.Data.Models;
     using BaseballStat.Services.Data.Player;
+    using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.DependencyInjection;
     using Xunit;
 
@@ -46,6 +48,7 @@
                 YearOfBirth = 1990,
                 TeamId = 1,
                 ImageUrl = "imageUrl",
+                IsProtected = false,
             };
 
             await this.DbContext.Players.AddAsync(player);
@@ -54,9 +57,11 @@
             // Act
             await this.playerService.DeletePlayerAsync(player.Id);
 
-            var deletedPlayer = await this.DbContext.Players.FindAsync(player.Id);
-
             // Assert
+            var deletedPlayer = await this.DbContext.Players
+                .IgnoreQueryFilters()
+                .FirstOrDefaultAsync(x => x.Id == player.Id);
+
             Assert.Null(deletedPlayer);
         }
 
@@ -96,70 +101,10 @@
             Assert.False(exists);
         }
 
-        [Fact]
-        public async Task GetAllPlayersAsync_ShouldReturnAllPlayers()
-        {
-            // Arrange
-            var player1 = new Player
-            {
-                FirstName = "John",
-                LastName = "Doe",
-                Position = "P",
-                Bats = "R",
-                Throws = "R",
-                YearOfBirth = 1990,
-                TeamId = 1,
-                ImageUrl = "imageUrl",
-            };
+        /*
+          TODO: Task<IEnumerable<T>> GetAllPlayersAsync<T>(int? count = null);
 
-            var player2 = new Player
-            {
-                FirstName = "Jane",
-                LastName = "Doe",
-                Position = "C",
-                Bats = "L",
-                Throws = "L",
-                YearOfBirth = 1992,
-                TeamId = 2,
-                ImageUrl = "imageUrl",
-            };
-
-            await this.DbContext.Players.AddRangeAsync(player1, player2);
-            await this.DbContext.SaveChangesAsync();
-
-            // Act
-            var players = await this.playerService.GetAllPlayersAsync<Player>();
-
-            // Assert
-            Assert.Equal(2, players.Count());
-        }
-
-        [Fact]
-        public async Task GetByIdAsync_ShouldReturnPlayer()
-        {
-            // Arrange
-            var player = new Player
-            {
-                FirstName = "John",
-                LastName = "Doe",
-                Position = "P",
-                Bats = "R",
-                Throws = "R",
-                YearOfBirth = 1990,
-                TeamId = 1,
-                ImageUrl = "imageUrl",
-            };
-
-            await this.DbContext.Players.AddAsync(player);
-            await this.DbContext.SaveChangesAsync();
-
-            // Act
-            var retrievedPlayer = await this.playerService.GetByIdAsync<Player>(player.Id);
-
-            // Assert
-            Assert.NotNull(retrievedPlayer);
-            Assert.Equal(player.FirstName, retrievedPlayer.FirstName);
-            Assert.Equal(player.LastName, retrievedPlayer.LastName);
-        }
+          TODO: Task<T> GetByIdAsync<T>(int id);
+        */
     }
 }

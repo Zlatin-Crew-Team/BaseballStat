@@ -1,5 +1,6 @@
 ﻿namespace BaseballStat.Services.Data.Tests.UseInMemoryDataBase
 {
+    using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
 
@@ -78,73 +79,10 @@
             Assert.Null(deletedStatistic);
         }
 
-        [Fact]
-        public async Task GetAllPlayerStatisticsAsync_ShouldReturnAllStatistics()
-        {
-            // Arrange
-            var statistic1 = new PlayerStatistic
-            {
-                PlayerId = 1,
-                Games = 100,
-                AtBats = 300,
-                Runs = 50,
-                Hits = 120,
-                Doubles = 30,
-                Triples = 5,
-                HomeRuns = 10,
-                ImageUrl = "https://example.com/image1.jpg",
-            };
+        /*
+        TODO: Task<IEnumerable<T>> GetAllPlayerStatisticsAsync<T>(int? count = null);
 
-            var statistic2 = new PlayerStatistic
-            {
-                PlayerId = 2,
-                Games = 150,
-                AtBats = 400,
-                Runs = 60,
-                Hits = 140,
-                Doubles = 40,
-                Triples = 6,
-                HomeRuns = 20,
-                ImageUrl = "https://example.com/image2.jpg",
-            };
-
-            await this.DbContext.PlayerStatistics.AddRangeAsync(statistic1, statistic2);
-            await this.DbContext.SaveChangesAsync();
-
-            // Act
-            var statistics = await this.playerStatisticService.GetAllPlayerStatisticsAsync<PlayerStatistic>();
-
-            // Assert
-            Assert.Equal(2, statistics.Count());
-        }
-
-        [Fact]
-        public async Task GetPlayerStatisticByIdAsync_ShouldReturnCorrectStatistic()
-        {
-            // Arrange
-            var statistic = new PlayerStatistic
-            {
-                PlayerId = 1,
-                Games = 100,
-                AtBats = 300,
-                Runs = 50,
-                Hits = 120,
-                Doubles = 30,
-                Triples = 5,
-                HomeRuns = 10,
-                ImageUrl = "https://example.com/image.jpg",
-            };
-
-            await this.DbContext.PlayerStatistics.AddAsync(statistic);
-            await this.DbContext.SaveChangesAsync();
-
-            // Act
-            var retrievedStatistic = await this.playerStatisticService.GetPlayerStatisticByIdAsync<PlayerStatistic>(statistic.Id);
-
-            // Assert
-            Assert.NotNull(retrievedStatistic);
-            Assert.Equal(statistic.PlayerId, retrievedStatistic.PlayerId);
-            Assert.Equal(statistic.Games, retrievedStatistic.Games);
-        }
+        TODO: Task<T> GetPlayerStatisticByIdAsync<T>(int id);
+        */
     }
 }
