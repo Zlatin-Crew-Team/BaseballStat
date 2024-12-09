@@ -1,5 +1,6 @@
 ﻿namespace BaseballStat.Web
 {
+    using System;
     using System.Reflection;
 
     using BaseballStat.Common;
@@ -96,6 +97,9 @@
             services.AddTransient<IAwardService, AwardService>();
             services.AddTransient<IAllTimeGreatService, AllTimeGreatService>();
             services.AddTransient<IRecordService, RecordService>();
+
+            // Add AutoMapper
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }
 
         private static void Configure(WebApplication app)

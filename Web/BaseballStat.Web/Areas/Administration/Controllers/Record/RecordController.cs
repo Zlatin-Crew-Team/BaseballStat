@@ -77,5 +77,12 @@
             await this.recordService.AddRecord(input.Id, input.Holder, input.Description, imageUrl, input.RecordTypeId, fixedCategoryId);
             return this.RedirectToAction(nameof(this.Index));
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await this.recordService.DeleteRecordAsync(id);
+            return this.RedirectToAction(nameof(this.Index));
+        }
     }
 }
